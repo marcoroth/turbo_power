@@ -1,0 +1,43 @@
+{
+  "name": "turbo_pack",
+  "version": "0.1.0-beta.2",
+  "description": "Powerpack for Turbo",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/types/index.d.ts",
+  "author": "Marco Roth",
+  "license": "MIT",
+  "repository": "https://github.com/marcoroth/turbo_pack",
+  "sideEffects": false,
+  "scripts": {
+    "start": "cd playground && yarn start",
+    "prebuild": "yarn clean",
+    "build": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types --jsx react && rollup -c",
+    "watch": "rollup -wc",
+    "dev": "concurrently 'yarn run watch' 'yarn run start'",
+    "clean": "rimraf dist",
+    "prerelease": "yarn build"
+  },
+  "devDependencies": {
+    "@hotwired/turbo": "^7.2.0-beta.2",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "concurrently": "^7.3.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.57.0",
+    "rollup-plugin-filesize": "^9.1.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "sourcemap": "^0.1.0",
+    "tslib": "^2.3.1",
+    "typescript": "^3.9.7",
+    "vitest": "^0.18.1"
+  },
+  "peerDependencies": {
+    "@hotwired/turbo": ">= 7.2"
+  },
+  "dependencies": {
+    "turbo-morph": "^0.1.0-beta.3",
+    "turbo_ready": "^0.0.4"
+  }
+}
