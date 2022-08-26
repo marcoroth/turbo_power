@@ -26,7 +26,7 @@ TurboPack is heavily inspired by [CableReady](https://github.com/stimulusreflex/
 
 `turbo_pack` is [MIT-licensed](LICENSE) open-source software from [Marco Roth](https://github.com/marcoroth).
 
-turbo_ready is [MIT-licensed](https://github.com/hopsoft/turbo_ready/blob/main/MIT-LICENSE) open-source software from [Nate Hopkins](https://github.com/hopsoft).
+`turbo_ready` is [MIT-licensed](https://github.com/hopsoft/turbo_ready/blob/main/MIT-LICENSE) open-source software from [Nate Hopkins](https://github.com/hopsoft).
 
 `turbo-morph` is [MIT-licensed](https://github.com/marcoroth/turbo-morph/blob/master/LICENSE) open-source software from [Marco Roth](https://github.com/marcoroth).
 
