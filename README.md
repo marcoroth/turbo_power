@@ -66,7 +66,7 @@ import * as Turbo from '@hotwired/turbo'
 * `turbo_stream.set_session_storage_item(key, value, **attributes)`
 
 
-### Browser Actions
+### Browser Actions
 
 * `turbo_stream.redirect_to(url, action_name = nil, **attributes)`
 * `turbo_stream.reload(**attributes)`
@@ -88,7 +88,7 @@ import * as Turbo from '@hotwired/turbo'
 * `turbo_stream.console_log(message, level = :log, **attributes)`
 * `turbo_stream.console_table(data, columns, **attributes)`
 
-### Notification Actions
+### Notification Actions
 
 * `turbo_stream.notification(title, options, **attributes)`
 
