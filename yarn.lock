@@ -1970,9 +1970,9 @@ tunnel-agent@^0.6.0:
     safe-buffer "^5.0.1"
 
 turbo-morph@^0.1.0-beta.3:
-  version "0.1.0-beta.3"
-  resolved "https://registry.yarnpkg.com/turbo-morph/-/turbo-morph-0.1.0-beta.3.tgz#8f469d913e22701d47c500f8ab329eba1917059c"
-  integrity sha512-gnojftd+C0nJeSzHg4zOgqrBYvfFNZ+3OZnsbIwV5szh4aAOMZ2X/zeq8KpBYumLUE+A9VBajqt47p0QAMYxwA==
+  version "0.1.0-beta.7"
+  resolved "https://registry.yarnpkg.com/turbo-morph/-/turbo-morph-0.1.0-beta.7.tgz#3a3839c711c2c32fb9f1c9a163cdc8ebbd700795"
+  integrity sha512-PeQgyXN9GOtOnXVs9sH+nzEKKZ1h4mBqN538v3F2uivJUU/w+crwObf3e6Q7kj7mUBfDoDDFefEfYwvhNKR1uA==
 
 turbo_ready@^0.0.4:
   version "0.0.4"

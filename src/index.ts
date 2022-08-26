@@ -6,7 +6,7 @@ import * as TurboMorph from "turbo-morph"
 import * as Actions from "./actions"
 
 export function initialize(streamActions: TurboStreamActions) {
-  TurboMorph.registerMorph()
+  TurboMorph.initialize(streamActions)
   TurboReady.initialize(streamActions)
   Actions.register(streamActions)
 }
