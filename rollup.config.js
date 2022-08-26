@@ -5,7 +5,7 @@ import { terser } from 'rollup-plugin-terser'
 
 import { version } from './package.json'
 const year = new Date().getFullYear()
-const banner = `/*\TurboPack ${version}\n*/`
+const banner = `/*\TurboPower ${version}\n*/`
 
 const minify = () => {
   return terser({
@@ -22,7 +22,7 @@ export default [
     ],
     output: [
       {
-        name: 'TurboPack',
+        name: 'TurboPower',
         file: 'dist/index.umd.js',
         format: 'umd',
         banner,

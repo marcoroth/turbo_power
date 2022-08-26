@@ -10,10 +10,10 @@ export function graft(this: StreamElement) {
     if (parent) {
       this.targetElements.forEach((element: Element) => parent.appendChild(element))
     } else {
-      console.error(`[TurboPack] couldn't find parent element using selector "${selector}" for Turbo Streams operation "graft"`)
+      console.error(`[TurboPower] couldn't find parent element using selector "${selector}" for Turbo Streams operation "graft"`)
     }
   } else {
-    console.error(`[TurboPack] no "selector" provided for Turbo Streams operation "graft"`)
+    console.error(`[TurboPower] no "selector" provided for Turbo Streams operation "graft"`)
   }
 }
 
@@ -58,7 +58,7 @@ export function set_meta(this: StreamElement) {
 
     meta.content = content
   } else {
-    console.error(`[TurboPack] no "name" provided for Turbo Streams operation "set_meta"`)
+    console.error(`[TurboPower] no "name" provided for Turbo Streams operation "set_meta"`)
   }
 }
 

@@ -13,7 +13,7 @@ export function remove_attribute(this: StreamElement) {
   if (attribute) {
     this.targetElements.forEach((element: Element) => element.removeAttribute(attribute))
   } else {
-    console.error(`[TurboPack] no "attribute" provided for Turbo Streams operation "remove_attribute"`)
+    console.error(`[TurboPower] no "attribute" provided for Turbo Streams operation "remove_attribute"`)
   }
 }
 
@@ -30,7 +30,7 @@ export function set_attribute(this: StreamElement) {
   if (attribute) {
     this.targetElements.forEach((element: Element) => element.setAttribute(attribute, value))
   } else {
-    console.error(`[TurboPack] no "attribute" provided for Turbo Streams operation "set_attribute"`)
+    console.error(`[TurboPower] no "attribute" provided for Turbo Streams operation "set_attribute"`)
   }
 }
 
@@ -41,7 +41,7 @@ export function set_dataset_attribute(this: StreamElement) {
   if (attribute) {
     this.targetElements.forEach((element: HTMLElement) => element.dataset[attribute] = value)
   } else {
-    console.error(`[TurboPack] no "attribute" provided for Turbo Streams operation "set_dataset_attribute"`)
+    console.error(`[TurboPower] no "attribute" provided for Turbo Streams operation "set_dataset_attribute"`)
   }
 }
 
@@ -52,7 +52,7 @@ export function set_property(this: StreamElement) {
     // @ts-ignore
     this.targetElements.forEach((element: Element) => element[name] = value)
   } else {
-    console.error(`[TurboPack] no "name" provided for Turbo Streams operation "set_property"`)
+    console.error(`[TurboPower] no "name" provided for Turbo Streams operation "set_property"`)
   }
 }
 
@@ -64,7 +64,7 @@ export function set_style(this: StreamElement) {
     // @ts-ignore
     this.targetElements.forEach((element: HTMLElement) => element.style[name] = value)
   } else {
-    console.error(`[TurboPack] no "name" provided for Turbo Streams operation "set_style"`)
+    console.error(`[TurboPower] no "name" provided for Turbo Streams operation "set_style"`)
   }
 }
 
