@@ -20,14 +20,14 @@ import * as Turbo from '@hotwired/turbo'
 
 ## Previous Art
 
-TurboPack is heavily inspired by [CableReady](https://github.com/stimulusreflex/cable_ready) and it's operations. This library aims to bring the same diversity of operations to Turbo Streams.
+TurboPack is heavily inspired by [CableReady](https://github.com/stimulusreflex/cable_ready) and it's operations. This library aims to bring the same level of operation-diversity to Turbo Streams.
 
 ## Acknowledgments
 
-tubro_pack is [MIT-licensed](LICENSE) open-source software from [Marco Roth](https://github.com/marcoroth).
+`turbo_pack` is [MIT-licensed](LICENSE) open-source software from [Marco Roth](https://github.com/marcoroth).
 
-tubro_ready is [MIT-licensed](https://github.com/hopsoft/turbo_ready/blob/main/MIT-LICENSE) open-source software from [Nate Hopkins](https://github.com/hopsoft).
+turbo_ready is [MIT-licensed](https://github.com/hopsoft/turbo_ready/blob/main/MIT-LICENSE) open-source software from [Nate Hopkins](https://github.com/hopsoft).
 
-tubro-morph is [MIT-licensed](https://github.com/marcoroth/turbo-morph/blob/master/LICENSE) open-source software from [Marco Roth](https://github.com/marcoroth).
+`turbo-morph` is [MIT-licensed](https://github.com/marcoroth/turbo-morph/blob/master/LICENSE) open-source software from [Marco Roth](https://github.com/marcoroth).
 
 Turbo is [MIT-licensed](https://github.com/hotwired/turbo/blob/main/MIT-LICENSE) open-source software from [Basecamp](https://basecamp.com/).
