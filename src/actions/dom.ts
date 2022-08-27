@@ -13,7 +13,7 @@ export function graft(this: StreamElement) {
       console.error(`[TurboPower] couldn't find parent element using selector "${selector}" for Turbo Streams operation "graft"`)
     }
   } else {
-    console.error(`[TurboPower] no "selector" provided for Turbo Streams operation "graft"`)
+    console.error(`[TurboPower] no "parent" selector provided for Turbo Streams operation "graft"`)
   }
 }
 
