@@ -20,6 +20,13 @@ import * as Turbo from '@hotwired/turbo'
 
 ## Custom Actions
 
+### Actions from `turbo_ready`
+
+* [`turbo_stream.invoke(method, *args, selector: nil, camelize: true, id: nil)`](https://github.com/hopsoft/turbo_ready)
+
+### Actions from `turbo-morph`
+
+* [`turbo_stream.morph(target, html = nil, **attributes, &block)`](https://github.com/marcoroth/turbo-morph)
 
 ### DOM Actions
 
@@ -33,9 +40,7 @@ import * as Turbo from '@hotwired/turbo'
 * `turbo_stream.set_meta(name, content)`
 
 
-
 ### Attribute Actions
-
 
 * `turbo_stream.add_css_class(target, classes, **attributes)`
 * `turbo_stream.remove_attribute(target, attribute, **attributes)`
