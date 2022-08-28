@@ -20,7 +20,7 @@ import * as Turbo from '@hotwired/turbo'
 
 ## Getting Started with Rails
 
-Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcoroth/turbo_power-rails`) repo.
+Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcoroth/turbo_power-rails) repo.
 
 ## Custom Actions
 
