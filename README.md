@@ -18,6 +18,10 @@ import * as Turbo from '@hotwired/turbo'
 +TurboPower.initialize(Turbo.StreamActions)
 ```
 
+## Getting Started with Rails
+
+Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcoroth/turbo_power-rails`) repo.
+
 ## Custom Actions
 
 ### Actions from `turbo_ready`
