@@ -37,6 +37,22 @@ export function set_focus(this: StreamElement) {
   this.targetElements.forEach((element: HTMLElement) => element.focus())
 }
 
+export function set_title(this: StreamElement) {
+  const title = this.getAttribute("title")
+  let titleElement = document.head.querySelector("title")
+
+  if (title) {
+    if (!titleElement) {
+      titleElement = document.createElement("title")
+      document.head.appendChild(titleElement)
+    }
+
+    titleElement.textContent = title
+  } else {
+    console.error(`[TurboPower] no "title" provided for Turbo Streams operation "set_title"`)
+  }
+}
+
 export function register(streamActions: TurboStreamActions) {
   streamActions.redirect_to = redirect_to
   streamActions.reload = reload
@@ -44,4 +60,5 @@ export function register(streamActions: TurboStreamActions) {
   streamActions.set_cookie = set_cookie
   streamActions.set_cookie_item = set_cookie_item
   streamActions.set_focus = set_focus
+  streamActions.set_title = set_title
 }
