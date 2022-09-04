@@ -12,7 +12,7 @@ export function dispatch_event(this: StreamElement) {
 
     this.targetElements.forEach((element: Element) => element.dispatchEvent(event))
   } else {
-    console.error(`[TurboPower] no name provided for Turbo Streams operation "dispatch_event"`)
+    console.error(`[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"`)
   }
 }
 
