@@ -17,7 +17,7 @@ export function remove_attribute(this: StreamElement) {
   if (attribute) {
     this.targetElements.forEach((element: Element) => element.removeAttribute(attribute))
   } else {
-    console.error(`[TurboPower] no "attribute" provided for Turbo Streams operation "remove_attribute"`)
+    console.warn(`[TurboPower] no "attribute" provided for Turbo Streams operation "remove_attribute"`)
   }
 }
 
