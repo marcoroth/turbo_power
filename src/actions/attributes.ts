@@ -22,9 +22,13 @@ export function remove_attribute(this: StreamElement) {
 }
 
 export function remove_css_class(this: StreamElement) {
-  const classes = this.getAttribute("classes")?.split(" ") || []
+  const classes = (this.getAttribute("classes")?.split(" ") || []).filter(c => c.length > 0)
 
-  this.targetElements.forEach((element: Element) => element.classList.remove(...classes))
+  if (classes.length > 0) {
+    this.targetElements.forEach((element: Element) => element.classList.remove(...classes))
+  } else {
+    console.warn(`[TurboPower] no "classes" provided for Turbo Streams operation "remove_css_class"`)
+  }
 }
 
 export function set_attribute(this: StreamElement) {
@@ -86,6 +90,7 @@ export function set_value(this: StreamElement) {
 
 export function register(streamActions: TurboStreamActions) {
   streamActions.add_css_class = add_css_class
+  streamActions.remove_css_class = remove_css_class
   streamActions.remove_attribute = remove_attribute
   streamActions.set_attribute = set_attribute
   streamActions.set_dataset_attribute = set_dataset_attribute
