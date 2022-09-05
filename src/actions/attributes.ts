@@ -34,7 +34,7 @@ export function set_attribute(this: StreamElement) {
   if (attribute) {
     this.targetElements.forEach((element: Element) => element.setAttribute(attribute, value))
   } else {
-    console.error(`[TurboPower] no "attribute" provided for Turbo Streams operation "set_attribute"`)
+    console.warn(`[TurboPower] no "attribute" provided for Turbo Streams operation "set_attribute"`)
   }
 }
 
