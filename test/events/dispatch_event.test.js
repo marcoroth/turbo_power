@@ -105,6 +105,24 @@ describe('dispatch_event', () => {
         }
       })
     })
+
+    it('should bubble up the DOM tree', async () => {
+      await fixture(html`
+        <div id="outer-parent">
+          <div id="parent">
+            <div id="element"></div>
+          </div>
+        </div>
+      `)
+
+      const outerParent = document.querySelector('#outer-parent')
+
+      setTimeout(() => executeStream(`<turbo-stream action="dispatch_event" name="my:event" target="element"></turbo-stream>`));
+
+      const { detail } = await oneEvent(outerParent, 'my:event')
+
+      assert.deepEqual(detail, {})
+    })
   })
 
   context('targets', () => {
