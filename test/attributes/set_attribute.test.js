@@ -21,12 +21,10 @@ describe('set_attribute', () => {
 
       const expectedWarning = '[TurboPower] no "attribute" provided for Turbo Streams operation "set_attribute"'
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), null)
       assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
       await executeStream('<turbo-stream action="set_attribute" attribute="" target="element"></turbo-stream>')
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), null)
       assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
     })
 
@@ -37,12 +35,10 @@ describe('set_attribute', () => {
 
       const expectedWarning = '[TurboPower] no "attribute" provided for Turbo Streams operation "set_attribute"'
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), null)
       assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
       await executeStream('<turbo-stream action="set_attribute" target="element"></turbo-stream>')
-
-      assert.equal(document.querySelector("#element").getAttribute("class"), null)
+      
       assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
     })
   })
