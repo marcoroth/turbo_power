@@ -1,0 +1,36 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: JavaScript Test Action
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14, 16, 18]
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Setup Node v${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'yarn'
+
+      - name: Yarn install
+        run: yarn install --frozen-lockfile
+
+      - name: Run JavaScript Tests
+        run: yarn build
+
+      - name: Run JavaScript Tests
+        run: yarn test
