@@ -1,9 +1,8 @@
 import { html, fixture, assert } from '@open-wc/testing'
-import sinon from 'sinon'
-
 import { executeStream } from '../test_helpers'
 
-import * as Turbo from "@hotwired/turbo"
+import sinon from 'sinon'
+import * as Turbo from '@hotwired/turbo'
 
 import TurboPower from '../../'
 TurboPower.initialize(Turbo.StreamActions)
@@ -17,65 +16,65 @@ describe('add_css_class', () => {
     it('should do nothing and print warning if no classes were provided', async () => {
       sinon.replace(console, 'warn', sinon.fake())
 
-      await fixture(`<div id="element"></div>`)
+      await fixture('<div id="element"></div>')
 
       const expectedWarning = '[TurboPower] no "classes" provided for Turbo Streams operation "add_css_class"'
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), null)
+      assert.equal(document.querySelector('#element').getAttribute('class'), null)
       assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
       await executeStream('<turbo-stream action="add_css_class" classes="" target="element"></turbo-stream>')
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), null)
+      assert.equal(document.querySelector('#element').getAttribute('class'), null)
       assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
     })
 
     it('should do nothing and print warning if "classes" attribute is missing', async () => {
       sinon.replace(console, 'warn', sinon.fake())
 
-      await fixture(`<div id="element"></div>`)
+      await fixture('<div id="element"></div>')
 
       const expectedWarning = '[TurboPower] no "classes" provided for Turbo Streams operation "add_css_class"'
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), null)
+      assert.equal(document.querySelector('#element').getAttribute('class'), null)
       assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
       await executeStream('<turbo-stream action="add_css_class" target="element"></turbo-stream>')
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), null)
+      assert.equal(document.querySelector('#element').getAttribute('class'), null)
       assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
     })
   })
 
   context('target', () => {
     it('should add one css class', async () => {
-      await fixture(`<div id="element"></div>`)
+      await fixture('<div id="element"></div>')
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), null)
+      assert.equal(document.querySelector('#element').getAttribute('class'), null)
 
       await executeStream('<turbo-stream action="add_css_class" classes="one" target="element"></turbo-stream>')
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), "one")
+      assert.equal(document.querySelector('#element').getAttribute('class'), 'one')
     })
 
     it('should add one css class with existing class', async () => {
-      await fixture(`<div id="element" class="one"></div>`)
+      await fixture('<div id="element" class="one"></div>')
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), "one")
+      assert.equal(document.querySelector('#element').getAttribute('class'), 'one')
 
       await executeStream('<turbo-stream action="add_css_class" classes="two" target="element"></turbo-stream>')
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), "one two")
+      assert.equal(document.querySelector('#element').getAttribute('class'), 'one two')
     })
 
     it('should add multiple css classes', async () => {
-      await fixture(`<div id="element"></div>`)
+      await fixture('<div id="element"></div>')
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), null)
+      assert.equal(document.querySelector('#element').getAttribute('class'), null)
 
       await executeStream('<turbo-stream action="add_css_class" classes="one two three" target="element"></turbo-stream>')
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), "one two three")
+      assert.equal(document.querySelector('#element').getAttribute('class'), 'one two three')
     })
 
     it('should add multiple css classes with exisiting classes', async () => {
@@ -83,11 +82,11 @@ describe('add_css_class', () => {
         <div id="element" class="already present classes"></div>
       `)
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), "already present classes")
+      assert.equal(document.querySelector('#element').getAttribute('class'), 'already present classes')
 
       await executeStream('<turbo-stream action="add_css_class" classes="one two three" target="element"></turbo-stream>')
 
-      assert.equal(document.querySelector("#element").getAttribute("class"), "already present classes one two three")
+      assert.equal(document.querySelector('#element').getAttribute('class'), 'already present classes one two three')
     })
   })
 
@@ -99,15 +98,15 @@ describe('add_css_class', () => {
         <div id="three"></div>
       `)
 
-      assert.equal(document.querySelector("#one").getAttribute("class"), null)
-      assert.equal(document.querySelector("#two").getAttribute("class"), null)
-      assert.equal(document.querySelector("#three").getAttribute("class"), null)
+      assert.equal(document.querySelector('#one').getAttribute('class'), null)
+      assert.equal(document.querySelector('#two').getAttribute('class'), null)
+      assert.equal(document.querySelector('#three').getAttribute('class'), null)
 
       await executeStream('<turbo-stream action="add_css_class" classes="one" targets="div"></turbo-stream>')
 
-      assert.equal(document.querySelector("#one").getAttribute("class"), "one")
-      assert.equal(document.querySelector("#two").getAttribute("class"), "one")
-      assert.equal(document.querySelector("#three").getAttribute("class"), "one")
+      assert.equal(document.querySelector('#one').getAttribute('class'), 'one')
+      assert.equal(document.querySelector('#two').getAttribute('class'), 'one')
+      assert.equal(document.querySelector('#three').getAttribute('class'), 'one')
     })
 
     it('should add one css class with existing class', async () => {
@@ -117,15 +116,15 @@ describe('add_css_class', () => {
         <div id="three" class="one"></div>
       `)
 
-      assert.equal(document.querySelector("#one").getAttribute("class"), "one")
-      assert.equal(document.querySelector("#two").getAttribute("class"), "one")
-      assert.equal(document.querySelector("#three").getAttribute("class"), "one")
+      assert.equal(document.querySelector('#one').getAttribute('class'), 'one')
+      assert.equal(document.querySelector('#two').getAttribute('class'), 'one')
+      assert.equal(document.querySelector('#three').getAttribute('class'), 'one')
 
       await executeStream('<turbo-stream action="add_css_class" classes="two" targets="div"></turbo-stream>')
 
-      assert.equal(document.querySelector("#one").getAttribute("class"), "one two")
-      assert.equal(document.querySelector("#two").getAttribute("class"), "one two")
-      assert.equal(document.querySelector("#three").getAttribute("class"), "one two")
+      assert.equal(document.querySelector('#one').getAttribute('class'), 'one two')
+      assert.equal(document.querySelector('#two').getAttribute('class'), 'one two')
+      assert.equal(document.querySelector('#three').getAttribute('class'), 'one two')
     })
 
     it('should add multiple css classes', async () => {
@@ -135,15 +134,15 @@ describe('add_css_class', () => {
         <div id="three"></div>
       `)
 
-      assert.equal(document.querySelector("#one").getAttribute("class"), null)
-      assert.equal(document.querySelector("#two").getAttribute("class"), null)
-      assert.equal(document.querySelector("#three").getAttribute("class"), null)
+      assert.equal(document.querySelector('#one').getAttribute('class'), null)
+      assert.equal(document.querySelector('#two').getAttribute('class'), null)
+      assert.equal(document.querySelector('#three').getAttribute('class'), null)
 
       await executeStream('<turbo-stream action="add_css_class" classes="one two three" targets="div"></turbo-stream>')
 
-      assert.equal(document.querySelector("#one").getAttribute("class"), "one two three")
-      assert.equal(document.querySelector("#two").getAttribute("class"), "one two three")
-      assert.equal(document.querySelector("#three").getAttribute("class"), "one two three")
+      assert.equal(document.querySelector('#one').getAttribute('class'), 'one two three')
+      assert.equal(document.querySelector('#two').getAttribute('class'), 'one two three')
+      assert.equal(document.querySelector('#three').getAttribute('class'), 'one two three')
     })
 
     it('should add multiple css classes with exisiting classes', async () => {
@@ -153,15 +152,15 @@ describe('add_css_class', () => {
         <div id="three" class="already present classes"></div>
       `)
 
-      assert.equal(document.querySelector("#one").getAttribute("class"), "already present classes")
-      assert.equal(document.querySelector("#two").getAttribute("class"), "already present classes")
-      assert.equal(document.querySelector("#three").getAttribute("class"), "already present classes")
+      assert.equal(document.querySelector('#one').getAttribute('class'), 'already present classes')
+      assert.equal(document.querySelector('#two').getAttribute('class'), 'already present classes')
+      assert.equal(document.querySelector('#three').getAttribute('class'), 'already present classes')
 
       await executeStream('<turbo-stream action="add_css_class" classes="one two three" targets="div"></turbo-stream>')
 
-      assert.equal(document.querySelector("#one").getAttribute("class"), "already present classes one two three")
-      assert.equal(document.querySelector("#two").getAttribute("class"), "already present classes one two three")
-      assert.equal(document.querySelector("#three").getAttribute("class"), "already present classes one two three")
+      assert.equal(document.querySelector('#one').getAttribute('class'), 'already present classes one two three')
+      assert.equal(document.querySelector('#two').getAttribute('class'), 'already present classes one two three')
+      assert.equal(document.querySelector('#three').getAttribute('class'), 'already present classes one two three')
     })
   })
 })
