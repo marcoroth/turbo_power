@@ -30,7 +30,7 @@ export function remove_storage_item(this: StreamElement) {
   if (key) {
     storage(type).removeItem(key)
   } else {
-    console.error(`[TurboPower] no "key" provided for Turbo Streams operation "remove_storage_item"`)
+    console.warn(`[TurboPower] no "key" provided for Turbo Streams operation "remove_storage_item"`)
   }
 }
 
