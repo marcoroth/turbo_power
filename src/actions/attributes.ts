@@ -1,6 +1,8 @@
 import { StreamElement } from "@hotwired/turbo/dist/types/elements/stream_element"
 import { TurboStreamActions } from "../types"
 
+import { camelize } from '../utils'
+
 export function add_css_class(this: StreamElement) {
   const classes = (this.getAttribute("classes")?.split(" ") || []).filter(c => c.length > 0)
 
@@ -47,9 +49,9 @@ export function set_dataset_attribute(this: StreamElement) {
   const value = this.getAttribute("value") || ""
 
   if (attribute) {
-    this.targetElements.forEach((element: HTMLElement) => element.dataset[attribute] = value)
+    this.targetElements.forEach((element: HTMLElement) => element.dataset[camelize(attribute)] = value)
   } else {
-    console.error(`[TurboPower] no "attribute" provided for Turbo Streams operation "set_dataset_attribute"`)
+    console.warn(`[TurboPower] no "attribute" provided for Turbo Streams operation "set_dataset_attribute"`)
   }
 }
 
