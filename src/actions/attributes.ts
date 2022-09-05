@@ -2,9 +2,13 @@ import { StreamElement } from "@hotwired/turbo/dist/types/elements/stream_elemen
 import { TurboStreamActions } from "../types"
 
 export function add_css_class(this: StreamElement) {
-  const classes = this.getAttribute("classes")?.split(" ") || []
+  const classes = (this.getAttribute("classes")?.split(" ") || []).filter(c => c.length > 0)
 
-  this.targetElements.forEach((element: Element) => element.classList.add(...classes))
+  if (classes.length > 0) {
+    this.targetElements.forEach((element: Element) => element.classList.add(...classes))
+  } else {
+    console.warn(`[TurboPower] no "classes" provided for Turbo Streams operation "add_css_class"`)
+  }
 }
 
 export function remove_attribute(this: StreamElement) {
