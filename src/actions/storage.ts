@@ -19,7 +19,7 @@ export function set_storage_item(this: StreamElement) {
   if (key) {
     storage(type).setItem(key, value)
   } else {
-    console.error(`[TurboPower] no "key" provided for Turbo Streams operation "set_storage_item"`)
+    console.warn(`[TurboPower] no "key" provided for Turbo Streams operation "set_storage_item"`)
   }
 }
 
