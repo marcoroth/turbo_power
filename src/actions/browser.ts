@@ -38,19 +38,15 @@ export function set_focus(this: StreamElement) {
 }
 
 export function set_title(this: StreamElement) {
-  const title = this.getAttribute("title")
+  const title = this.getAttribute("title") || ""
   let titleElement = document.head.querySelector("title")
 
-  if (title) {
-    if (!titleElement) {
-      titleElement = document.createElement("title")
-      document.head.appendChild(titleElement)
-    }
-
-    titleElement.textContent = title
-  } else {
-    console.error(`[TurboPower] no "title" provided for Turbo Streams operation "set_title"`)
+  if (!titleElement) {
+    titleElement = document.createElement("title")
+    document.head.appendChild(titleElement)
   }
+
+  titleElement.textContent = title
 }
 
 export function register(streamActions: TurboStreamActions) {
