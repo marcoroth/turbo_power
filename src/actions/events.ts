@@ -1,5 +1,4 @@
-import { StreamElement } from "@hotwired/turbo/dist/types/elements/stream_element"
-import { TurboStreamActions } from "../types"
+import { StreamElement, TurboStreamActions } from "../types"
 
 export function dispatch_event(this: StreamElement) {
   const name = this.getAttribute("name")

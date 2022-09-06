@@ -1,5 +1,4 @@
-import { StreamElement } from "@hotwired/turbo/dist/types/elements/stream_element"
-import { TurboStreamActions } from "../types"
+import { StreamElement, TurboStreamActions } from "../types"
 
 export function redirect_to(this: StreamElement) {
   const url = this.getAttribute("url") || "/"

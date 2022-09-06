@@ -1,5 +1,4 @@
-import { StreamElement } from "@hotwired/turbo/dist/types/elements/stream_element"
-import { TurboStreamActions } from "../types"
+import { StreamElement, TurboStreamActions } from "../types"
 
 function storage(type: string | null): Storage {
   return type === 'session' ? window.sessionStorage : window.localStorage

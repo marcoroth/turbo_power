@@ -1,5 +1,4 @@
-import { StreamElement } from "@hotwired/turbo/dist/types/elements/stream_element"
-import { TurboStreamActions } from "../types"
+import { StreamElement, TurboStreamActions } from "../types"
 
 export function graft(this: StreamElement) {
   const selector = this.getAttribute("parent")
