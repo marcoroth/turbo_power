@@ -16,7 +16,7 @@ export function dispatch_event(this: StreamElement) {
     } else {
       console.warn(`[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"`)
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error(`[TurboPower] error proccessing provided "detail" ("${detailRaw}") for Turbo Streams operation "dispatch_event". Error: "${error.message}"`)
   }
 }
