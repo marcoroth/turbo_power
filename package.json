@@ -29,7 +29,7 @@
     "concurrently": "^7.3.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.57.0",
-    "rollup-plugin-filesize": "^9.1.1",
+    "rollup-plugin-filesize": "^9.1.2",
     "rollup-plugin-terser": "^7.0.2",
     "sinon": "^14.0.0",
     "sourcemap": "^0.1.0",
