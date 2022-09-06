@@ -1,11 +1,8 @@
-import { html, fixture, assert, oneEvent } from '@open-wc/testing'
-import { executeStream } from '../test_helpers'
-
 import sinon from 'sinon'
-import * as Turbo from '@hotwired/turbo'
+import { html, fixture, assert, oneEvent } from '@open-wc/testing'
+import { executeStream, registerAction } from '../test_helpers'
 
-import TurboPower from '../../'
-TurboPower.initialize(Turbo.StreamActions)
+registerAction('dispatch_event')
 
 describe('dispatch_event', () => {
   context('warnings', () => {

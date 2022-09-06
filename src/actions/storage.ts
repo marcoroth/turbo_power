@@ -35,7 +35,7 @@ export function remove_storage_item(this: StreamElement) {
 }
 
 
-export function register(streamActions: TurboStreamActions) {
+export function registerStorageActions(streamActions: TurboStreamActions) {
   streamActions.clear_storage = clear_storage
   streamActions.set_storage_item = set_storage_item
   streamActions.remove_storage_item = remove_storage_item

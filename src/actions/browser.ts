@@ -49,7 +49,7 @@ export function set_title(this: StreamElement) {
   titleElement.textContent = title
 }
 
-export function register(streamActions: TurboStreamActions) {
+export function registerBrowserActions(streamActions: TurboStreamActions) {
   streamActions.redirect_to = redirect_to
   streamActions.reload = reload
   streamActions.scroll_into_view = scroll_into_view

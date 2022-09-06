@@ -1,4 +1,4 @@
-import { TurboStreamActions } from "./types"
+import { TurboStreamAction, TurboStreamActions } from "./types"
 
 // @ts-ignore
 import TurboReady from "turbo_ready"
@@ -11,6 +11,12 @@ export function initialize(streamActions: TurboStreamActions) {
   Actions.register(streamActions)
 }
 
+export function register(name: string, action: TurboStreamAction, streamActions: TurboStreamActions) {
+  streamActions[name] = action
+}
+
 export default {
-  initialize
+  initialize,
+  register,
+  Actions
 }

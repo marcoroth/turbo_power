@@ -68,7 +68,7 @@ export function text_content(this: StreamElement) {
   this.targetElements.forEach((element: Element) => element.textContent = text)
 }
 
-export function register(streamActions: TurboStreamActions) {
+export function registerDOMActions(streamActions: TurboStreamActions) {
   streamActions.graft = graft
   streamActions.inner_html = inner_html
   streamActions.insert_adjacent_html = insert_adjacent_html

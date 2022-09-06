@@ -90,7 +90,7 @@ export function set_value(this: StreamElement) {
   this.targetElements.forEach((element: HTMLInputElement) => element.value = value)
 }
 
-export function register(streamActions: TurboStreamActions) {
+export function registerAttributesActions(streamActions: TurboStreamActions) {
   streamActions.add_css_class = add_css_class
   streamActions.remove_css_class = remove_css_class
   streamActions.remove_attribute = remove_attribute

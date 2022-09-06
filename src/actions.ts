@@ -7,11 +7,18 @@ import * as Events from "./actions/events"
 import * as History from "./actions/history"
 import * as Storage from "./actions/storage"
 
+export * from "./actions/attributes"
+export * from "./actions/browser"
+export * from "./actions/dom"
+export * from "./actions/events"
+export * from "./actions/history"
+export * from "./actions/storage"
+
 export function register(streamActions: TurboStreamActions) {
-  Attributes.register(streamActions)
-  Browser.register(streamActions)
-  DOM.register(streamActions)
-  Events.register(streamActions)
-  History.register(streamActions)
-  Storage.register(streamActions)
+  Attributes.registerAttributesActions(streamActions)
+  Browser.registerBrowserActions(streamActions)
+  DOM.registerDOMActions(streamActions)
+  Events.registerEventsActions(streamActions)
+  History.registerHistoryActions(streamActions)
+  Storage.registerStorageActions(streamActions)
 }

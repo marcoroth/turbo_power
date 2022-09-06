@@ -23,7 +23,7 @@ export function history_go(this: StreamElement) {
 }
 
 
-export function register(streamActions: TurboStreamActions) {
+export function registerHistoryActions(streamActions: TurboStreamActions) {
   streamActions.push_state = push_state
   streamActions.replace_state = replace_state
   streamActions.history_go = history_go

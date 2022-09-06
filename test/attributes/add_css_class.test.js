@@ -1,11 +1,8 @@
-import { html, fixture, assert } from '@open-wc/testing'
-import { executeStream } from '../test_helpers'
-
 import sinon from 'sinon'
-import * as Turbo from '@hotwired/turbo'
+import { html, fixture, assert } from '@open-wc/testing'
+import { executeStream, registerAction } from '../test_helpers'
 
-import TurboPower from '../../'
-TurboPower.initialize(Turbo.StreamActions)
+registerAction('add_css_class')
 
 describe('add_css_class', () => {
   context('warnings', () => {

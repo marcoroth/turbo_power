@@ -21,6 +21,6 @@ export function dispatch_event(this: StreamElement) {
   }
 }
 
-export function register(streamActions: TurboStreamActions) {
+export function registerEventsActions(streamActions: TurboStreamActions) {
   streamActions.dispatch_event = dispatch_event
 }

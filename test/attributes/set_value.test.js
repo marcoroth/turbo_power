@@ -1,10 +1,7 @@
 import { html, fixture, assert } from '@open-wc/testing'
-import { executeStream } from '../test_helpers'
+import { executeStream, registerAction } from '../test_helpers'
 
-import * as Turbo from '@hotwired/turbo'
-
-import TurboPower from '../../'
-TurboPower.initialize(Turbo.StreamActions)
+registerAction('set_value')
 
 describe('set_value', () => {
   context('target', () => {
