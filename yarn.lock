@@ -3502,10 +3502,10 @@ turbo-morph@^0.1.0-beta.3:
   resolved "https://registry.yarnpkg.com/turbo-morph/-/turbo-morph-0.1.0-beta.7.tgz#3a3839c711c2c32fb9f1c9a163cdc8ebbd700795"
   integrity sha512-PeQgyXN9GOtOnXVs9sH+nzEKKZ1h4mBqN538v3F2uivJUU/w+crwObf3e6Q7kj7mUBfDoDDFefEfYwvhNKR1uA==
 
-turbo_ready@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/turbo_ready/-/turbo_ready-0.0.4.tgz#e3d1ec82551e75d719b87b481c6a08ac14539e2d"
-  integrity sha512-e7zUcS7GdvU4ep9kg4qZWQS6Op5EdgecgcAAUfdDrU1b44xZZ6wiap3Wc7/2U1ilqQ7bRTRzoNXgLR+7JkHC8Q==
+turbo_ready@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/turbo_ready/-/turbo_ready-0.0.6.tgz#7e3f01e4af26e38e5dad3291d6307ba82be220ff"
+  integrity sha512-cyHh5VZjRxdsGPckRMmYbaDwkKY0O59I0Lp/uWffYNbAU70GofTJ6dUP1mjnkrYNVa5UA7sAUcKWXkz6rQnUYg==
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"

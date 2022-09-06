@@ -41,6 +41,6 @@
   },
   "dependencies": {
     "turbo-morph": "^0.1.0-beta.3",
-    "turbo_ready": "^0.0.4"
+    "turbo_ready": "^0.0.6"
   }
 }
