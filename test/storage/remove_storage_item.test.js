@@ -10,6 +10,11 @@ describe('remove_storage_item', () => {
     sessionStorage.clear()
   })
 
+  afterEach(() => {
+    localStorage.clear()
+    sessionStorage.clear()
+  })
+
   context('warnings', () => {
     afterEach(() => {
       sinon.restore()

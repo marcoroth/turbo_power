@@ -9,6 +9,11 @@ describe('clear_storage', () => {
     sessionStorage.clear()
   })
 
+  afterEach(() => {
+    localStorage.clear()
+    sessionStorage.clear()
+  })
+
   context('localStorage', () => {
     it('should clear localStorage with not defined type', async () => {
       localStorage.setItem('key1', 'value1')
