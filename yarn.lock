@@ -43,9 +43,9 @@
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
 "@hotwired/turbo@^7.2.0-beta.2":
-  version "7.2.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.2.0-beta.2.tgz#b05364e34078bef511dcddf11f8058ffe560ae26"
-  integrity sha512-fXkSOAOupGpP8wqD21JGCyBWjE1kKgOcpC3U0mVN7mbxBT8TjsLslTCguPZFPB7aZdi3YKbIwjulGggeAXsdHg==
+  version "7.2.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.2.0-rc.1.tgz#a68eedb0e05e56aa001bd47abc5341b161086168"
+  integrity sha512-ba16MrRG8+FHOf8TAWUwSeFe9c4pUgTYpcTg2Dqp08DygALZ8Y+nExercce1hvO7dR9uSmb8U7sSZKTUddFU6w==
 
 "@jridgewell/gen-mapping@^0.3.0":
   version "0.3.2"
