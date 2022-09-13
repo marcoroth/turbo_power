@@ -1,4 +1,4 @@
-import { TurboStreamAction, TurboStreamActions } from "./types"
+import { TurboStreamAction, TurboStreamActions } from "@hotwired/turbo"
 
 // @ts-ignore
 import TurboReady from "turbo_ready"

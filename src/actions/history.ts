@@ -1,4 +1,4 @@
-import { StreamElement, TurboStreamActions } from "../types"
+import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 
 export function push_state(this: StreamElement) {
   const url = this.getAttribute('url')

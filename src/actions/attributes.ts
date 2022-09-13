@@ -1,4 +1,4 @@
-import { StreamElement, TurboStreamActions } from "../types"
+import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 
 import { camelize } from '../utils'
 

@@ -1,4 +1,11 @@
-import { StreamElement, TurboStreamActions } from "../types"
+import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
+
+declare global {
+  interface Window {
+    Turbo: any;
+    Turbolinks: any;
+  }
+}
 
 export function redirect_to(this: StreamElement) {
   const url = this.getAttribute("url") || "/"
