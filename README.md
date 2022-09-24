@@ -103,6 +103,11 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 * `turbo_stream.notification(title, options, **attributes)`
 
 
+### Turbo Frame Actions
+
+* `turbo_stream.reload_turbo_frame(frame_id, **attributes)`
+* `turbo_stream.set_turbo_frame_src(frame_id, src, **attributes)`
+
 ## Previous Art
 
 TurboPower is heavily inspired by [CableReady](https://github.com/stimulusreflex/cable_ready) and it's operations. This library aims to bring the same level of operation-diversity to Turbo Streams.
