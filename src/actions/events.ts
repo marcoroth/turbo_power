@@ -2,10 +2,16 @@ import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 
 export function dispatch_event(this: StreamElement) {
   const name = this.getAttribute("name")
-  const detailRaw = this.getAttribute("detail")
+  let template = null
 
   try {
-    const detail = detailRaw ? JSON.parse(detailRaw) : {}
+    template = this.templateContent.textContent
+  } catch(e) {
+    // default to empty object
+  }
+
+  try {
+    const detail = template ? JSON.parse(template) : {}
 
     if (name) {
       const options = { bubbles: true, cancelable: true, detail }
@@ -16,7 +22,7 @@ export function dispatch_event(this: StreamElement) {
       console.warn(`[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"`)
     }
   } catch (error: any) {
-    console.error(`[TurboPower] error proccessing provided "detail" ("${detailRaw}") for Turbo Streams operation "dispatch_event". Error: "${error.message}"`)
+    console.error(`[TurboPower] error proccessing provided "detail" in "<template>" ("${template}") for Turbo Streams operation "dispatch_event". Error: "${error.message}"`)
   }
 }
 

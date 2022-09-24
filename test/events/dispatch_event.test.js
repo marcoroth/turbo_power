@@ -43,11 +43,11 @@ describe('dispatch_event', () => {
 
       await fixture('<div id="element"></div>')
 
-      const expectedWarning = '[TurboPower] error proccessing provided "detail" ("{ this is not valid }") for Turbo Streams operation "dispatch_event". Error: "Expected property name or \'}\' in JSON at position 2"'
+      const expectedWarning = '[TurboPower] error proccessing provided "detail" in "<template>" ("{ this is not valid }") for Turbo Streams operation "dispatch_event". Error: "Expected property name or \'}\' in JSON at position 2"'
 
       assert(!console.error.calledWith(expectedWarning), `console.error wasn't called with "${expectedWarning}"`)
 
-      await executeStream('<turbo-stream action="dispatch_event" name="my:event" detail="{ this is not valid }" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="dispatch_event" name="my:event" target="element"><template>{ this is not valid }</template></turbo-stream>')
 
       assert(console.error.calledWith(expectedWarning), `console.error wasn't called with "${expectedWarning}"`)
     })
@@ -64,20 +64,20 @@ describe('dispatch_event', () => {
       assert.deepEqual(detail, {})
     })
 
-    it('should dispatch event with empty detail attribute', async () => {
+    it('should dispatch event with empty detail', async () => {
       const element = await fixture('<div id="element"></div>')
 
-      setTimeout(() => executeStream('<turbo-stream action="dispatch_event" name="my:event" detail="" target="element"></turbo-stream>'))
+      setTimeout(() => executeStream('<turbo-stream action="dispatch_event" name="my:event" target="element"><template></template></turbo-stream>'))
 
       const { detail } = await oneEvent(element, 'my:event')
 
       assert.deepEqual(detail, {})
     })
 
-    it('should dispatch event with empty object in detail attribute', async () => {
+    it('should dispatch event with empty object in detail', async () => {
       const element = await fixture('<div id="element"></div>')
 
-      setTimeout(() => executeStream('<turbo-stream action="dispatch_event" name="my:event" detail="{}" target="element"></turbo-stream>'))
+      setTimeout(() => executeStream('<turbo-stream action="dispatch_event" name="my:event" target="element"><tempalte>{}</template></turbo-stream>'))
 
       const { detail } = await oneEvent(element, 'my:event')
 
@@ -89,7 +89,7 @@ describe('dispatch_event', () => {
 
       const eventDetail = '{"number":1,"string":"string value","nested":{"deep":"value","boolean":true}}'
 
-      setTimeout(() => executeStream(`<turbo-stream action="dispatch_event" name="my:event" detail='${eventDetail}' target="element"></turbo-stream>`))
+      setTimeout(() => executeStream(`<turbo-stream action="dispatch_event" name="my:event" target="element"><template>${eventDetail}</template></turbo-stream>`))
 
       const { detail } = await oneEvent(element, 'my:event')
 
@@ -147,7 +147,7 @@ describe('dispatch_event', () => {
       assert.deepEqual(event3.detail, {})
     })
 
-    it('should dispatch event with empty detail attribute', async () => {
+    it('should dispatch event with empty detail', async () => {
       await fixture(html`
         <div id="element1"></div>
         <div id="element2"></div>
@@ -158,7 +158,7 @@ describe('dispatch_event', () => {
       const element2 = document.querySelector('#element2')
       const element3 = document.querySelector('#element3')
 
-      setTimeout(() => executeStream('<turbo-stream action="dispatch_event" name="my:event" detail="" targets="div"></turbo-stream>'))
+      setTimeout(() => executeStream('<turbo-stream action="dispatch_event" name="my:event" targets="div"><template></template></turbo-stream>'))
 
       const listener1 = oneEvent(element1, 'my:event')
       const listener2 = oneEvent(element2, 'my:event')
@@ -171,7 +171,7 @@ describe('dispatch_event', () => {
       assert.deepEqual(event3.detail, {})
     })
 
-    it('should dispatch event with empty object in detail attribute', async () => {
+    it('should dispatch event with empty object in detail', async () => {
       await fixture(html`
         <div id="element1"></div>
         <div id="element2"></div>
@@ -182,7 +182,7 @@ describe('dispatch_event', () => {
       const element2 = document.querySelector('#element2')
       const element3 = document.querySelector('#element3')
 
-      setTimeout(() => executeStream('<turbo-stream action="dispatch_event" name="my:event" detail="{}" targets="div"></turbo-stream>'))
+      setTimeout(() => executeStream('<turbo-stream action="dispatch_event" name="my:event" targets="div"><template>{}</template></turbo-stream>'))
 
       const listener1 = oneEvent(element1, 'my:event')
       const listener2 = oneEvent(element2, 'my:event')
@@ -216,7 +216,7 @@ describe('dispatch_event', () => {
         }
       }
 
-      setTimeout(() => executeStream(`<turbo-stream action="dispatch_event" name="my:event" detail='${eventDetail}' targets="div"></turbo-stream>`))
+      setTimeout(() => executeStream(`<turbo-stream action="dispatch_event" name="my:event" targets="div"><template>${eventDetail}</template></turbo-stream>`))
 
       const listener1 = oneEvent(element1, 'my:event')
       const listener2 = oneEvent(element2, 'my:event')
