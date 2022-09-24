@@ -1,4 +1,29 @@
-# TurboPower
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.png">
+    <img src="assets/hero.png" height="340px">
+  </picture>
+</p>
+
+<h1 align="center">Turbo Power</h1>
+
+<p align="center">
+  <a href="https://github.com/marcoroth/turbo_power">
+    <img src="https://github.com/marcoroth/turbo_power/actions/workflows/tests.yml/badge.svg">
+  </a>
+  <a href="https://www.npmjs.com/package/turbo_power">
+    <img alt="NPM Version" src="https://img.shields.io/npm/v/turbo_power?logo=npm&color=38C160">
+  </a>
+
+  <a href="https://www.npmjs.com/package/turbo_power">
+    <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/turbo_power?logo=npm&color=38C160">
+  </a>
+  <a href="https://bundlephobia.com/package/turbo_power">
+    <img alt="NPM Bundle Size" src="https://img.shields.io/bundlephobia/minzip/turbo_power?label=bundle%20size&logo=npm">
+  </a>
+</p>
+
+## Getting Started
 
 `turbo_power` is a power-pack for Turbo Streams. It provides Turbo Streams with a bunch of new actions and additionally adds the `morph` action from [`turbo-morph`](https://github.com/marcoroth/turbo-morph) and the `invoke` action from [`turbo_ready`](https://github.com/hopsoft/turbo_ready).
 
