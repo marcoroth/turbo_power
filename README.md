@@ -5,7 +5,7 @@
   </picture>
 </p>
 
-<h1 align="center">Turbo Power</h1>
+<h1 align="center">TurboPower</h1>
 
 <p align="center">
   <a href="https://github.com/marcoroth/turbo_power">
