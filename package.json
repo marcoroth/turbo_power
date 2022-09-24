@@ -21,7 +21,7 @@
     "test": "web-test-runner test/**/*.test.js"
   },
   "devDependencies": {
-    "@hotwired/turbo": "^7.2.0-beta.2",
+    "@hotwired/turbo": "^7.2.0",
     "@open-wc/testing": "^3.1.6",
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@rollup/plugin-typescript": "^8.2.5",
