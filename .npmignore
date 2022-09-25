@@ -6,16 +6,23 @@
 
 *.log
 *.tsbuildinfo
+*.tgz
 
 README.md
 rollup.config.js
+web-test-runner.config.mjs
 tsconfig.json
 webpack.config.js
 yarn-error.log
+*~
 
 /.git
 /.github
+/.gitattributes
 
 /node_modules
 /playground
 /src
+/test
+/coverage
+/assets
