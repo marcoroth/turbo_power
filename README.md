@@ -137,6 +137,15 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 
 TurboPower is heavily inspired by [CableReady](https://github.com/stimulusreflex/cable_ready) and it's operations. This library aims to bring the same level of operation-diversity to Turbo Streams.
 
+## Development
+
+To run the test runner:
+
+```plain
+yarn build
+yarn test
+```
+
 ## Acknowledgments
 
 `turbo_power` is [MIT-licensed](LICENSE) open-source software from [Marco Roth](https://github.com/marcoroth).
