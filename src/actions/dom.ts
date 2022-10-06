@@ -9,7 +9,9 @@ export function graft(this: StreamElement) {
     if (parent) {
       this.targetElements.forEach((element: Element) => parent.appendChild(element))
     } else {
-      console.error(`[TurboPower] couldn't find parent element using selector "${selector}" for Turbo Streams operation "graft"`)
+      console.error(
+        `[TurboPower] couldn't find parent element using selector "${selector}" for Turbo Streams operation "graft"`
+      )
     }
   } else {
     console.error(`[TurboPower] no "parent" selector provided for Turbo Streams operation "graft"`)
@@ -17,40 +19,40 @@ export function graft(this: StreamElement) {
 }
 
 export function inner_html(this: StreamElement) {
-  const html = this.templateContent.textContent || ''
+  const html = this.templateContent.textContent || ""
 
-  this.targetElements.forEach((element: Element) => element.innerHTML = html)
+  this.targetElements.forEach((element: Element) => (element.innerHTML = html))
 }
 
 export function insert_adjacent_html(this: StreamElement) {
-  const position = (this.getAttribute('position') || 'beforebegin')  as InsertPosition
-  const html = this.templateContent.textContent || ''
+  const position = (this.getAttribute("position") || "beforebegin") as InsertPosition
+  const html = this.templateContent.textContent || ""
 
   this.targetElements.forEach((element: Element) => element.insertAdjacentHTML(position, html))
 }
 
 export function insert_adjacent_text(this: StreamElement) {
-  const position = (this.getAttribute('position') || 'beforebegin') as InsertPosition
-  const message = this.getAttribute('text') || ''
+  const position = (this.getAttribute("position") || "beforebegin") as InsertPosition
+  const message = this.getAttribute("text") || ""
 
   this.targetElements.forEach((element: Element) => element.insertAdjacentText(position, message))
 }
 
 export function outer_html(this: StreamElement) {
-  const html = this.templateContent.textContent || ''
+  const html = this.templateContent.textContent || ""
 
-  this.targetElements.forEach((element: Element) => element.outerHTML = html)
+  this.targetElements.forEach((element: Element) => (element.outerHTML = html))
 }
 
 export function set_meta(this: StreamElement) {
-  const name = this.getAttribute('name')
-  const content = this.getAttribute('content') || ''
+  const name = this.getAttribute("name")
+  const content = this.getAttribute("content") || ""
 
   if (name) {
-    let meta: HTMLMetaElement | null = document.head.querySelector(`meta[name='${name}']`)
+    let meta: HTMLMetaElement | null = document.head.querySelector(`meta[name='${name}']`)
 
     if (!meta) {
-      meta = document.createElement('meta')
+      meta = document.createElement("meta")
       meta.name = name
       document.head.appendChild(meta)
     }
@@ -62,9 +64,9 @@ export function set_meta(this: StreamElement) {
 }
 
 export function text_content(this: StreamElement) {
-  const text = this.getAttribute('text') || ''
+  const text = this.getAttribute("text") || ""
 
-  this.targetElements.forEach((element: Element) => element.textContent = text)
+  this.targetElements.forEach((element: Element) => (element.textContent = text))
 }
 
 export function registerDOMActions(streamActions: TurboStreamActions) {

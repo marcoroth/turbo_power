@@ -1,15 +1,22 @@
 import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 
+import { Action } from "@hotwired/turbo/dist/types/core/types"
+import { VisitOptions } from "@hotwired/turbo/dist/types/core/drive/visit"
+
+type Visitable = {
+  visit(location: URL | string, options?: Partial<VisitOptions>): void
+}
+
 declare global {
   interface Window {
-    Turbo: any;
-    Turbolinks: any;
+    Turbo: Visitable
+    Turbolinks: Visitable
   }
 }
 
 export function redirect_to(this: StreamElement) {
-  const url = this.getAttribute("url") || "/"
-  const action = this.getAttribute("action") || "advance"
+  const url = this.getAttribute("url") || "/"
+  const action = (this.getAttribute("action") || "advance") as Action
   const turbo = this.getAttribute("turbo") === "true"
 
   if (turbo) {

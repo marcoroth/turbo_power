@@ -1,9 +1,11 @@
 import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 
-import { camelize } from '../utils'
+import { camelize } from "../utils"
+
+type TargetElement = { [key: string]: any }
 
 export function add_css_class(this: StreamElement) {
-  const classes = (this.getAttribute("classes")?.split(" ") || []).filter(c => c.length > 0)
+  const classes = (this.getAttribute("classes")?.split(" ") || []).filter((c) => c.length > 0)
 
   if (classes.length > 0) {
     this.targetElements.forEach((element: Element) => element.classList.add(...classes))
@@ -23,7 +25,7 @@ export function remove_attribute(this: StreamElement) {
 }
 
 export function remove_css_class(this: StreamElement) {
-  const classes = (this.getAttribute("classes")?.split(" ") || []).filter(c => c.length > 0)
+  const classes = (this.getAttribute("classes")?.split(" ") || []).filter((c) => c.length > 0)
 
   if (classes.length > 0) {
     this.targetElements.forEach((element: Element) => element.classList.remove(...classes))
@@ -48,7 +50,7 @@ export function set_dataset_attribute(this: StreamElement) {
   const value = this.getAttribute("value") || ""
 
   if (attribute) {
-    this.targetElements.forEach((element: HTMLElement) => element.dataset[camelize(attribute)] = value)
+    this.targetElements.forEach((element: HTMLElement) => (element.dataset[camelize(attribute)] = value))
   } else {
     console.warn(`[TurboPower] no "attribute" provided for Turbo Streams operation "set_dataset_attribute"`)
   }
@@ -56,10 +58,10 @@ export function set_dataset_attribute(this: StreamElement) {
 
 export function set_property(this: StreamElement) {
   const name = this.getAttribute("name")
+  const value = this.getAttribute("value") || ""
 
   if (name) {
-    // @ts-ignore
-    this.targetElements.forEach((element: Element) => element[name] = value)
+    this.targetElements.forEach((element: TargetElement) => (element[name] = value))
   } else {
     console.error(`[TurboPower] no "name" provided for Turbo Streams operation "set_property"`)
   }
@@ -70,8 +72,7 @@ export function set_style(this: StreamElement) {
   const value = this.getAttribute("value") || ""
 
   if (name) {
-    // @ts-ignore
-    this.targetElements.forEach((element: HTMLElement) => element.style[name] = value)
+    this.targetElements.forEach((element: TargetElement) => (element.style[name] = value))
   } else {
     console.error(`[TurboPower] no "name" provided for Turbo Streams operation "set_style"`)
   }
@@ -86,7 +87,7 @@ export function set_styles(this: StreamElement) {
 export function set_value(this: StreamElement) {
   const value = this.getAttribute("value") || ""
 
-  this.targetElements.forEach((element: HTMLInputElement) => element.value = value)
+  this.targetElements.forEach((element: HTMLInputElement) => (element.value = value))
 }
 
 export function registerAttributesActions(streamActions: TurboStreamActions) {

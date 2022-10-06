@@ -34,3 +34,6 @@ jobs:
 
       - name: Run JavaScript Tests
         run: yarn test
+
+      - name: Lint
+        run: yarn lint
