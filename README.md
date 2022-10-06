@@ -120,8 +120,8 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 
 ### Debug Actions
 
-* `turbo_stream.console_log(message, level = :log, **attributes)`
-* `turbo_stream.console_table(data, columns, **attributes)`
+* `turbo_stream.console_log(message, level = :log)`
+* `turbo_stream.console_table(data, columns)`
 
 ### Notification Actions
 
