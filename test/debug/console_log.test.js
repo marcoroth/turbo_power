@@ -59,7 +59,7 @@ describe('console_log', () => {
     })
   })
 
-  context('with level="debug"', () => {
+  context('with level="error"', () => {
     it('should log message', async () => {
       sinon.replace(console, 'error', sinon.fake())
 
