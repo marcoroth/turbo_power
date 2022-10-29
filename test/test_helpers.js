@@ -10,6 +10,9 @@ export async function executeStream (html) {
 
 export function registerAction (actionName) {
   const action = TurboPower.Actions[actionName]
-
   TurboPower.register(actionName, action, Turbo.StreamActions)
+}
+
+export function fixtureFile (fileName) {
+  return `/test/fixtures/${fileName}`
 }
