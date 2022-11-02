@@ -1,6 +1,6 @@
 {
   "name": "turbo_power",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Power-pack for Turbo",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -19,7 +19,7 @@
     "clean": "rimraf dist",
     "prerelease": "yarn build",
     "test": "web-test-runner test/**/*.test.js",
-    "lint": "eslint . --ext .ts --ignore-pattern *.d.ts",
+    "lint": "eslint . --ext .ts --ext .js",
     "format": "yarn lint --fix"
   },
   "devDependencies": {
