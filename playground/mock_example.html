@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TurboPower Playground</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" src="/index.js"></script>
+    <style type="text/css" media="all">
+      turbo-frame {
+        background-color: gainsboro;
+        padding: 10px;
+        border:1px solid black;
+      }
+      li {
+        margin-bottom: 20px;
+        list-style-type: none;
+      }
+      hr {
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Main page</h3>
+    <ul>
+      <li><a href="/turbo-stream-frame_src" data-turbo-stream="true">Turbo Frame SRC change to dynamic turbo-frame-3</a></li>
+      <li><turbo-frame id="dynamic-frame" src="/turbo-frame-1" loading="lazy"></turbo-frame></li>
+      <li><hr /></li>
+      <li><a href="/turbo-stream-frame_reload" data-turbo-stream="true">Turbo Frame RELOAD</a></li>
+      <li><turbo-frame id="static-frame" src="/turbo_frame_static_file.html" loading="lazy"></turbo-frame></li>
+      <li><hr /></li>
+      <li><a href="/turbo-stream-inner_html" data-turbo-stream="true">Stream INNER_HTML Action</a></li>
+    </ul>
+  </body>
+</html>
