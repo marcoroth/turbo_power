@@ -19,7 +19,7 @@
     "clean": "rimraf dist",
     "prerelease": "yarn build",
     "test": "web-test-runner test/**/*.test.js",
-    "lint": "eslint . --ext .ts --ext .js",
+    "lint": "eslint . --ext .ts --ignore-pattern *.d.ts",
     "format": "yarn lint --fix"
   },
   "devDependencies": {
