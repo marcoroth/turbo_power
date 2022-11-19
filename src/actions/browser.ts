@@ -16,12 +16,12 @@ declare global {
 
 export function redirect_to(this: StreamElement) {
   const url = this.getAttribute("url") || "/"
-  const action = (this.getAttribute("action") || "advance") as Action
+  const turboAction = (this.getAttribute("turbo_action") || "advance") as Action
   const turbo = this.getAttribute("turbo") === "true"
 
   if (turbo) {
-    if (window.Turbo) window.Turbo.visit(url, { action })
-    if (window.Turbolinks) window.Turbolinks.visit(url, { action })
+    if (window.Turbo) window.Turbo.visit(url, { action: turboAction })
+    if (window.Turbolinks) window.Turbolinks.visit(url, { action: turboAction })
     if (!window.Turbo && !window.Turbolinks) window.location.href = url
   } else {
     window.location.href = url

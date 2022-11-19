@@ -102,7 +102,7 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 
 ### Browser Actions
 
-* `turbo_stream.redirect_to(url, action_name = nil, **attributes)`
+* `turbo_stream.redirect_to(url, turbo_action = nil, **attributes)`
 * `turbo_stream.reload(**attributes)`
 * `turbo_stream.scroll_into_view(target, inline = "nearest")`
 * `turbo_stream.set_cookie(cookie, **attributes)`
