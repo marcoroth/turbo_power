@@ -9,5 +9,40 @@
   </head>
 
   <body>
+    <div id="simple-morph">
+      I should get replaced
+    </div>
+
+    <turbo-stream action="dispatch_event" name="my:event" detail='{"number":1,"string":"string value","nested":{"deep":"value","boolean":true}}' targets="div"></turbo-stream>
+
+    <div id="morph-with-root-changed" data-attribute-was-morphed="false">
+      I should get replaced
+    </div>
+
+    <div id="morph-only-children">
+      I should get replaced
+    </div>
+
+    <turbo-stream action="morph" target="simple-morph">
+      <template>
+        <div id="simple-morph">
+          I replaced the previous content
+        </div>
+      </template>
+    </turbo-stream>
+
+    <turbo-stream action="morph" target="morph-with-root-changed">
+      <template>
+        <div id="morph-with-root-changed" data-attribute-was-morphed="true">
+          I replaced the previous content and also updated the data attributes on the root element
+        </div>
+      </template>
+    </turbo-stream>
+
+    <turbo-stream action="morph" target="morph-only-children" children-only>
+      <template>
+        I replaced the previous content, but the root element was preserved because the <code>children-only</code> attribute is set.
+      </template>
+    </turbo-stream>
   </body>
 </html>
