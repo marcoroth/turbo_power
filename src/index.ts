@@ -22,5 +22,5 @@ export default {
   initialize,
   register,
   Actions,
-  Utils
+  Utils,
 }
