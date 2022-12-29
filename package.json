@@ -48,7 +48,6 @@
     "@hotwired/turbo": ">= 7.2"
   },
   "dependencies": {
-    "turbo-morph": "^0.1.0",
-    "turbo_ready": "^0.1.0"
+    "turbo-morph": "^0.1.0"
   }
 }

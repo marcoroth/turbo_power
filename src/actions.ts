@@ -4,6 +4,7 @@ import * as Attributes from "./actions/attributes"
 import * as Browser from "./actions/browser"
 import * as DOM from "./actions/dom"
 import * as Debug from "./actions/debug"
+import * as Deprecated from "./actions/deprecated"
 import * as Events from "./actions/events"
 import * as History from "./actions/history"
 import * as Storage from "./actions/storage"
@@ -13,6 +14,7 @@ import * as Turbo from "./actions/turbo"
 export * from "./actions/attributes"
 export * from "./actions/browser"
 export * from "./actions/debug"
+export * from "./actions/deprecated"
 export * from "./actions/dom"
 export * from "./actions/events"
 export * from "./actions/history"
@@ -24,6 +26,7 @@ export function register(streamActions: TurboStreamActions) {
   Attributes.registerAttributesActions(streamActions)
   Browser.registerBrowserActions(streamActions)
   Debug.registerDebugActions(streamActions)
+  Deprecated.registerDeprecatedActions(streamActions)
   DOM.registerDOMActions(streamActions)
   Events.registerEventsActions(streamActions)
   History.registerHistoryActions(streamActions)
