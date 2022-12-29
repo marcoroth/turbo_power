@@ -13,3 +13,11 @@ export function dasherize(value: string) {
 export function tokenize(value: string) {
   return value.match(/[^\s]+/g) || []
 }
+
+export function typecast(value: string) {
+  try {
+    return JSON.parse(value)
+  } catch (e) {
+    return value
+  }
+}
