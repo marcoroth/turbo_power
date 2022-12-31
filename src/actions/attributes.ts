@@ -1,6 +1,6 @@
 import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 
-import { camelize } from "../utils"
+import { camelize, typecast } from "../utils"
 
 type TargetElement = { [key: string]: any }
 
@@ -58,7 +58,7 @@ export function set_dataset_attribute(this: StreamElement) {
 
 export function set_property(this: StreamElement) {
   const name = this.getAttribute("name")
-  const value = this.getAttribute("value") || ""
+  const value = typecast(this.getAttribute("value") || "")
 
   if (name) {
     this.targetElements.forEach((element: TargetElement) => (element[name] = value))
