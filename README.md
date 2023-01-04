@@ -80,6 +80,11 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 * `turbo_stream.dispatch_event(target, name, detail: {}, **attributes)`
 
 
+### Form Actions
+
+* `turbo_stream.reset_form(target, **attributes)`
+
+
 ### Storage Actions
 
 * `turbo_stream.clear_storage(type, **attributes)`
@@ -102,6 +107,7 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 * `turbo_stream.set_focus(target, **attributes)`
 * `turbo_stream.set_title(title, **attributes)`
 
+
 ### Browser History Actions
 
 * `turbo_stream.history_go(delta, **attributes)`
@@ -114,6 +120,7 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 * `turbo_stream.console_log(message, level = :log)`
 * `turbo_stream.console_table(data, columns)`
 
+
 ### Notification Actions
 
 * `turbo_stream.notification(title, options, **attributes)`
@@ -123,6 +130,7 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 
 * `turbo_stream.turbo_frame_reload(frame_id)`
 * `turbo_stream.turbo_frame_set_src(frame_id, src)`
+
 
 ## Turbo Actions
 

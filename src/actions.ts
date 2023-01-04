@@ -6,6 +6,7 @@ import * as DOM from "./actions/dom"
 import * as Debug from "./actions/debug"
 import * as Deprecated from "./actions/deprecated"
 import * as Events from "./actions/events"
+import * as Form from "./actions/form"
 import * as History from "./actions/history"
 import * as Storage from "./actions/storage"
 import * as TurboFrame from "./actions/turbo_frame"
@@ -17,6 +18,7 @@ export * from "./actions/debug"
 export * from "./actions/deprecated"
 export * from "./actions/dom"
 export * from "./actions/events"
+export * from "./actions/form"
 export * from "./actions/history"
 export * from "./actions/storage"
 export * from "./actions/turbo_frame"
@@ -29,6 +31,7 @@ export function register(streamActions: TurboStreamActions) {
   Deprecated.registerDeprecatedActions(streamActions)
   DOM.registerDOMActions(streamActions)
   Events.registerEventsActions(streamActions)
+  Form.registerFormActions(streamActions)
   History.registerHistoryActions(streamActions)
   Storage.registerStorageActions(streamActions)
   TurboFrame.registerTurboFrameActions(streamActions)
