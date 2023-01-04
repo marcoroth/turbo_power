@@ -1,6 +1,6 @@
 {
   "name": "turbo_power",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Power-pack for Turbo",
   "main": "dist/index.js",
   "module": "dist/index.js",
