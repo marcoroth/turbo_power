@@ -1,4 +1,4 @@
-import { html, fixture, assert, oneEvent } from '@open-wc/testing'
+import { html, fixture, assert } from '@open-wc/testing'
 import { executeStream, registerAction } from '../test_helpers'
 
 registerAction('reset_form')
@@ -6,7 +6,7 @@ registerAction('reset_form')
 describe('reset_form', () => {
   context('target', () => {
     it('should reset form', async () => {
-      const element = await fixture(html`
+      await fixture(html`
         <form id="form">
           <input id="input"/>
           <textarea id="textarea"></textarea>
