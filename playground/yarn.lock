@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@alpinejs/morph@>=3.10.4":
-  version "3.10.4"
-  resolved "https://registry.yarnpkg.com/@alpinejs/morph/-/morph-3.10.4.tgz#b6f74929c9ab7dbab66a870da7d604dae3029e24"
-  integrity sha512-FXVHYXW8LGHbhrUYy6kQd3JBMl4s5WS0bjMKGbboDfcqfqGHmOY/fCAJIRUCoFDPiBvOlSfxkEQirkmR2VWYAA==
-
 "@hotwired/turbo@^7.2.4":
   version "7.2.4"
   resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.2.4.tgz#0d35541be32cfae3b4f78c6ab9138f5b21f28a21"
@@ -75,25 +70,6 @@
   integrity sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==
   dependencies:
     "@types/node" "*"
-
-"@vue/reactivity@~3.1.1":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@vue/reactivity/-/reactivity-3.1.5.tgz#dbec4d9557f7c8f25c2635db1e23a78a729eb991"
-  integrity sha512-1tdfLmNjWG6t/CsPldh+foumYFo3cpyCHgBYQ34ylaMsJ+SNHQ1kApMIa8jN+i593zQuaw3AdWH0nJTARzCFhg==
-  dependencies:
-    "@vue/shared" "3.1.5"
-
-"@vue/shared@3.1.5":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.1.5.tgz#74ee3aad995d0a3996a6bb9533d4d280514ede03"
-  integrity sha512-oJ4F3TnvpXaQwZJNF3ZK+kLPHKarDmJjJ6jyzVNDKH9md1dptjC7lWR//jrGuLdek/U6iltWxqAnYOu8gCiOvA==
-
-alpinejs@>=3.10.4:
-  version "3.10.4"
-  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.10.4.tgz#61bbadb2275796f545c4f53743f0bcbefa4661d0"
-  integrity sha512-AC6Xchlb/xURO7F93OSMItooClpzGNZRM5+rDa6/3Y20mPxQs1TQ/wfiwiH4mtcVt8yTxdkOW5dOl8CBCK095A==
-  dependencies:
-    "@vue/reactivity" "~3.1.1"
 
 ansi-styles@^4.1.0:
   version "4.3.0"
@@ -615,14 +591,6 @@ turbo-morph@^0.1.0:
 "turbo_power@link:..":
   version "0.0.0"
   uid ""
-
-turbo_ready@^0.1.0:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/turbo_ready/-/turbo_ready-0.1.2.tgz#0aa812c0661073106e6efea2f1af41d7b6786e44"
-  integrity sha512-CwJJ2sz72cuNBQuECH2K3H8R9Zb8d3jppK61+i+PwMxPXM8dyL3Rj4K23JPR5RnUBQGIPwxmAVdmPXQxQJoYCA==
-  dependencies:
-    "@alpinejs/morph" ">=3.10.4"
-    alpinejs ">=3.10.4"
 
 unpipe@~1.0.0:
   version "1.0.0"

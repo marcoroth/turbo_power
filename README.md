@@ -25,7 +25,7 @@
 
 ## Getting Started
 
-`turbo_power` is a power-pack for Turbo Streams. It provides Turbo Streams with a bunch of new actions and additionally adds the `morph` action from [`turbo-morph`](https://github.com/marcoroth/turbo-morph) and the `invoke` action from [`turbo_ready`](https://github.com/hopsoft/turbo_ready).
+`turbo_power` is a power-pack for Turbo Streams. It provides Turbo Streams with a bunch of new actions and additionally adds the `morph` action from [`turbo-morph`](https://github.com/marcoroth/turbo-morph).
 
 **Note:** Requires Turbo **7.2+**
 
@@ -49,17 +49,10 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 
 ## Custom Actions
 
-### Actions from `turbo_ready`
-
-* [`turbo_stream.invoke(method, *args, selector: nil, camelize: true, id: nil)`](https://github.com/hopsoft/turbo_ready)
-
-### Actions from `turbo-morph`
-
-* [`turbo_stream.morph(target, html = nil, **attributes, &block)`](https://github.com/marcoroth/turbo-morph)
-
 ### DOM Actions
 
 * `turbo_stream.graft(target, parent, **attributes)`
+* [`turbo_stream.morph(target, html = nil, **attributes, &block)`](https://github.com/marcoroth/turbo-morph)
 * `turbo_stream.inner_html(target, html = nil, **attributes, &block)`
 * `turbo_stream.insert_adjacent_html(target, html = nil, position: 'beforeend', **attributes, &block)`
 * `turbo_stream.insert_adjacent_text(target, text, position: 'beforebegin', **attributes)`
@@ -152,8 +145,6 @@ yarn test
 ## Acknowledgments
 
 `turbo_power` is [MIT-licensed](LICENSE) open-source software from [Marco Roth](https://github.com/marcoroth).
-
-`turbo_ready` is [MIT-licensed](https://github.com/hopsoft/turbo_ready/blob/main/MIT-LICENSE) open-source software from [Nate Hopkins](https://github.com/hopsoft).
 
 `turbo-morph` is [MIT-licensed](https://github.com/marcoroth/turbo-morph/blob/master/LICENSE) open-source software from [Marco Roth](https://github.com/marcoroth).
 

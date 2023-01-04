@@ -1,6 +1,5 @@
 import { TurboStreamAction, TurboStreamActions } from "@hotwired/turbo"
 
-import TurboReady from "turbo_ready"
 import * as TurboMorph from "turbo-morph"
 import * as Actions from "./actions"
 import * as Utils from "./utils"
@@ -10,7 +9,6 @@ export * as Utils from "./utils"
 
 export function initialize(streamActions: TurboStreamActions) {
   TurboMorph.initialize(streamActions)
-  TurboReady.initialize(streamActions)
   Actions.register(streamActions)
 }
 
