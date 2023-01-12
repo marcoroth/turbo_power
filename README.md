@@ -139,7 +139,7 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 
 ## Previous Art
 
-TurboPower is heavily inspired by [CableReady](https://github.com/stimulusreflex/cable_ready) and it's operations. This library aims to bring the same level of operation-diversity to Turbo Streams.
+TurboPower is heavily inspired by [CableReady](https://github.com/stimulusreflex/cable_ready) and its operations. This library aims to bring the same level of operation-diversity to Turbo Streams.
 
 ## Development
 
