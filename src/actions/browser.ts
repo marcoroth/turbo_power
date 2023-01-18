@@ -14,10 +14,6 @@ export function set_cookie(this: StreamElement) {
   document.cookie = cookie
 }
 
-export function set_cookie_item(this: StreamElement) {
-  console.log("set_cookie_item", this)
-}
-
 export function set_focus(this: StreamElement) {
   this.targetElements.forEach((element: HTMLElement) => element.focus())
 }
