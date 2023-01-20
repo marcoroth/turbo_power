@@ -34,7 +34,6 @@ export function registerBrowserActions(streamActions: TurboStreamActions) {
   streamActions.reload = reload
   streamActions.scroll_into_view = scroll_into_view
   streamActions.set_cookie = set_cookie
-  streamActions.set_cookie_item = set_cookie_item
   streamActions.set_focus = set_focus
   streamActions.set_title = set_title
 }
