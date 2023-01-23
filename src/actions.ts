@@ -2,6 +2,7 @@ import { TurboStreamActions } from "@hotwired/turbo"
 
 import * as Attributes from "./actions/attributes"
 import * as Browser from "./actions/browser"
+import * as Document from "./actions/document"
 import * as DOM from "./actions/dom"
 import * as Debug from "./actions/debug"
 import * as Deprecated from "./actions/deprecated"
@@ -16,6 +17,7 @@ export * from "./actions/attributes"
 export * from "./actions/browser"
 export * from "./actions/debug"
 export * from "./actions/deprecated"
+export * from "./actions/document"
 export * from "./actions/dom"
 export * from "./actions/events"
 export * from "./actions/form"
@@ -29,6 +31,7 @@ export function register(streamActions: TurboStreamActions) {
   Browser.registerBrowserActions(streamActions)
   Debug.registerDebugActions(streamActions)
   Deprecated.registerDeprecatedActions(streamActions)
+  Document.registerDocumentActions(streamActions)
   DOM.registerDOMActions(streamActions)
   Events.registerEventsActions(streamActions)
   Form.registerFormActions(streamActions)
