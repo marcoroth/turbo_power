@@ -1,19 +1,35 @@
- {
-   "root": true,
-   "parser": "@typescript-eslint/parser",
-   "plugins": [
-     "@typescript-eslint",
-     "prettier"
-   ],
-   "extends": [
-     "eslint:recommended",
-     "plugin:@typescript-eslint/eslint-recommended",
-     "plugin:@typescript-eslint/recommended",
-     "prettier"
-   ],
-   "rules": {
-     "prettier/prettier": ["error"],
-     "@typescript-eslint/no-explicit-any": "off",
-     "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
-   }
- }
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+  },
+  "overrides": [
+    {
+      "files": [ "test/**/*.test.js" ],
+      "globals": {
+        "describe": true,
+        "context": true,
+        "it": true,
+        "beforeEach": true,
+        "afterEach": true
+      }
+    }
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
