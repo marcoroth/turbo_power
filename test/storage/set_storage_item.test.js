@@ -1,6 +1,6 @@
 import sinon from 'sinon'
 import { html, fixture, assert } from '@open-wc/testing'
-import { executeStream, registerAction } from '../test_helpers'
+import { executeStream, registerAction } from '../test_helpers'
 
 registerAction('set_storage_item')
 
@@ -27,7 +27,7 @@ describe('set_storage_item', () => {
 
       assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
-      await executeStream('<turbo-stream action="set_storage_item" key=""></turbo-stream>')
+      await executeStream('<turbo-stream action="set_storage_item" key=""></turbo-stream>')
 
       assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
     })
@@ -39,7 +39,7 @@ describe('set_storage_item', () => {
 
       assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
-      await executeStream('<turbo-stream action="set_storage_item"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_storage_item"></turbo-stream>')
 
       assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
     })
@@ -50,7 +50,7 @@ describe('set_storage_item', () => {
       assert.equal(localStorage.getItem('key1'), null)
       assert.equal(sessionStorage.getItem('key1'), null)
 
-      await executeStream('<turbo-stream action="set_storage_item" key="key1" value="value1"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_storage_item" key="key1" value="value1"></turbo-stream>')
 
       assert.equal(localStorage.getItem('key1'), 'value1')
       assert.equal(sessionStorage.getItem('key1'), null)
@@ -60,7 +60,7 @@ describe('set_storage_item', () => {
       assert.equal(localStorage.getItem('key1'), null)
       assert.equal(sessionStorage.getItem('key1'), null)
 
-      await executeStream('<turbo-stream action="set_storage_item" key="key1" value="value1" type="local"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_storage_item" key="key1" value="value1" type="local"></turbo-stream>')
 
       assert.equal(localStorage.getItem('key1'), 'value1')
       assert.equal(sessionStorage.getItem('key1'), null)
@@ -70,7 +70,7 @@ describe('set_storage_item', () => {
       assert.equal(localStorage.getItem('key1'), null)
       assert.equal(sessionStorage.getItem('key1'), null)
 
-      await executeStream('<turbo-stream action="set_storage_item" key="key1" value=""></turbo-stream>')
+      await executeStream('<turbo-stream action="set_storage_item" key="key1" value=""></turbo-stream>')
 
       assert.equal(localStorage.getItem('key1'), '')
       assert.equal(sessionStorage.getItem('key1'), null)
@@ -82,7 +82,7 @@ describe('set_storage_item', () => {
       assert.equal(localStorage.getItem('key1'), 'value')
       assert.equal(sessionStorage.getItem('key1'), null)
 
-      await executeStream('<turbo-stream action="set_storage_item" key="key1" value=""></turbo-stream>')
+      await executeStream('<turbo-stream action="set_storage_item" key="key1" value=""></turbo-stream>')
 
       assert.equal(localStorage.getItem('key1'), '')
       assert.equal(sessionStorage.getItem('key1'), null)
@@ -94,7 +94,7 @@ describe('set_storage_item', () => {
       assert.equal(localStorage.getItem('key1'), 'value')
       assert.equal(sessionStorage.getItem('key1'), null)
 
-      await executeStream('<turbo-stream action="set_storage_item" key="key1"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_storage_item" key="key1"></turbo-stream>')
 
       assert.equal(localStorage.getItem('key1'), '')
       assert.equal(sessionStorage.getItem('key1'), null)
@@ -106,7 +106,7 @@ describe('set_storage_item', () => {
       assert.equal(sessionStorage.getItem('key1'), null)
       assert.equal(localStorage.getItem('key1'), null)
 
-      await executeStream('<turbo-stream action="set_storage_item" key="key1" value="value1" type="session"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_storage_item" key="key1" value="value1" type="session"></turbo-stream>')
 
       assert.equal(sessionStorage.getItem('key1'), 'value1')
       assert.equal(localStorage.getItem('key1'), null)
@@ -116,7 +116,7 @@ describe('set_storage_item', () => {
       assert.equal(sessionStorage.getItem('key1'), null)
       assert.equal(localStorage.getItem('key1'), null)
 
-      await executeStream('<turbo-stream action="set_storage_item" key="key1" value=""  type="session"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_storage_item" key="key1" value=""  type="session"></turbo-stream>')
 
       assert.equal(sessionStorage.getItem('key1'), '')
       assert.equal(localStorage.getItem('key1'), null)
@@ -128,7 +128,7 @@ describe('set_storage_item', () => {
       assert.equal(sessionStorage.getItem('key1'), 'value')
       assert.equal(localStorage.getItem('key1'), null)
 
-      await executeStream('<turbo-stream action="set_storage_item" key="key1" value=""  type="session"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_storage_item" key="key1" value=""  type="session"></turbo-stream>')
 
       assert.equal(sessionStorage.getItem('key1'), '')
       assert.equal(localStorage.getItem('key1'), null)
@@ -140,7 +140,7 @@ describe('set_storage_item', () => {
       assert.equal(sessionStorage.getItem('key1'), 'value')
       assert.equal(localStorage.getItem('key1'), null)
 
-      await executeStream('<turbo-stream action="set_storage_item" key="key1" type="session"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_storage_item" key="key1" type="session"></turbo-stream>')
 
       assert.equal(sessionStorage.getItem('key1'), '')
       assert.equal(localStorage.getItem('key1'), null)

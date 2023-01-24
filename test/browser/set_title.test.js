@@ -1,5 +1,5 @@
 import { html, fixture, assert } from '@open-wc/testing'
-import { executeStream, registerAction } from '../test_helpers'
+import { executeStream, registerAction } from '../test_helpers'
 
 registerAction('set_title')
 

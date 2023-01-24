@@ -1,6 +1,6 @@
 import sinon from 'sinon'
 import { assert } from '@open-wc/testing'
-import { executeStream, registerAction } from '../test_helpers'
+import { executeStream, registerAction } from '../test_helpers'
 
 registerAction('invoke')
 
@@ -12,7 +12,7 @@ describe('invoke', () => {
 
     assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
-    await executeStream('<turbo-stream action="invoke"></turbo-stream>')
+    await executeStream('<turbo-stream action="invoke"></turbo-stream>')
 
     assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
   })

@@ -1,6 +1,6 @@
 import sinon from 'sinon'
 import { html, fixture, assert } from '@open-wc/testing'
-import { executeStream, registerAction } from '../test_helpers'
+import { executeStream, registerAction } from '../test_helpers'
 
 registerAction('set_attribute')
 
@@ -19,7 +19,7 @@ describe('set_attribute', () => {
 
       assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
-      await executeStream('<turbo-stream action="set_attribute" attribute="" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_attribute" attribute="" target="element"></turbo-stream>')
 
       assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
     })
@@ -33,7 +33,7 @@ describe('set_attribute', () => {
 
       assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
-      await executeStream('<turbo-stream action="set_attribute" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_attribute" target="element"></turbo-stream>')
 
       assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
     })
@@ -45,7 +45,7 @@ describe('set_attribute', () => {
 
       assert.equal(document.querySelector('#element').getAttribute('my-attribute'), null)
 
-      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" value="my-value" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" value="my-value" target="element"></turbo-stream>')
 
       assert.equal(document.querySelector('#element').getAttribute('my-attribute'), 'my-value')
     })
@@ -55,7 +55,7 @@ describe('set_attribute', () => {
 
       assert.equal(document.querySelector('#element').getAttribute('my-attribute'), 'previous-value')
 
-      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" value="" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" value="" target="element"></turbo-stream>')
 
       assert.equal(document.querySelector('#element').getAttribute('my-attribute'), '')
     })
@@ -67,7 +67,7 @@ describe('set_attribute', () => {
 
       assert.equal(document.querySelector('#element').getAttribute('my-attribute'), 'previous-value')
 
-      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" value="" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" value="" target="element"></turbo-stream>')
 
       assert.equal(document.querySelector('#element').getAttribute('my-attribute'), '')
     })
@@ -79,7 +79,7 @@ describe('set_attribute', () => {
 
       assert.equal(document.querySelector('#element').getAttribute('my-attribute'), 'previous-value')
 
-      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" target="element"></turbo-stream>')
 
       assert.equal(document.querySelector('#element').getAttribute('my-attribute'), '')
     })
@@ -97,7 +97,7 @@ describe('set_attribute', () => {
       assert.equal(document.querySelector('#element2').getAttribute('my-attribute'), null)
       assert.equal(document.querySelector('#element3').getAttribute('my-attribute'), null)
 
-      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" value="my-value" targets="div"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" value="my-value" targets="div"></turbo-stream>')
 
       assert.equal(document.querySelector('#element1').getAttribute('my-attribute'), 'my-value')
       assert.equal(document.querySelector('#element2').getAttribute('my-attribute'), 'my-value')
@@ -115,7 +115,7 @@ describe('set_attribute', () => {
       assert.equal(document.querySelector('#element2').getAttribute('my-attribute'), 'previous-value')
       assert.equal(document.querySelector('#element3').getAttribute('my-attribute'), 'previous-value')
 
-      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" value="" targets="div"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" value="" targets="div"></turbo-stream>')
 
       assert.equal(document.querySelector('#element1').getAttribute('my-attribute'), '')
       assert.equal(document.querySelector('#element2').getAttribute('my-attribute'), '')
@@ -133,7 +133,7 @@ describe('set_attribute', () => {
       assert.equal(document.querySelector('#element2').getAttribute('my-attribute'), 'previous-value')
       assert.equal(document.querySelector('#element3').getAttribute('my-attribute'), 'previous-value')
 
-      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" value="" targets="div"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" value="" targets="div"></turbo-stream>')
 
       assert.equal(document.querySelector('#element1').getAttribute('my-attribute'), '')
       assert.equal(document.querySelector('#element2').getAttribute('my-attribute'), '')
@@ -151,7 +151,7 @@ describe('set_attribute', () => {
       assert.equal(document.querySelector('#element2').getAttribute('my-attribute'), 'previous-value')
       assert.equal(document.querySelector('#element3').getAttribute('my-attribute'), 'previous-value')
 
-      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" targets="div"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_attribute" attribute="my-attribute" targets="div"></turbo-stream>')
 
       assert.equal(document.querySelector('#element1').getAttribute('my-attribute'), '')
       assert.equal(document.querySelector('#element2').getAttribute('my-attribute'), '')

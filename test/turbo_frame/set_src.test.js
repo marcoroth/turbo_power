@@ -1,5 +1,5 @@
 import { html, fixture, assert } from '@open-wc/testing'
-import { executeStream, registerAction, fixtureFile } from '../test_helpers'
+import { executeStream, registerAction, fixtureFile } from '../test_helpers'
 
 registerAction('turbo_frame_set_src')
 

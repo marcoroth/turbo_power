@@ -1,6 +1,6 @@
 import sinon from 'sinon'
 import { html, fixture, assert, oneEvent } from '@open-wc/testing'
-import { executeStream, registerAction } from '../test_helpers'
+import { executeStream, registerAction } from '../test_helpers'
 
 registerAction('dispatch_event')
 
@@ -19,7 +19,7 @@ describe('dispatch_event', () => {
 
       assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
-      await executeStream('<turbo-stream action="dispatch_event" name="" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="dispatch_event" name="" target="element"></turbo-stream>')
 
       assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
     })
@@ -33,7 +33,7 @@ describe('dispatch_event', () => {
 
       assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
-      await executeStream('<turbo-stream action="dispatch_event" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="dispatch_event" target="element"></turbo-stream>')
 
       assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
     })
@@ -47,7 +47,7 @@ describe('dispatch_event', () => {
 
       assert(!console.error.calledWith(expectedWarning), `console.error wasn't called with "${expectedWarning}"`)
 
-      await executeStream('<turbo-stream action="dispatch_event" name="my:event" target="element"><template>{ this is not valid }</template></turbo-stream>')
+      await executeStream('<turbo-stream action="dispatch_event" name="my:event" target="element"><template>{ this is not valid }</template></turbo-stream>')
 
       assert(console.error.calledWith(expectedWarning), `console.error wasn't called with "${expectedWarning}"`)
     })
