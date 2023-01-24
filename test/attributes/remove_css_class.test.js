@@ -1,6 +1,6 @@
 import sinon from 'sinon'
 import { html, fixture, assert } from '@open-wc/testing'
-import { executeStream, registerAction } from '../test_helpers'
+import { executeStream, registerAction } from '../test_helpers'
 
 registerAction('remove_css_class')
 
@@ -20,7 +20,7 @@ describe('remove_css_class', () => {
       assert.equal(document.querySelector('#element').getAttribute('class'), null)
       assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
-      await executeStream('<turbo-stream action="remove_css_class" classes="" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="remove_css_class" classes="" target="element"></turbo-stream>')
 
       assert.equal(document.querySelector('#element').getAttribute('class'), null)
       assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
@@ -36,7 +36,7 @@ describe('remove_css_class', () => {
       assert.equal(document.querySelector('#element').getAttribute('class'), null)
       assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
 
-      await executeStream('<turbo-stream action="remove_css_class" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="remove_css_class" target="element"></turbo-stream>')
 
       assert.equal(document.querySelector('#element').getAttribute('class'), null)
       assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
@@ -51,7 +51,7 @@ describe('remove_css_class', () => {
 
       assert.equal(document.querySelector('#element').getAttribute('class'), 'one two')
 
-      await executeStream('<turbo-stream action="remove_css_class" classes="one" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="remove_css_class" classes="one" target="element"></turbo-stream>')
 
       assert.equal(document.querySelector('#element').getAttribute('class'), 'two')
     })
@@ -63,7 +63,7 @@ describe('remove_css_class', () => {
 
       assert.equal(document.querySelector('#element').getAttribute('class'), 'one')
 
-      await executeStream('<turbo-stream action="remove_css_class" classes="one" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="remove_css_class" classes="one" target="element"></turbo-stream>')
 
       assert.equal(document.querySelector('#element').getAttribute('class'), '')
     })
@@ -75,7 +75,7 @@ describe('remove_css_class', () => {
 
       assert.equal(document.querySelector('#element').getAttribute('class'), 'one two three')
 
-      await executeStream('<turbo-stream action="remove_css_class" classes="one two" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="remove_css_class" classes="one two" target="element"></turbo-stream>')
 
       assert.equal(document.querySelector('#element').getAttribute('class'), 'three')
     })
@@ -87,7 +87,7 @@ describe('remove_css_class', () => {
 
       assert.equal(document.querySelector('#element').getAttribute('class'), 'one two three')
 
-      await executeStream('<turbo-stream action="remove_css_class" classes="one two three" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="remove_css_class" classes="one two three" target="element"></turbo-stream>')
 
       assert.equal(document.querySelector('#element').getAttribute('class'), '')
     })
@@ -105,7 +105,7 @@ describe('remove_css_class', () => {
       assert.equal(document.querySelector('#element2').getAttribute('class'), 'one two')
       assert.equal(document.querySelector('#element3').getAttribute('class'), 'one two')
 
-      await executeStream('<turbo-stream action="remove_css_class" classes="one" targets="div"></turbo-stream>')
+      await executeStream('<turbo-stream action="remove_css_class" classes="one" targets="div"></turbo-stream>')
 
       assert.equal(document.querySelector('#element1').getAttribute('class'), 'two')
       assert.equal(document.querySelector('#element2').getAttribute('class'), 'two')
@@ -123,7 +123,7 @@ describe('remove_css_class', () => {
       assert.equal(document.querySelector('#element2').getAttribute('class'), 'one')
       assert.equal(document.querySelector('#element3').getAttribute('class'), 'one')
 
-      await executeStream('<turbo-stream action="remove_css_class" classes="one" targets="div"></turbo-stream>')
+      await executeStream('<turbo-stream action="remove_css_class" classes="one" targets="div"></turbo-stream>')
 
       assert.equal(document.querySelector('#element1').getAttribute('class'), '')
       assert.equal(document.querySelector('#element2').getAttribute('class'), '')
@@ -141,7 +141,7 @@ describe('remove_css_class', () => {
       assert.equal(document.querySelector('#element2').getAttribute('class'), 'one two three')
       assert.equal(document.querySelector('#element3').getAttribute('class'), 'one two three')
 
-      await executeStream('<turbo-stream action="remove_css_class" classes="one two" targets="div"></turbo-stream>')
+      await executeStream('<turbo-stream action="remove_css_class" classes="one two" targets="div"></turbo-stream>')
 
       assert.equal(document.querySelector('#element1').getAttribute('class'), 'three')
       assert.equal(document.querySelector('#element2').getAttribute('class'), 'three')
@@ -159,7 +159,7 @@ describe('remove_css_class', () => {
       assert.equal(document.querySelector('#element2').getAttribute('class'), 'one two three')
       assert.equal(document.querySelector('#element3').getAttribute('class'), 'one two three')
 
-      await executeStream('<turbo-stream action="remove_css_class" classes="one two three" targets="div"></turbo-stream>')
+      await executeStream('<turbo-stream action="remove_css_class" classes="one two three" targets="div"></turbo-stream>')
 
       assert.equal(document.querySelector('#element1').getAttribute('class'), '')
       assert.equal(document.querySelector('#element2').getAttribute('class'), '')

@@ -1,6 +1,6 @@
 import sinon from 'sinon'
 import { html, fixture, assert } from '@open-wc/testing'
-import { executeStream, registerAction } from '../test_helpers'
+import { executeStream, registerAction } from '../test_helpers'
 
 registerAction('add_css_class')
 

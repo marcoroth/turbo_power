@@ -1,6 +1,6 @@
 import sinon from 'sinon'
 import { fixture, assert } from '@open-wc/testing'
-import { executeStream, registerAction } from '../test_helpers'
+import { executeStream, registerAction } from '../test_helpers'
 
 registerAction('set_property')
 
@@ -19,7 +19,7 @@ describe('set_property', () => {
 
       assert(!console.error.calledWith(expectedError), `console.error wasn't called with "${expectedError}"`)
 
-      await executeStream('<turbo-stream action="set_property" name="" target="element" value=""></turbo-stream>')
+      await executeStream('<turbo-stream action="set_property" name="" target="element" value=""></turbo-stream>')
 
       assert(console.error.calledWith(expectedError), `console.error wasn't called with "${expectedError}"`)
     })
@@ -33,7 +33,7 @@ describe('set_property', () => {
 
       assert(!console.error.calledWith(expectedError), `console.error wasn't called with "${expectedError}"`)
 
-      await executeStream('<turbo-stream action="set_property" target="element"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_property" target="element"></turbo-stream>')
 
       assert(console.error.calledWith(expectedError), `console.error wasn't called with "${expectedError}"`)
     })
@@ -47,11 +47,11 @@ describe('set_property', () => {
 
       assert.equal(document.querySelector('#element').checked, false)
       
-      await executeStream('<turbo-stream action="set_property" target="element" name="checked" value="true"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_property" target="element" name="checked" value="true"></turbo-stream>')
 
       assert.equal(document.querySelector('#element').checked, true)
 
-      await executeStream('<turbo-stream action="set_property" target="element" name="checked" value="false"></turbo-stream>')
+      await executeStream('<turbo-stream action="set_property" target="element" name="checked" value="false"></turbo-stream>')
       
       assert.equal(document.querySelector('#element').checked, false)
     })
@@ -63,11 +63,11 @@ describe('set_property', () => {
       assert.equal(document.querySelector('#element').title, "")
      
       const value = "test title for an A tag"
-      await executeStream(`<turbo-stream action="set_property" target="element" name="title" value="${value}"></turbo-stream>`)
+      await executeStream(`<turbo-stream action="set_property" target="element" name="title" value="${value}"></turbo-stream>`)
 
       assert.equal(document.querySelector('#element').title, value)
 
-      await executeStream('<turbo-stream action="set_property" target="element" name="title" value=""></turbo-stream>')
+      await executeStream('<turbo-stream action="set_property" target="element" name="title" value=""></turbo-stream>')
       
       assert.equal(document.querySelector('#element').title, "")
     })

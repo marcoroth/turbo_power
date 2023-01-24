@@ -1,5 +1,5 @@
 import { html, fixture, assert } from '@open-wc/testing'
-import { executeStream, registerAction } from '../test_helpers'
+import { executeStream, registerAction } from '../test_helpers'
 
 registerAction('clear_storage')
 
@@ -24,7 +24,7 @@ describe('clear_storage', () => {
       assert.equal(localStorage.getItem('key2'), 'value2')
       assert.equal(sessionStorage.getItem('key3'), 'value3')
 
-      await executeStream('<turbo-stream action="clear_storage"></turbo-stream>')
+      await executeStream('<turbo-stream action="clear_storage"></turbo-stream>')
 
       assert.equal(localStorage.getItem('key1'), null)
       assert.equal(localStorage.getItem('key2'), null)
@@ -40,7 +40,7 @@ describe('clear_storage', () => {
       assert.equal(localStorage.getItem('key2'), 'value2')
       assert.equal(sessionStorage.getItem('key3'), 'value3')
 
-      await executeStream('<turbo-stream action="clear_storage" type=""></turbo-stream>')
+      await executeStream('<turbo-stream action="clear_storage" type=""></turbo-stream>')
 
       assert.equal(localStorage.getItem('key1'), null)
       assert.equal(localStorage.getItem('key2'), null)
@@ -56,7 +56,7 @@ describe('clear_storage', () => {
       assert.equal(localStorage.getItem('key2'), 'value2')
       assert.equal(sessionStorage.getItem('key3'), 'value3')
 
-      await executeStream('<turbo-stream action="clear_storage" type="local"></turbo-stream>')
+      await executeStream('<turbo-stream action="clear_storage" type="local"></turbo-stream>')
 
       assert.equal(localStorage.getItem('key1'), null)
       assert.equal(localStorage.getItem('key2'), null)
@@ -74,7 +74,7 @@ describe('clear_storage', () => {
       assert.equal(sessionStorage.getItem('key2'), 'value2')
       assert.equal(localStorage.getItem('key3'), 'value3')
 
-      await executeStream('<turbo-stream action="clear_storage" type="session"></turbo-stream>')
+      await executeStream('<turbo-stream action="clear_storage" type="session"></turbo-stream>')
 
       assert.equal(sessionStorage.getItem('key1'), null)
       assert.equal(sessionStorage.getItem('key2'), null)
