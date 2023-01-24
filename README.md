@@ -102,10 +102,14 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 
 * `turbo_stream.reload(**attributes)`
 * `turbo_stream.scroll_into_view(target, inline = "nearest")`
-* `turbo_stream.set_cookie(cookie, **attributes)`
-* `turbo_stream.set_cookie_item(key, value, **attributes)`
 * `turbo_stream.set_focus(target, **attributes)`
 * `turbo_stream.set_title(title, **attributes)`
+
+
+### Document Actions
+
+* `turbo_stream.set_cookie(cookie, **attributes)`
+* `turbo_stream.set_cookie_item(key, value, **attributes)`
 
 
 ### Browser History Actions
