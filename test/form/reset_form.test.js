@@ -1,20 +1,20 @@
-import { html, fixture, assert } from '@open-wc/testing'
-import { executeStream, registerAction } from '../test_helpers'
+import { html, fixture, assert } from "@open-wc/testing"
+import { executeStream, registerAction } from "../test_helpers"
 
-registerAction('reset_form')
+registerAction("reset_form")
 
-describe('reset_form', () => {
-  context('target', () => {
-    it('should reset form', async () => {
+describe("reset_form", () => {
+  context("target", () => {
+    it("should reset form", async () => {
       await fixture(html`
         <form id="form">
-          <input id="input"/>
+          <input id="input" />
           <textarea id="textarea"></textarea>
         </form>
       `)
 
-      const input = document.querySelector('#input')
-      const textarea = document.querySelector('#textarea')
+      const input = document.querySelector("#input")
+      const textarea = document.querySelector("#textarea")
 
       assert.equal(input.value, "")
       assert.equal(textarea.value, "")
@@ -32,24 +32,24 @@ describe('reset_form', () => {
     })
   })
 
-  context('targets', () => {
-    it('should reset forms', async () => {
+  context("targets", () => {
+    it("should reset forms", async () => {
       await fixture(html`
         <form class="form" id="form1">
-          <input id="input1"/>
+          <input id="input1" />
           <textarea id="textarea1"></textarea>
         </form>
 
         <form class="form" id="form2">
-          <input id="input2" value="456"/>
+          <input id="input2" value="456" />
           <textarea id="textarea2">Text2</textarea>
         </form>
       `)
 
-      const input1 = document.querySelector('#input1')
-      const input2 = document.querySelector('#input2')
-      const textarea1 = document.querySelector('#textarea1')
-      const textarea2 = document.querySelector('#textarea2')
+      const input1 = document.querySelector("#input1")
+      const input2 = document.querySelector("#input2")
+      const textarea1 = document.querySelector("#textarea1")
+      const textarea2 = document.querySelector("#textarea2")
 
       assert.equal(input1.value, "")
       assert.equal(input2.value, "456")
