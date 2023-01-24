@@ -46,13 +46,13 @@ describe('set_property', () => {
       await fixture('<input id="element" type="checkbox" />')
 
       assert.equal(document.querySelector('#element').checked, false)
-      
+
       await executeStream('<turbo-stream action="set_property" target="element" name="checked" value="true"></turbo-stream>')
 
       assert.equal(document.querySelector('#element').checked, true)
 
       await executeStream('<turbo-stream action="set_property" target="element" name="checked" value="false"></turbo-stream>')
-      
+
       assert.equal(document.querySelector('#element').checked, false)
     })
 
@@ -61,14 +61,14 @@ describe('set_property', () => {
       await fixture('<a id="element" href="">link</a>')
 
       assert.equal(document.querySelector('#element').title, "")
-     
+
       const value = "test title for an A tag"
       await executeStream(`<turbo-stream action="set_property" target="element" name="title" value="${value}"></turbo-stream>`)
 
       assert.equal(document.querySelector('#element').title, value)
 
       await executeStream('<turbo-stream action="set_property" target="element" name="title" value=""></turbo-stream>')
-      
+
       assert.equal(document.querySelector('#element').title, "")
     })
   })
