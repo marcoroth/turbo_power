@@ -136,7 +136,7 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 * `turbo_stream.turbo_frame_set_src(frame_id, src)`
 
 
-## Turbo Actions
+### Turbo Actions
 
 * `turbo_stream.redirect_to(url, turbo_action = nil, **attributes)`
 * `turbo_stream.turbo_clear_cache()`
