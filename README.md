@@ -56,7 +56,6 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 * `turbo_stream.inner_html(target, html = nil, **attributes, &block)`
 * `turbo_stream.insert_adjacent_html(target, html = nil, position: 'beforeend', **attributes, &block)`
 * `turbo_stream.insert_adjacent_text(target, text, position: 'beforebegin', **attributes)`
-* `turbo_stream.morph(target, html = nil, **attribtues, &block)`
 * `turbo_stream.outer_html(target, html = nil, **attributes, &block)`
 * `turbo_stream.text_content(target, text, **attributes)`
 * `turbo_stream.set_meta(name, content)`
