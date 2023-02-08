@@ -4,8 +4,8 @@ import { executeStream, registerAction } from "../test_helpers"
 
 registerAction("notification")
 
-function notificationSpy() {
-  return sinon.spy(window, "Notification")
+function notificationStub() {
+  return sinon.stub(window, "Notification")
 }
 
 describe("notification", () => {
@@ -14,7 +14,7 @@ describe("notification", () => {
   })
 
   it("should create the notification, title only", async () => {
-    const spy = notificationSpy()
+    const stub = notificationStub()
 
     await executeStream(
       `<turbo-stream
@@ -23,13 +23,13 @@ describe("notification", () => {
         ></turbo-stream>`
     )
 
-    assert.equal(spy.callCount, 1)
-    assert.equal(spy.firstCall.firstArg, "May I have your attention...")
-    assert.equal(spy.firstCall.secondArg, null)
+    assert.equal(stub.callCount, 1)
+    assert.equal(stub.firstCall.firstArg, "May I have your attention...")
+    assert.equal(stub.firstCall.secondArg, null)
   })
 
   it("should create the notification, title and options", async () => {
-    const spy = notificationSpy()
+    const stub = notificationStub()
 
     await executeStream(
       `<turbo-stream
@@ -46,12 +46,14 @@ describe("notification", () => {
         vibrate="[200, 100, 200]"
         renotify="true"
         require-interaction="true"
+        actions='[{"action": "respond", "title": "Please respond", "icon": "https://example.com/icon.png"}]'
+        silent="true"
         ></turbo-stream>`
     )
 
-    assert.equal(spy.callCount, 1)
-    assert.equal(spy.firstCall.firstArg, "May I have your attention...")
-    assert.deepEqual(spy.firstCall.args[1], {
+    assert.equal(stub.callCount, 1)
+    assert.equal(stub.firstCall.firstArg, "May I have your attention...")
+    assert.deepEqual(stub.firstCall.args[1], {
       dir: "ltr",
       lang: "EN",
       badge: "https://example.com/badge.png",
@@ -63,24 +65,6 @@ describe("notification", () => {
       vibrate: [200, 100, 200],
       renotify: true,
       requireInteraction: true,
-    })
-  })
-
-  it.skip("should create the notification, title and options that are supported using ServiceWorkers", async () => {
-    const spy = notificationSpy()
-
-    await executeStream(
-      `<turbo-stream
-        action="notification"
-        title="May I have your attention..."
-        actions='[{"action": "respond", "title": "Please respond", "icon": "https://example.com/icon.png"}]'
-        silent="true"
-        ></turbo-stream>`
-    )
-
-    assert.equal(spy.callCount, 1)
-    assert.equal(spy.firstCall.firstArg, "May I have your attention...")
-    assert.deepEqual(spy.firstCall.args[1], {
       actions: [{ action: "respond", title: "Please respond", icon: "https://example.com/icon.png" }],
       silent: true,
     })
