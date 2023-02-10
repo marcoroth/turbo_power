@@ -4,17 +4,43 @@ import { executeStream, registerAction } from "../test_helpers"
 
 registerAction("notification")
 
-function notificationStub() {
-  return sinon.stub(window, "Notification")
-}
-
 describe("notification", () => {
   afterEach(() => {
     sinon.restore()
   })
 
-  it("should create the notification, title only", async () => {
-    const stub = notificationStub()
+  it("grants permission after default", async () => {
+    const stub = sinon.stub(window, "Notification")
+    sinon.stub(Notification, "permission").value("default")
+    sinon.stub(Notification, "requestPermission").resolves("granted")
+
+    await executeStream(`<turbo-stream action="notification"></turbo-stream>`)
+
+    assert.equal(stub.callCount, 1)
+  })
+
+  it("rejects permission after default", async () => {
+    const stub = sinon.stub(window, "Notification")
+    sinon.stub(Notification, "permission").value("default")
+    sinon.stub(Notification, "requestPermission").resolves("denied")
+
+    await executeStream(`<turbo-stream action="notification" ></turbo-stream>`)
+
+    assert.equal(stub.callCount, 0)
+  })
+
+  it("creates no notification if denied", async () => {
+    const stub = sinon.stub(window, "Notification")
+    sinon.stub(Notification, "permission").value("denied")
+
+    await executeStream(`<turbo-stream action="notification" ></turbo-stream>`)
+
+    assert.equal(stub.callCount, 0)
+  })
+
+  it("creates the notifiaction if granted", async () => {
+    const stub = sinon.stub(window, "Notification")
+    sinon.stub(Notification, "permission").value("granted")
 
     await executeStream(
       `<turbo-stream
@@ -29,7 +55,8 @@ describe("notification", () => {
   })
 
   it("should create the notification, title and options", async () => {
-    const stub = notificationStub()
+    const stub = sinon.stub(window, "Notification")
+    sinon.stub(Notification, "permission").value("granted")
 
     await executeStream(
       `<turbo-stream
@@ -61,12 +88,25 @@ describe("notification", () => {
       tag: "Demo",
       icon: "https://example.com/icon.png",
       image: "https://example.com/image.png",
-      data: { arbitrary: "data" },
+      data: '{"arbitrary": "data"}',
       vibrate: [200, 100, 200],
       renotify: true,
       requireInteraction: true,
       actions: [{ action: "respond", title: "Please respond", icon: "https://example.com/icon.png" }],
       silent: true,
     })
+  })
+
+  it("handles if Notification is not available", async () => {
+    const stub = sinon.stub(window, "Notification").value(undefined)
+    const mock = sinon
+      .mock(window)
+      .expects("alert")
+      .once()
+      .withArgs("This browser does not support desktop notification")
+
+    await executeStream(`<turbo-stream action="notification"></turbo-stream>`)
+    assert.equal(stub.callCount, 0)
+    mock.verify()
   })
 })
