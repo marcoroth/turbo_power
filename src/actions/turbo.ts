@@ -1,11 +1,17 @@
 import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 import * as Turbo from "@hotwired/turbo"
 import { Action } from "@hotwired/turbo/dist/types/core/types"
+import { BrowserAdapter } from "@hotwired/turbo/dist/types/core/native/browser_adapter"
+
 import Proxy from "../proxy"
 
 declare global {
   interface Window {
-    Turbo: typeof Turbo
+    Turbo: typeof Turbo & {
+      navigator: {
+        adapter: BrowserAdapter
+      }
+    }
   }
 }
 
