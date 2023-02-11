@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "es2015", "scripthost"],
+    "lib": ["dom", "es2019", "scripthost"],
     "module": "es2015",
     "moduleResolution": "node",
     "noUnusedLocals": true,
