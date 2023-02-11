@@ -10,7 +10,7 @@ declare global {
 
 export function redirect_to(this: StreamElement) {
   const url = this.getAttribute("url") || "/"
-  const turboAction = (this.getAttribute("turbo_action") || "advance") as Action
+  const turboAction = (this.getAttribute("turbo-action") || "advance") as Action
   const turbo = this.getAttribute("turbo") === "true"
 
   if (turbo && window.Turbo) {
