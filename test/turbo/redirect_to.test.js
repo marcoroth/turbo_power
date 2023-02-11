@@ -5,8 +5,15 @@ import { executeStream, registerAction } from "../test_helpers"
 registerAction("redirect_to")
 
 describe("redirect_to", () => {
+  beforeEach(() => {
+    window.TurboPowerLocation = {
+      assign: sinon.stub()
+    }
+  })
+
   afterEach(() => {
     sinon.restore()
+    window.TurboPowerLocation = undefined
   })
 
   context("turbo attribute", () => {
