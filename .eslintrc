@@ -24,7 +24,9 @@
         "context": true,
         "it": true,
         "beforeEach": true,
-        "afterEach": true
+        "afterEach": true,
+        "Turbo": true,
+        "TurboPowerLocation": true
       }
     }
   ],

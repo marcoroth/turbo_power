@@ -6,6 +6,6 @@ declare global {
 
 export default {
   get location() {
-    return window.TurboPowerLocation || window.location;
-  }
+    return window.TurboPowerLocation || window.location
+  },
 }

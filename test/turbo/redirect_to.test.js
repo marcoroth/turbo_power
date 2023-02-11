@@ -7,7 +7,7 @@ registerAction("redirect_to")
 describe("redirect_to", () => {
   beforeEach(() => {
     window.TurboPowerLocation = {
-      assign: sinon.stub()
+      assign: sinon.stub(),
     }
   })
 
@@ -18,7 +18,7 @@ describe("redirect_to", () => {
 
   context("turbo attribute", () => {
     it("doesn't use Turbo by default", async () => {
-      const turbo = sinon.replace(window, "Turbo", { visit: sinon.fake() })
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(`<turbo-stream action="redirect_to" url="http://localhost:8080"></turbo-stream>`)
 
@@ -27,20 +27,22 @@ describe("redirect_to", () => {
     })
 
     it("uses Turbo if true", async () => {
-      const turbo = sinon.replace(window, "Turbo", { visit: sinon.fake() })
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(`<turbo-stream action="redirect_to" url="http://localhost:8080" turbo="true"></turbo-stream>`)
 
-      const expected = ['http://localhost:8080', { action: 'advance' }]
+      const expected = ["http://localhost:8080", { action: "advance" }]
 
       assert.equal(Turbo.visit.callCount, 1)
       assert.deepEqual(Turbo.visit.args[0], expected)
     })
 
     it("doesn't use Turbo if false", async () => {
-      const turbo = sinon.replace(window, "Turbo", { visit: sinon.fake() })
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
-      await executeStream(`<turbo-stream action="redirect_to" url="http://localhost:8080" turbo="false"></turbo-stream>`)
+      await executeStream(
+        `<turbo-stream action="redirect_to" url="http://localhost:8080" turbo="false"></turbo-stream>`
+      )
 
       assert.equal(Turbo.visit.callCount, 0)
       assert.equal(TurboPowerLocation.assign.callCount, 1)
@@ -49,33 +51,37 @@ describe("redirect_to", () => {
 
   context("turbo_action attribute", () => {
     it("uses advance by default", async () => {
-      const turbo = sinon.replace(window, "Turbo", { visit: sinon.fake() })
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(`<turbo-stream action="redirect_to" url="http://localhost:8080" turbo="true"></turbo-stream>`)
 
-      const expected = ['http://localhost:8080', { action: 'advance' }]
+      const expected = ["http://localhost:8080", { action: "advance" }]
 
       assert.equal(Turbo.visit.callCount, 1)
       assert.deepEqual(Turbo.visit.args[0], expected)
     })
 
     it("uses replace", async () => {
-      const turbo = sinon.replace(window, "Turbo", { visit: sinon.fake() })
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
-      await executeStream(`<turbo-stream action="redirect_to" url="http://localhost:8080" turbo-action="replace" turbo="true"></turbo-stream>`)
+      await executeStream(
+        `<turbo-stream action="redirect_to" url="http://localhost:8080" turbo-action="replace" turbo="true"></turbo-stream>`
+      )
 
-      const expected = ['http://localhost:8080', { action: 'replace' }]
+      const expected = ["http://localhost:8080", { action: "replace" }]
 
       assert.equal(Turbo.visit.callCount, 1)
       assert.deepEqual(Turbo.visit.args[0], expected)
     })
 
     it("uses restore", async () => {
-      const turbo = sinon.replace(window, "Turbo", { visit: sinon.fake() })
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
-      await executeStream(`<turbo-stream action="redirect_to" url="http://localhost:8080" turbo-action="restore" turbo="true"></turbo-stream>`)
+      await executeStream(
+        `<turbo-stream action="redirect_to" url="http://localhost:8080" turbo-action="restore" turbo="true"></turbo-stream>`
+      )
 
-      const expected = ['http://localhost:8080', { action: 'restore' }]
+      const expected = ["http://localhost:8080", { action: "restore" }]
 
       assert.equal(Turbo.visit.callCount, 1)
       assert.deepEqual(Turbo.visit.args[0], expected)
@@ -84,44 +90,44 @@ describe("redirect_to", () => {
 
   context("url attribute", () => {
     it("uses / as fallback", async () => {
-      const turbo = sinon.replace(window, "Turbo", { visit: sinon.fake() })
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(`<turbo-stream action="redirect_to" turbo="true"></turbo-stream>`)
 
-      const expected = ['/', { action: 'advance' }]
+      const expected = ["/", { action: "advance" }]
 
       assert.equal(Turbo.visit.callCount, 1)
       assert.deepEqual(Turbo.visit.args[0], expected)
     })
 
     it("uses / as fallback with url attribute without value", async () => {
-      const turbo = sinon.replace(window, "Turbo", { visit: sinon.fake() })
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(`<turbo-stream action="redirect_to" url turbo="true"></turbo-stream>`)
 
-      const expected = ['/', { action: 'advance' }]
+      const expected = ["/", { action: "advance" }]
 
       assert.equal(Turbo.visit.callCount, 1)
       assert.deepEqual(Turbo.visit.args[0], expected)
     })
 
     it("uses / as fallback with empty url attribute", async () => {
-      const turbo = sinon.replace(window, "Turbo", { visit: sinon.fake() })
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(`<turbo-stream action="redirect_to" url="" turbo="true"></turbo-stream>`)
 
-      const expected = ['/', { action: 'advance' }]
+      const expected = ["/", { action: "advance" }]
 
       assert.equal(Turbo.visit.callCount, 1)
       assert.deepEqual(Turbo.visit.args[0], expected)
     })
 
     it("uses the provided url value", async () => {
-      const turbo = sinon.replace(window, "Turbo", { visit: sinon.fake() })
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(`<turbo-stream action="redirect_to" url="/path/to/somewhere" turbo="true"></turbo-stream>`)
 
-      const expected = ['/path/to/somewhere', { action: 'advance' }]
+      const expected = ["/path/to/somewhere", { action: "advance" }]
 
       assert.equal(Turbo.visit.callCount, 1)
       assert.deepEqual(Turbo.visit.args[0], expected)
