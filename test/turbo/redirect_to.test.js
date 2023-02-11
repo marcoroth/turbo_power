@@ -22,18 +22,19 @@ describe("redirect_to", () => {
 
       await executeStream(`<turbo-stream action="redirect_to" url="http://localhost:8080"></turbo-stream>`)
 
-      assert.deepEqual(0, turbo.visit.callCount)
+      assert.equal(Turbo.visit.callCount, 0)
+      assert.equal(TurboPowerLocation.assign.callCount, 1)
     })
 
-    it("uses Turbo by if true", async () => {
+    it("uses Turbo if true", async () => {
       const turbo = sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(`<turbo-stream action="redirect_to" url="http://localhost:8080" turbo="true"></turbo-stream>`)
 
       const expected = ['http://localhost:8080', { action: 'advance' }]
 
-      assert.deepEqual(1, turbo.visit.callCount)
-      assert.deepEqual(expected, turbo.visit.args[0])
+      assert.equal(Turbo.visit.callCount, 1)
+      assert.deepEqual(Turbo.visit.args[0], expected)
     })
 
     it("doesn't use Turbo if false", async () => {
@@ -41,7 +42,8 @@ describe("redirect_to", () => {
 
       await executeStream(`<turbo-stream action="redirect_to" url="http://localhost:8080" turbo="false"></turbo-stream>`)
 
-      assert.deepEqual(0, turbo.visit.callCount)
+      assert.equal(Turbo.visit.callCount, 0)
+      assert.equal(TurboPowerLocation.assign.callCount, 1)
     })
   })
 
@@ -53,8 +55,8 @@ describe("redirect_to", () => {
 
       const expected = ['http://localhost:8080', { action: 'advance' }]
 
-      assert.deepEqual(1, turbo.visit.callCount)
-      assert.deepEqual(expected, turbo.visit.args[0])
+      assert.equal(Turbo.visit.callCount, 1)
+      assert.deepEqual(Turbo.visit.args[0], expected)
     })
 
     it("uses replace", async () => {
@@ -64,8 +66,8 @@ describe("redirect_to", () => {
 
       const expected = ['http://localhost:8080', { action: 'replace' }]
 
-      assert.deepEqual(1, turbo.visit.callCount)
-      assert.deepEqual(expected, turbo.visit.args[0])
+      assert.equal(Turbo.visit.callCount, 1)
+      assert.deepEqual(Turbo.visit.args[0], expected)
     })
 
     it("uses restore", async () => {
@@ -75,8 +77,8 @@ describe("redirect_to", () => {
 
       const expected = ['http://localhost:8080', { action: 'restore' }]
 
-      assert.deepEqual(1, turbo.visit.callCount)
-      assert.deepEqual(expected, turbo.visit.args[0])
+      assert.equal(Turbo.visit.callCount, 1)
+      assert.deepEqual(Turbo.visit.args[0], expected)
     })
   })
 
@@ -88,8 +90,8 @@ describe("redirect_to", () => {
 
       const expected = ['/', { action: 'advance' }]
 
-      assert.deepEqual(1, turbo.visit.callCount)
-      assert.deepEqual(expected, turbo.visit.args[0])
+      assert.equal(Turbo.visit.callCount, 1)
+      assert.deepEqual(Turbo.visit.args[0], expected)
     })
 
     it("uses / as fallback with url attribute without value", async () => {
@@ -99,8 +101,8 @@ describe("redirect_to", () => {
 
       const expected = ['/', { action: 'advance' }]
 
-      assert.deepEqual(1, turbo.visit.callCount)
-      assert.deepEqual(expected, turbo.visit.args[0])
+      assert.equal(Turbo.visit.callCount, 1)
+      assert.deepEqual(Turbo.visit.args[0], expected)
     })
 
     it("uses / as fallback with empty url attribute", async () => {
@@ -110,8 +112,8 @@ describe("redirect_to", () => {
 
       const expected = ['/', { action: 'advance' }]
 
-      assert.deepEqual(1, turbo.visit.callCount)
-      assert.deepEqual(expected, turbo.visit.args[0])
+      assert.equal(Turbo.visit.callCount, 1)
+      assert.deepEqual(Turbo.visit.args[0], expected)
     })
 
     it("uses the provided url value", async () => {
@@ -121,8 +123,8 @@ describe("redirect_to", () => {
 
       const expected = ['/path/to/somewhere', { action: 'advance' }]
 
-      assert.deepEqual(1, turbo.visit.callCount)
-      assert.deepEqual(expected, turbo.visit.args[0])
+      assert.equal(Turbo.visit.callCount, 1)
+      assert.deepEqual(Turbo.visit.args[0], expected)
     })
   })
 })
