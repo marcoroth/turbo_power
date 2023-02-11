@@ -22,7 +22,7 @@ const createNotification = (streamElement: StreamElement) => {
 
   const attributes = Array.from(streamElement.attributes)
     .filter((attribute) => PERMITTED_ATTRIBUTES.includes(attribute.name))
-    .map((attribute) => [camelize(attribute.name), typecast(attribute.value))
+    .map((attribute) => [camelize(attribute.name), typecast(attribute.value)])
 
   const options = Object.fromEntries(attributes)
 
