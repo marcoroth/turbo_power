@@ -20,11 +20,11 @@ const PERMITTED_ATTRIBUTES = [
 const createNotification = (streamElement: StreamElement) => {
   const title = streamElement.getAttribute("title") || ""
 
-  const options = Array.from(streamElement.attributes)
+  const attributes = Array.from(streamElement.attributes)
     .filter((attribute) => PERMITTED_ATTRIBUTES.includes(attribute.name))
-    .reduce((acc, attribute) => {
-      return { ...acc, [camelize(attribute.name)]: typecast(attribute.value) }
-    }, {})
+    .map((attribute) => [camelize(attribute.name), typecast(attribute.value))
+
+  const options = Object.fromEntries(attributes)
 
   new Notification(title, options)
 }
