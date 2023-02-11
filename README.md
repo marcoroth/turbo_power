@@ -129,16 +129,25 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 * `turbo_stream.notification(title, options, **attributes)`
 
 
+### Turbo Actions
+
+* `turbo_stream.redirect_to(url, turbo_action = nil, **attributes)`
+* `turbo_stream.turbo_clear_cache()`
+
+
+### Turbo Progress Bar Actions
+
+* `turbo_stream.turbo_progress_bar_show()`
+* `turbo_stream.turbo_progress_bar_hide()`
+* `turbo_stream.turbo_progress_bar_set_value(value)`
+
+
 ### Turbo Frame Actions
 
 * `turbo_stream.turbo_frame_reload(frame_id)`
 * `turbo_stream.turbo_frame_set_src(frame_id, src)`
 
 
-### Turbo Actions
-
-* `turbo_stream.redirect_to(url, turbo_action = nil, **attributes)`
-* `turbo_stream.turbo_clear_cache()`
 
 ## Previous Art
 

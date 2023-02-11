@@ -1,13 +1,6 @@
 import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
-import * as Turbo from "@hotwired/turbo"
 import { Action } from "@hotwired/turbo/dist/types/core/types"
 import Proxy from "../proxy"
-
-declare global {
-  interface Window {
-    Turbo: typeof Turbo
-  }
-}
 
 export function redirect_to(this: StreamElement) {
   const url = this.getAttribute("url") || "/"

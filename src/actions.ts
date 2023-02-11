@@ -12,6 +12,7 @@ import * as History from "./actions/history"
 import * as Notification from "./actions/notification"
 import * as Storage from "./actions/storage"
 import * as Turbo from "./actions/turbo"
+import * as TurboProgressBar from "./actions/turbo_progress_bar"
 import * as TurboFrame from "./actions/turbo_frame"
 
 export * from "./actions/attributes"
@@ -26,6 +27,7 @@ export * from "./actions/history"
 export * from "./actions/notification"
 export * from "./actions/storage"
 export * from "./actions/turbo"
+export * from "./actions/turbo_progress_bar"
 export * from "./actions/turbo_frame"
 
 export function register(streamActions: TurboStreamActions) {
@@ -41,5 +43,6 @@ export function register(streamActions: TurboStreamActions) {
   Notification.registerNotificationActions(streamActions)
   Storage.registerStorageActions(streamActions)
   Turbo.registerTurboActions(streamActions)
+  TurboProgressBar.registerTurboProgressBarActions(streamActions)
   TurboFrame.registerTurboFrameActions(streamActions)
 }
