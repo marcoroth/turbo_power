@@ -50,6 +50,7 @@ describe("redirect_to", () => {
 
       assert.equal(Turbo.visit.callCount, 0)
       assert.equal(TurboPowerLocation.assign.callCount, 1)
+      assert.deepEqual(TurboPowerLocation.assign.args[0], ["http://localhost:8080"])
     })
   })
 
