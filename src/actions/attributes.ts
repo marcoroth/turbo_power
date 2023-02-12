@@ -1,11 +1,11 @@
 import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 
-import { camelize, typecast } from "../utils"
+import { camelize, typecast, tokenize } from "../utils"
 
 type TargetElement = { [key: string]: any }
 
 export function add_css_class(this: StreamElement) {
-  const classes = (this.getAttribute("classes")?.split(" ") || []).filter((c) => c.length > 0)
+  const classes = tokenize(this.getAttribute("classes"))
 
   if (classes.length > 0) {
     this.targetElements.forEach((element: Element) => element.classList.add(...classes))
@@ -25,7 +25,7 @@ export function remove_attribute(this: StreamElement) {
 }
 
 export function remove_css_class(this: StreamElement) {
-  const classes = (this.getAttribute("classes")?.split(" ") || []).filter((c) => c.length > 0)
+  const classes = tokenize(this.getAttribute("classes"))
 
   if (classes.length > 0) {
     this.targetElements.forEach((element: Element) => element.classList.remove(...classes))

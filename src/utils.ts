@@ -10,8 +10,8 @@ export function dasherize(value: string) {
   return value.replace(/([A-Z])/g, (_, char) => `-${char.toLowerCase()}`)
 }
 
-export function tokenize(value: string) {
-  return value.match(/[^\s]+/g) || []
+export function tokenize(value: string | null) {
+  return value ? value.match(/[^\s]+/g) || [] : []
 }
 
 export function typecast(value: string) {
