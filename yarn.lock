@@ -2809,6 +2809,11 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
+"morphdom@>= 2.6, < 2.7":
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/morphdom/-/morphdom-2.6.2.tgz#fdb75032af7421c0b3115899cdee96a031b6b673"
+  integrity sha512-4RYdPa8ZUIdxiUsSrv6J1Ll+eF+lUt4K8+GGylRgMnwRMkJVexGR9HuVoI9D+1In2+Qn8IsRmY65xXNRnt9JOQ==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -3844,10 +3849,12 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
-turbo-morph@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/turbo-morph/-/turbo-morph-0.1.0.tgz#1db6900ea5a96780e94915d3bcb9c9b0e45c442e"
-  integrity sha512-+T7KQySPZS3MQYm4zHrAvGV7pdL8d/Tn5Dq51WlUNp6CCEQgWjS9ruiGbU1rb/pvFJa51HBm0tEH4aJiNxIrIQ==
+turbo-morph@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/turbo-morph/-/turbo-morph-0.2.0.tgz#5ff9afe74bb85b583ad63e9c00b50bc3278fc87b"
+  integrity sha512-UbkDbviKmsCrcvPXezJ+lBGB7AhaNDke5tZ7HGAtNJswrKcJVBlQ8Ij713E1PXOg/6qCS69gTuZY4xZGW+67Zw==
+  dependencies:
+    morphdom ">= 2.6, < 2.7"
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
