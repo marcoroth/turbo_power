@@ -8,10 +8,7 @@ const banner = `/*\n * TurboPower ${version}\n */`
 export default [
   {
     input: "src/index.ts",
-    external: [
-      "@hotwired/turbo",
-      "turbo-morph"
-    ],
+    external: ["@hotwired/turbo", "turbo-morph"],
     output: [
       {
         name: "TurboPower",
@@ -20,7 +17,7 @@ export default [
         banner,
         globals: {
           "@hotwired/turbo": "Turbo",
-          "turbo-morph": "TurboMorph"
+          "turbo-morph": "TurboMorph",
         },
       },
       {
