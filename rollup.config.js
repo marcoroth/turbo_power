@@ -1,17 +1,9 @@
 import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
 import filesize from "rollup-plugin-filesize"
-import { terser } from "rollup-plugin-terser"
 
 import { version } from "./package.json"
 const banner = `/* TurboPower ${version}\n */`
-
-const minify = () => {
-  return terser({
-    mangle: true,
-    compress: true,
-  })
-}
 
 export default [
   {
@@ -33,7 +25,7 @@ export default [
         banner,
       },
     ],
-    plugins: [resolve(), typescript(), filesize(), minify()],
+    plugins: [resolve(), typescript(), filesize()],
     watch: {
       include: "src/**",
     },
