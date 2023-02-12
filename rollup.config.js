@@ -3,7 +3,7 @@ import typescript from "@rollup/plugin-typescript"
 import filesize from "rollup-plugin-filesize"
 
 import { version } from "./package.json"
-const banner = `/* TurboPower ${version}\n */`
+const banner = `/*\n * TurboPower ${version}\n */`
 
 export default [
   {
@@ -12,7 +12,7 @@ export default [
     output: [
       {
         name: "TurboPower",
-        file: "dist/index.umd.js",
+        file: "dist/turbo_power.umd.js",
         format: "umd",
         banner,
         globals: {
@@ -20,7 +20,7 @@ export default [
         },
       },
       {
-        file: "dist/index.js",
+        file: "dist/turbo_power.js",
         format: "es",
         banner,
       },
