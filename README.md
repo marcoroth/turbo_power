@@ -126,7 +126,7 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 
 ### Notification Actions
 
-* `turbo_stream.notification(title, options, **attributes)`
+* `turbo_stream.notification(title, **options)`
 
 
 ### Turbo Actions
