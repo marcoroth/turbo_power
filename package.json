@@ -41,12 +41,10 @@
     "sinon": "^15.0.1",
     "sourcemap": "^0.1.0",
     "tslib": "^2.5.0",
+    "turbo-morph": "^0.2.0",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
     "@hotwired/turbo": ">= 7.2"
-  },
-  "dependencies": {
-    "turbo-morph": "^0.2.0"
   }
 }
