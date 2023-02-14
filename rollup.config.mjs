@@ -1,9 +1,10 @@
 import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
 import filesize from "rollup-plugin-filesize"
+import { readFileSync } from "fs"
 
-import { version } from "./package.json"
-const banner = `/*\n * TurboPower ${version}\n */`
+const json = JSON.parse(readFileSync("./package.json"))
+const banner = `/*\n * TurboPower ${json.version}\n */`
 
 export default [
   {
