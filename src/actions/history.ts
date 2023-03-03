@@ -20,6 +20,10 @@ export function history_back(this: StreamElement) {
   window.history.back()
 }
 
+export function history_forward(this: StreamElement) {
+  window.history.forward()
+}
+
 export function history_go(this: StreamElement) {
   const delta = Number(this.getAttribute("delta")) || 0
   window.history.go(delta)
