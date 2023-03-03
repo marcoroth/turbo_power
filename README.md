@@ -114,6 +114,7 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 ### Browser History Actions
 
 * `turbo_stream.history_back(**attributes)`
+* `turbo_stream.history_forward(**attributes)`
 * `turbo_stream.history_go(delta, **attributes)`
 * `turbo_stream.push_state(url, title = nil, state = nil, **attributes)`
 * `turbo_stream.replace_state(url, title = nil, state = nil, **attributes)`
