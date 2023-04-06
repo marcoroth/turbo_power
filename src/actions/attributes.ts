@@ -90,6 +90,18 @@ export function set_value(this: StreamElement) {
   this.targetElements.forEach((element: HTMLInputElement) => (element.value = value))
 }
 
+export function toggle_css_class(this: StreamElement) {
+  const classes = tokenize(this.getAttribute("classes"))
+
+  if (classes.length > 0) {
+    this.targetElements.forEach((element: Element) => {
+      classes.forEach((className: string) => element.classList.toggle(className))
+    })
+  } else {
+    console.warn(`[TurboPower] no "classes" provided for Turbo Streams operation "toggle_css_class"`)
+  }
+}
+
 export function registerAttributesActions(streamActions: TurboStreamActions) {
   streamActions.add_css_class = add_css_class
   streamActions.remove_css_class = remove_css_class
@@ -100,4 +112,5 @@ export function registerAttributesActions(streamActions: TurboStreamActions) {
   streamActions.set_style = set_style
   streamActions.set_styles = set_styles
   streamActions.set_value = set_value
+  streamActions.toggle_css_class = toggle_css_class
 }
