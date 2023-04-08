@@ -72,6 +72,7 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 * `turbo_stream.set_style(target, name, value, **attributes)`
 * `turbo_stream.set_styles(target, styles, **attributes)`
 * `turbo_stream.set_value(target, value, **attributes)`
+* `turbo_stream.toggle_css_class(target, classes, **attributes)`
 
 
 ### Event Actions
