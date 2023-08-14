@@ -33,7 +33,7 @@
     "@web/test-runner": "^0.15.0",
     "concurrently": "^8.2.0",
     "eslint": "^8.34.0",
-    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
     "rimraf": "^5.0.1",
