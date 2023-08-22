@@ -134,7 +134,7 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 
 ### Turbo Actions
 
-* `turbo_stream.redirect_to(url, turbo_action = nil, **attributes)`
+* `turbo_stream.redirect_to(url, turbo_action = nil, turbo_frame: nil, **attributes)`
 * `turbo_stream.turbo_clear_cache()`
 
 
