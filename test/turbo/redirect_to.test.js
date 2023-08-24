@@ -148,7 +148,7 @@ describe("redirect_to", () => {
 
   context("turbo_frame attribute", () => {
     it("renders the frame attribute", async () => {
-      sinon.replace(window, "Turbo", { visit: sinon.fake(), frame: "modals" })
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(
         `<turbo-stream action="redirect_to" turbo-frame="modals" url="http://localhost:8080"></turbo-stream>`
