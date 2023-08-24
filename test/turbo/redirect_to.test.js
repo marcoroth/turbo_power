@@ -145,4 +145,20 @@ describe("redirect_to", () => {
       assert.deepEqual(Turbo.visit.args[0], expected)
     })
   })
+
+  context("turbo_frame attribute", () => {
+    it("renders the frame attribute", async () => {
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
+
+      await executeStream(
+        `<turbo-stream action="redirect_to" turbo-frame="modals" url="http://localhost:8080"></turbo-stream>`
+      )
+
+      const expected = ["http://localhost:8080", { action: "advance", frame: "modals" }]
+
+      assert.equal(Turbo.visit.callCount, 1)
+      assert.equal(TurboPowerLocation.assign.callCount, 0)
+      assert.deepEqual(Turbo.visit.args[0], expected)
+    })
+  })
 })
