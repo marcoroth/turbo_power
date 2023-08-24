@@ -8,16 +8,16 @@ export function redirect_to(this: StreamElement) {
   const turboAction = (this.getAttribute("turbo-action") || "advance") as Action
   const turboFrame = this.getAttribute("turbo-frame")
   const turbo = this.getAttribute("turbo") !== "false"
-  const args: Partial<VisitOptions> = {
+  const options: Partial<VisitOptions> = {
     action: turboAction,
   }
 
   if (turboFrame) {
-    args.frame = turboFrame
+    options.frame = turboFrame
   }
 
   if (turbo && window.Turbo) {
-    window.Turbo.visit(url, args)
+    window.Turbo.visit(url, options)
   } else {
     Proxy.location.assign(url)
   }
