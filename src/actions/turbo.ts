@@ -1,5 +1,6 @@
 import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 import { Action } from "@hotwired/turbo/dist/types/core/types"
+import { VisitOptions } from "@hotwired/turbo/dist/types/core/drive/visit"
 import Proxy from "../proxy"
 
 export function redirect_to(this: StreamElement) {
@@ -7,7 +8,7 @@ export function redirect_to(this: StreamElement) {
   const turboAction = (this.getAttribute("turbo-action") || "advance") as Action
   const turboFrame = this.getAttribute("turbo-frame") as Action
   const turbo = this.getAttribute("turbo") !== "false"
-  const args: Partial<{ action: Action; frame?: string }> = {
+  const args: Partial<VisitOptions> = {
     action: turboAction,
   }
 
