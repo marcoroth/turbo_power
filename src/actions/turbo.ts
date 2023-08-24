@@ -6,7 +6,7 @@ import Proxy from "../proxy"
 export function redirect_to(this: StreamElement) {
   const url = this.getAttribute("url") || "/"
   const turboAction = (this.getAttribute("turbo-action") || "advance") as Action
-  const turboFrame = this.getAttribute("turbo-frame") as Action
+  const turboFrame = this.getAttribute("turbo-frame")
   const turbo = this.getAttribute("turbo") !== "false"
   const args: Partial<VisitOptions> = {
     action: turboAction,
