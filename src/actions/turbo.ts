@@ -5,11 +5,18 @@ import Proxy from "../proxy"
 export function redirect_to(this: StreamElement) {
   const url = this.getAttribute("url") || "/"
   const turboAction = (this.getAttribute("turbo-action") || "advance") as Action
-  const turboFrame = (this.getAttribute("turbo-frame")) as Action
+  const turboFrame = this.getAttribute("turbo-frame") as Action
   const turbo = this.getAttribute("turbo") !== "false"
+  const args: Partial<{ action: Action; frame?: string }> = {
+    action: turboAction,
+  }
+
+  if (turboFrame) {
+    args.frame = turboFrame
+  }
 
   if (turbo && window.Turbo) {
-    window.Turbo.visit(url, { action: turboAction, frame: turboFrame })
+    window.Turbo.visit(url, args)
   } else {
     Proxy.location.assign(url)
   }
