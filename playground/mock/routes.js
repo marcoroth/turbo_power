@@ -36,7 +36,7 @@ export default [
           frame_reload: '<turbo-stream action="turbo_frame_reload" target="static-frame"></turbo-stream>',
           inner_html:
             '<turbo-stream action="inner_html" targets="#static-frame"><template><h1>INNER HTML action</template></turbo-stream>',
-        }[kind])
+        })[kind]
       res.end(htmlResponse(kindValue))
     },
   },

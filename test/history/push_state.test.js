@@ -14,7 +14,7 @@ describe("push_state", () => {
       sinon.replace(window.history, "pushState", sinon.fake())
 
       await executeStream(
-        `<turbo-stream action="push_state" url="${window.location.origin}/new-state" state="state" title="title"></turbo-stream>`
+        `<turbo-stream action="push_state" url="${window.location.origin}/new-state" state="state" title="title"></turbo-stream>`,
       )
 
       assert(window.history.pushState.calledWith("state", "title", "http://localhost:8000/new-state"))
@@ -26,7 +26,7 @@ describe("push_state", () => {
       sinon.replace(window.history, "pushState", sinon.fake())
 
       await executeStream(
-        `<turbo-stream action="push_state" url="${window.location.origin}/new-state" state="state"></turbo-stream>`
+        `<turbo-stream action="push_state" url="${window.location.origin}/new-state" state="state"></turbo-stream>`,
       )
 
       assert(window.history.pushState.calledWith("state", "", "http://localhost:8000/new-state"))
@@ -36,7 +36,7 @@ describe("push_state", () => {
       sinon.replace(window.history, "pushState", sinon.fake())
 
       await executeStream(
-        `<turbo-stream action="push_state" url="${window.location.origin}/new-state" state="state" title=""></turbo-stream>`
+        `<turbo-stream action="push_state" url="${window.location.origin}/new-state" state="state" title=""></turbo-stream>`,
       )
 
       assert(window.history.pushState.calledWith("state", "", "http://localhost:8000/new-state"))
@@ -48,7 +48,7 @@ describe("push_state", () => {
       sinon.replace(window.history, "pushState", sinon.fake())
 
       await executeStream(
-        `<turbo-stream action="push_state" url="${window.location.origin}/new-state" title="title"></turbo-stream>`
+        `<turbo-stream action="push_state" url="${window.location.origin}/new-state" title="title"></turbo-stream>`,
       )
 
       assert(window.history.pushState.calledWith(null, "title", "http://localhost:8000/new-state"))
@@ -58,7 +58,7 @@ describe("push_state", () => {
       sinon.replace(window.history, "pushState", sinon.fake())
 
       await executeStream(
-        `<turbo-stream action="push_state" url="${window.location.origin}/new-state" state="" title="title"></turbo-stream>`
+        `<turbo-stream action="push_state" url="${window.location.origin}/new-state" state="" title="title"></turbo-stream>`,
       )
 
       assert(window.history.pushState.calledWith("", "title", "http://localhost:8000/new-state"))

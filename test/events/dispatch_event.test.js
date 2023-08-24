@@ -49,7 +49,7 @@ describe("dispatch_event", () => {
       assert(!console.error.calledWith(expectedWarning), `console.error wasn't called with "${expectedWarning}"`)
 
       await executeStream(
-        '<turbo-stream action="dispatch_event" name="my:event" target="element"><template>{ this is not valid }</template></turbo-stream>'
+        '<turbo-stream action="dispatch_event" name="my:event" target="element"><template>{ this is not valid }</template></turbo-stream>',
       )
 
       assert(console.error.calledWith(expectedWarning), `console.error wasn't called with "${expectedWarning}"`)
@@ -61,7 +61,7 @@ describe("dispatch_event", () => {
       const element = await fixture('<div id="element"></div>')
 
       setTimeout(() =>
-        executeStream('<turbo-stream action="dispatch_event" name="my:event" target="element"></turbo-stream>')
+        executeStream('<turbo-stream action="dispatch_event" name="my:event" target="element"></turbo-stream>'),
       )
 
       const { detail } = await oneEvent(element, "my:event")
@@ -74,8 +74,8 @@ describe("dispatch_event", () => {
 
       setTimeout(() =>
         executeStream(
-          '<turbo-stream action="dispatch_event" name="my:event" target="element"><template></template></turbo-stream>'
-        )
+          '<turbo-stream action="dispatch_event" name="my:event" target="element"><template></template></turbo-stream>',
+        ),
       )
 
       const { detail } = await oneEvent(element, "my:event")
@@ -88,8 +88,8 @@ describe("dispatch_event", () => {
 
       setTimeout(() =>
         executeStream(
-          '<turbo-stream action="dispatch_event" name="my:event" target="element"><tempalte>{}</template></turbo-stream>'
-        )
+          '<turbo-stream action="dispatch_event" name="my:event" target="element"><tempalte>{}</template></turbo-stream>',
+        ),
       )
 
       const { detail } = await oneEvent(element, "my:event")
@@ -104,8 +104,8 @@ describe("dispatch_event", () => {
 
       setTimeout(() =>
         executeStream(
-          `<turbo-stream action="dispatch_event" name="my:event" target="element"><template>${eventDetail}</template></turbo-stream>`
-        )
+          `<turbo-stream action="dispatch_event" name="my:event" target="element"><template>${eventDetail}</template></turbo-stream>`,
+        ),
       )
 
       const { detail } = await oneEvent(element, "my:event")
@@ -132,7 +132,7 @@ describe("dispatch_event", () => {
       const outerParent = document.querySelector("#outer-parent")
 
       setTimeout(() =>
-        executeStream('<turbo-stream action="dispatch_event" name="my:event" target="element"></turbo-stream>')
+        executeStream('<turbo-stream action="dispatch_event" name="my:event" target="element"></turbo-stream>'),
       )
 
       const { detail } = await oneEvent(outerParent, "my:event")
@@ -154,7 +154,7 @@ describe("dispatch_event", () => {
       const element3 = document.querySelector("#element3")
 
       setTimeout(() =>
-        executeStream('<turbo-stream action="dispatch_event" name="my:event" targets="div"></turbo-stream>')
+        executeStream('<turbo-stream action="dispatch_event" name="my:event" targets="div"></turbo-stream>'),
       )
 
       const listener1 = oneEvent(element1, "my:event")
@@ -181,8 +181,8 @@ describe("dispatch_event", () => {
 
       setTimeout(() =>
         executeStream(
-          '<turbo-stream action="dispatch_event" name="my:event" targets="div"><template></template></turbo-stream>'
-        )
+          '<turbo-stream action="dispatch_event" name="my:event" targets="div"><template></template></turbo-stream>',
+        ),
       )
 
       const listener1 = oneEvent(element1, "my:event")
@@ -209,8 +209,8 @@ describe("dispatch_event", () => {
 
       setTimeout(() =>
         executeStream(
-          '<turbo-stream action="dispatch_event" name="my:event" targets="div"><template>{}</template></turbo-stream>'
-        )
+          '<turbo-stream action="dispatch_event" name="my:event" targets="div"><template>{}</template></turbo-stream>',
+        ),
       )
 
       const listener1 = oneEvent(element1, "my:event")
@@ -247,8 +247,8 @@ describe("dispatch_event", () => {
 
       setTimeout(() =>
         executeStream(
-          `<turbo-stream action="dispatch_event" name="my:event" targets="div"><template>${eventDetail}</template></turbo-stream>`
-        )
+          `<turbo-stream action="dispatch_event" name="my:event" targets="div"><template>${eventDetail}</template></turbo-stream>`,
+        ),
       )
 
       const listener1 = oneEvent(element1, "my:event")

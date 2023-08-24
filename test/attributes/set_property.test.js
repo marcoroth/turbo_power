@@ -46,13 +46,13 @@ describe("set_property", () => {
       assert.equal(document.querySelector("#element").checked, false)
 
       await executeStream(
-        '<turbo-stream action="set_property" target="element" name="checked" value="true"></turbo-stream>'
+        '<turbo-stream action="set_property" target="element" name="checked" value="true"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element").checked, true)
 
       await executeStream(
-        '<turbo-stream action="set_property" target="element" name="checked" value="false"></turbo-stream>'
+        '<turbo-stream action="set_property" target="element" name="checked" value="false"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element").checked, false)
@@ -65,7 +65,7 @@ describe("set_property", () => {
 
       const value = "test title for an A tag"
       await executeStream(
-        `<turbo-stream action="set_property" target="element" name="title" value="${value}"></turbo-stream>`
+        `<turbo-stream action="set_property" target="element" name="title" value="${value}"></turbo-stream>`,
       )
 
       assert.equal(document.querySelector("#element").title, value)

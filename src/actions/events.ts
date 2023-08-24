@@ -23,7 +23,7 @@ export function dispatch_event(this: StreamElement) {
     }
   } catch (error: any) {
     console.error(
-      `[TurboPower] error proccessing provided "detail" in "<template>" ("${template}") for Turbo Streams operation "dispatch_event". Error: "${error.message}"`
+      `[TurboPower] error proccessing provided "detail" in "<template>" ("${template}") for Turbo Streams operation "dispatch_event". Error: "${error.message}"`,
     )
   }
 }

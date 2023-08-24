@@ -11,7 +11,7 @@ describe("turbo_frame_set_src", () => {
     assert.equal(frame.querySelector("h1").innerText, "Frame 1")
 
     await executeStream(
-      `<turbo-stream action="turbo_frame_set_src" src="${fixtureFile("frame2.html")}" target="frame1"></turbo-stream>`
+      `<turbo-stream action="turbo_frame_set_src" src="${fixtureFile("frame2.html")}" target="frame1"></turbo-stream>`,
     )
 
     frame = document.querySelector("#frame1")
@@ -25,7 +25,7 @@ describe("turbo_frame_set_src", () => {
     assert.equal(frame.innerText, "Loading")
 
     await executeStream(
-      `<turbo-stream action="turbo_frame_set_src" src="${fixtureFile("frame2.html")}" target="frame1"></turbo-stream>`
+      `<turbo-stream action="turbo_frame_set_src" src="${fixtureFile("frame2.html")}" target="frame1"></turbo-stream>`,
     )
 
     frame = document.querySelector("#frame1")

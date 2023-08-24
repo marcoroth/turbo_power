@@ -46,7 +46,7 @@ describe("set_dataset_attribute", () => {
       assert.equal(document.querySelector("#element").dataset.attribute, null)
 
       await executeStream(
-        '<turbo-stream action="set_dataset_attribute" attribute="attribute" value="my-value" target="element"></turbo-stream>'
+        '<turbo-stream action="set_dataset_attribute" attribute="attribute" value="my-value" target="element"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element").dataset.attribute, "my-value")
@@ -58,7 +58,7 @@ describe("set_dataset_attribute", () => {
       assert.equal(document.querySelector("#element").dataset.attribute, "previous-value")
 
       await executeStream(
-        '<turbo-stream action="set_dataset_attribute" attribute="attribute" value="" target="element"></turbo-stream>'
+        '<turbo-stream action="set_dataset_attribute" attribute="attribute" value="" target="element"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element").dataset.attribute, "")
@@ -70,7 +70,7 @@ describe("set_dataset_attribute", () => {
       assert.equal(document.querySelector("#element").dataset.attribute, "previous-value")
 
       await executeStream(
-        '<turbo-stream action="set_dataset_attribute" attribute="attribute" value="" target="element"></turbo-stream>'
+        '<turbo-stream action="set_dataset_attribute" attribute="attribute" value="" target="element"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element").dataset.attribute, "")
@@ -82,7 +82,7 @@ describe("set_dataset_attribute", () => {
       assert.equal(document.querySelector("#element").dataset.attribute, "previous-value")
 
       await executeStream(
-        '<turbo-stream action="set_dataset_attribute" attribute="attribute" target="element"></turbo-stream>'
+        '<turbo-stream action="set_dataset_attribute" attribute="attribute" target="element"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element").dataset.attribute, "")
@@ -94,7 +94,7 @@ describe("set_dataset_attribute", () => {
       assert.equal(document.querySelector("#element").dataset.camelcasedAttribute, null)
 
       await executeStream(
-        '<turbo-stream action="set_dataset_attribute" attribute="camelcasedAttribute" value="camelcasedValue" target="element"></turbo-stream>'
+        '<turbo-stream action="set_dataset_attribute" attribute="camelcasedAttribute" value="camelcasedValue" target="element"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element").dataset.camelcasedAttribute, "camelcasedValue")
@@ -106,7 +106,7 @@ describe("set_dataset_attribute", () => {
       assert.equal(document.querySelector("#element").dataset.dashedAttribute, null)
 
       await executeStream(
-        '<turbo-stream action="set_dataset_attribute" attribute="dashed-attribute" value="dashed-value" target="element"></turbo-stream>'
+        '<turbo-stream action="set_dataset_attribute" attribute="dashed-attribute" value="dashed-value" target="element"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element").dataset.dashedAttribute, "dashed-value")
@@ -126,7 +126,7 @@ describe("set_dataset_attribute", () => {
       assert.equal(document.querySelector("#element3").dataset.attribute, null)
 
       await executeStream(
-        '<turbo-stream action="set_dataset_attribute" attribute="attribute" value="my-value" targets="div"></turbo-stream>'
+        '<turbo-stream action="set_dataset_attribute" attribute="attribute" value="my-value" targets="div"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element1").dataset.attribute, "my-value")
@@ -146,7 +146,7 @@ describe("set_dataset_attribute", () => {
       assert.equal(document.querySelector("#element3").dataset.attribute, "previous-value")
 
       await executeStream(
-        '<turbo-stream action="set_dataset_attribute" attribute="attribute" value="" targets="div"></turbo-stream>'
+        '<turbo-stream action="set_dataset_attribute" attribute="attribute" value="" targets="div"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element1").dataset.attribute, "")
@@ -166,7 +166,7 @@ describe("set_dataset_attribute", () => {
       assert.equal(document.querySelector("#element3").dataset.attribute, "previous-value")
 
       await executeStream(
-        '<turbo-stream action="set_dataset_attribute" attribute="attribute" value="" targets="div"></turbo-stream>'
+        '<turbo-stream action="set_dataset_attribute" attribute="attribute" value="" targets="div"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element1").dataset.attribute, "")
@@ -186,7 +186,7 @@ describe("set_dataset_attribute", () => {
       assert.equal(document.querySelector("#element3").dataset.attribute, "previous-value")
 
       await executeStream(
-        '<turbo-stream action="set_dataset_attribute" attribute="attribute" targets="div"></turbo-stream>'
+        '<turbo-stream action="set_dataset_attribute" attribute="attribute" targets="div"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element1").dataset.attribute, "")
@@ -206,7 +206,7 @@ describe("set_dataset_attribute", () => {
       assert.equal(document.querySelector("#element3").dataset.camelcasedAttribute, null)
 
       await executeStream(
-        '<turbo-stream action="set_dataset_attribute" attribute="camelcasedAttribute" value="camelcasedValue" targets="div"></turbo-stream>'
+        '<turbo-stream action="set_dataset_attribute" attribute="camelcasedAttribute" value="camelcasedValue" targets="div"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element1").dataset.camelcasedAttribute, "camelcasedValue")
@@ -226,7 +226,7 @@ describe("set_dataset_attribute", () => {
       assert.equal(document.querySelector("#element3").dataset.dashedAttribute, null)
 
       await executeStream(
-        '<turbo-stream action="set_dataset_attribute" attribute="dashed-attribute" value="dashed-value" targets="div"></turbo-stream>'
+        '<turbo-stream action="set_dataset_attribute" attribute="dashed-attribute" value="dashed-value" targets="div"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element1").dataset.dashedAttribute, "dashed-value")

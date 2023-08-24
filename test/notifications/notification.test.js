@@ -66,7 +66,7 @@ describe("notification", () => {
         `<turbo-stream
           action="notification"
           title="May I have your attention..."
-          ></turbo-stream>`
+          ></turbo-stream>`,
       )
 
       assert.equal(stub.callCount, 1)
@@ -95,7 +95,7 @@ describe("notification", () => {
           require-interaction="true"
           actions='[{"action": "respond", "title": "Please respond", "icon": "https://example.com/icon.png"}]'
           silent="true"
-          ></turbo-stream>`
+          ></turbo-stream>`,
       )
 
       assert.equal(stub.callCount, 1)
@@ -137,7 +137,7 @@ describe("notification", () => {
           actions="[{&quot;action&quot;:&quot;respond&quot;,&quot;title&quot;:&quot;Please respond&quot;,&quot;icon&quot;:&quot;https://example.com/icon.png&quot;}]"
           silent="true"
           action="notification"
-        ></turbo-stream>`
+        ></turbo-stream>`,
       )
 
       assert.equal(stub.callCount, 1)

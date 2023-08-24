@@ -19,7 +19,7 @@ describe("set_cookie", () => {
     await executeStream(
       `<turbo-stream
         action="set_cookie"
-        cookie="foo=bar"></turbo-stream>`
+        cookie="foo=bar"></turbo-stream>`,
     )
 
     assert.equal(fake.firstArg, "foo=bar")
@@ -32,7 +32,7 @@ describe("set_cookie", () => {
     await executeStream(
       `<turbo-stream
         action="set_cookie"
-        cookie="foo=bar; whatever;"></turbo-stream>`
+        cookie="foo=bar; whatever;"></turbo-stream>`,
     )
 
     assert.equal(fake.firstArg, "foo=bar; whatever;")
