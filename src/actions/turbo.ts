@@ -1,14 +1,23 @@
 import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 import { Action } from "@hotwired/turbo/dist/types/core/types"
+import { VisitOptions } from "@hotwired/turbo/dist/types/core/drive/visit"
 import Proxy from "../proxy"
 
 export function redirect_to(this: StreamElement) {
   const url = this.getAttribute("url") || "/"
   const turboAction = (this.getAttribute("turbo-action") || "advance") as Action
+  const turboFrame = this.getAttribute("turbo-frame")
   const turbo = this.getAttribute("turbo") !== "false"
+  const options: Partial<VisitOptions> = {
+    action: turboAction,
+  }
+
+  if (turboFrame) {
+    options.frame = turboFrame
+  }
 
   if (turbo && window.Turbo) {
-    window.Turbo.visit(url, { action: turboAction })
+    window.Turbo.visit(url, options)
   } else {
     Proxy.location.assign(url)
   }
