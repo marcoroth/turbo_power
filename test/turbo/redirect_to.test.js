@@ -45,7 +45,7 @@ describe("redirect_to", () => {
       sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(
-        `<turbo-stream action="redirect_to" url="http://localhost:8080" turbo="false"></turbo-stream>`
+        `<turbo-stream action="redirect_to" url="http://localhost:8080" turbo="false"></turbo-stream>`,
       )
 
       assert.equal(Turbo.visit.callCount, 0)
@@ -71,7 +71,7 @@ describe("redirect_to", () => {
       sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(
-        `<turbo-stream action="redirect_to" url="http://localhost:8080" turbo-action="replace"></turbo-stream>`
+        `<turbo-stream action="redirect_to" url="http://localhost:8080" turbo-action="replace"></turbo-stream>`,
       )
 
       const expected = ["http://localhost:8080", { action: "replace" }]
@@ -85,7 +85,7 @@ describe("redirect_to", () => {
       sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(
-        `<turbo-stream action="redirect_to" url="http://localhost:8080" turbo-action="restore"></turbo-stream>`
+        `<turbo-stream action="redirect_to" url="http://localhost:8080" turbo-action="restore"></turbo-stream>`,
       )
 
       const expected = ["http://localhost:8080", { action: "restore" }]
@@ -151,7 +151,7 @@ describe("redirect_to", () => {
       sinon.replace(window, "Turbo", { visit: sinon.fake() })
 
       await executeStream(
-        `<turbo-stream action="redirect_to" turbo-frame="modals" url="http://localhost:8080"></turbo-stream>`
+        `<turbo-stream action="redirect_to" turbo-frame="modals" url="http://localhost:8080"></turbo-stream>`,
       )
 
       const expected = ["http://localhost:8080", { action: "advance", frame: "modals" }]

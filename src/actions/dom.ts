@@ -10,7 +10,7 @@ export function graft(this: StreamElement) {
       this.targetElements.forEach((element: Element) => parent.appendChild(element))
     } else {
       console.error(
-        `[TurboPower] couldn't find parent element using selector "${selector}" for Turbo Streams operation "graft"`
+        `[TurboPower] couldn't find parent element using selector "${selector}" for Turbo Streams operation "graft"`,
       )
     }
   } else {

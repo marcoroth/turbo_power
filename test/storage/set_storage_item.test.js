@@ -61,7 +61,7 @@ describe("set_storage_item", () => {
       assert.equal(sessionStorage.getItem("key1"), null)
 
       await executeStream(
-        '<turbo-stream action="set_storage_item" key="key1" value="value1" type="local"></turbo-stream>'
+        '<turbo-stream action="set_storage_item" key="key1" value="value1" type="local"></turbo-stream>',
       )
 
       assert.equal(localStorage.getItem("key1"), "value1")
@@ -109,7 +109,7 @@ describe("set_storage_item", () => {
       assert.equal(localStorage.getItem("key1"), null)
 
       await executeStream(
-        '<turbo-stream action="set_storage_item" key="key1" value="value1" type="session"></turbo-stream>'
+        '<turbo-stream action="set_storage_item" key="key1" value="value1" type="session"></turbo-stream>',
       )
 
       assert.equal(sessionStorage.getItem("key1"), "value1")

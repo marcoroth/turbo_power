@@ -46,7 +46,7 @@ describe("remove_attribute", () => {
       assert.equal(document.querySelector("#element").getAttribute("my-attribute"), "previous-value")
 
       await executeStream(
-        '<turbo-stream action="remove_attribute" attribute="my-attribute" target="element"></turbo-stream>'
+        '<turbo-stream action="remove_attribute" attribute="my-attribute" target="element"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element").getAttribute("my-attribute"), null)
@@ -66,7 +66,7 @@ describe("remove_attribute", () => {
       assert.equal(document.querySelector("#element3").getAttribute("my-attribute"), "previous-value")
 
       await executeStream(
-        '<turbo-stream action="remove_attribute" attribute="my-attribute" value="my-value" targets="div"></turbo-stream>'
+        '<turbo-stream action="remove_attribute" attribute="my-attribute" value="my-value" targets="div"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element1").getAttribute("my-attribute"), null)

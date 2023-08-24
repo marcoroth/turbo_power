@@ -80,7 +80,7 @@ describe("remove_css_class", () => {
       assert.equal(document.querySelector("#element").getAttribute("class"), "one two three")
 
       await executeStream(
-        '<turbo-stream action="remove_css_class" classes="one two three" target="element"></turbo-stream>'
+        '<turbo-stream action="remove_css_class" classes="one two three" target="element"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element").getAttribute("class"), "")
@@ -154,7 +154,7 @@ describe("remove_css_class", () => {
       assert.equal(document.querySelector("#element3").getAttribute("class"), "one two three")
 
       await executeStream(
-        '<turbo-stream action="remove_css_class" classes="one two three" targets="div"></turbo-stream>'
+        '<turbo-stream action="remove_css_class" classes="one two three" targets="div"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element1").getAttribute("class"), "")

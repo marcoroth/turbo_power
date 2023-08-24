@@ -70,7 +70,7 @@ describe("add_css_class", () => {
       assert.equal(document.querySelector("#element").getAttribute("class"), null)
 
       await executeStream(
-        '<turbo-stream action="add_css_class" classes="one two three" target="element"></turbo-stream>'
+        '<turbo-stream action="add_css_class" classes="one two three" target="element"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element").getAttribute("class"), "one two three")
@@ -82,7 +82,7 @@ describe("add_css_class", () => {
       assert.equal(document.querySelector("#element").getAttribute("class"), "already present classes")
 
       await executeStream(
-        '<turbo-stream action="add_css_class" classes="one two three" target="element"></turbo-stream>'
+        '<turbo-stream action="add_css_class" classes="one two three" target="element"></turbo-stream>',
       )
 
       assert.equal(document.querySelector("#element").getAttribute("class"), "already present classes one two three")

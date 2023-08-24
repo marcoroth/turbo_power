@@ -20,7 +20,7 @@ describe("set_cookie_item", () => {
       `<turbo-stream
         action="set_cookie_item"
         name="foo"
-        value="bar"></turbo-stream>`
+        value="bar"></turbo-stream>`,
     )
 
     assert.equal(fake.firstArg, "foo=bar")
@@ -35,7 +35,7 @@ describe("set_cookie_item", () => {
         action="set_cookie_item"
         name="foo"
         value="bar"
-        domain="example.com"></turbo-stream>`
+        domain="example.com"></turbo-stream>`,
     )
 
     assert.equal(fake.firstArg, "foo=bar; Domain=example.com")
@@ -50,7 +50,7 @@ describe("set_cookie_item", () => {
         action="set_cookie_item"
         name="foo"
         value="bar"
-        path="/path"></turbo-stream>`
+        path="/path"></turbo-stream>`,
     )
 
     assert.equal(fake.firstArg, "foo=bar; Path=/path")
@@ -65,7 +65,7 @@ describe("set_cookie_item", () => {
         action="set_cookie_item"
         name="foo"
         value="bar"
-        expires="Thu, 31 Oct 2021 07:28:00 GMT"></turbo-stream>`
+        expires="Thu, 31 Oct 2021 07:28:00 GMT"></turbo-stream>`,
     )
 
     assert.equal(fake.firstArg, "foo=bar; Expires=Thu, 31 Oct 2021 07:28:00 GMT")
@@ -80,7 +80,7 @@ describe("set_cookie_item", () => {
         action="set_cookie_item"
         name="foo"
         value="bar"
-        max-age="75"></turbo-stream>`
+        max-age="75"></turbo-stream>`,
     )
 
     assert.equal(fake.firstArg, "foo=bar; Max-Age=75")
@@ -95,7 +95,7 @@ describe("set_cookie_item", () => {
         action="set_cookie_item"
         name="foo"
         value="bar"
-        http-only></turbo-stream>`
+        http-only></turbo-stream>`,
     )
 
     assert.equal(fake.firstArg, "foo=bar; HttpOnly")
@@ -110,7 +110,7 @@ describe("set_cookie_item", () => {
         action="set_cookie_item"
         name="foo"
         value="bar"
-        secure></turbo-stream>`
+        secure></turbo-stream>`,
     )
 
     assert.equal(fake.firstArg, "foo=bar; Secure")
@@ -125,7 +125,7 @@ describe("set_cookie_item", () => {
         action="set_cookie_item"
         name="foo"
         value="bar"
-        same-site="strict"></turbo-stream>`
+        same-site="strict"></turbo-stream>`,
     )
 
     assert.equal(fake.firstArg, "foo=bar; SameSite=strict")
@@ -147,12 +147,12 @@ describe("set_cookie_item", () => {
         http-only
         secure
         same-site="strict"
-        ></turbo-stream>`
+        ></turbo-stream>`,
     )
 
     assert.equal(
       fake.firstArg,
-      "foo=bar; Domain=example.com; Path=/path; Expires=Thu, 31 Oct 2021 07:28:00 GMT; Max-Age=15; HttpOnly; Secure; SameSite=strict"
+      "foo=bar; Domain=example.com; Path=/path; Expires=Thu, 31 Oct 2021 07:28:00 GMT; Max-Age=15; HttpOnly; Secure; SameSite=strict",
     )
     assert.equal(fake.callCount, 1)
   })
