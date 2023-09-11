@@ -871,10 +871,10 @@
     rollup "^3.15.0"
     whatwg-url "^11.0.0"
 
-"@web/dev-server@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@web/dev-server/-/dev-server-0.3.0.tgz#9818bc2c8b88b61761b70081a8ac2afedfb4d308"
-  integrity sha512-QlKiWrf8MAUIXAhMSGuBepXyZFNOi3GDPQGsnf5ZAnFXUAOT3LCXiKSBMSKfXIrPpFQ7AzyJwT+KIZ7LvnMJcg==
+"@web/dev-server@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@web/dev-server/-/dev-server-0.3.1.tgz#43c90b38e287788f20fc72f8b85f6c5789b6c7df"
+  integrity sha512-RYxamuwR/mGjVcYR8+VXXwluqjEzfpOJSBSSHr3F/U7ecC0veKSAbTOHCwv++SNNU8/PY+dg9g8Ss+X2gSwIaw==
   dependencies:
     "@babel/code-frame" "^7.12.11"
     "@types/command-line-args" "^5.0.0"
@@ -978,13 +978,13 @@
     "@web/test-runner-core" "^0.11.1"
 
 "@web/test-runner@^0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@web/test-runner/-/test-runner-0.17.0.tgz#d795e72fefd54f32142e723d9e34b3b16f15d59b"
-  integrity sha512-wt2auPsy8ZChqqiCrRdS4DInCAUnEOYZfpPV9Shx/6/UKqhg8MTgPJQ53wDRsCjzxxgZLhVeBpGKP3jmZriFxw==
+  version "0.17.1"
+  resolved "https://registry.yarnpkg.com/@web/test-runner/-/test-runner-0.17.1.tgz#fd05e9db64fac09b203bb850df2252116267294b"
+  integrity sha512-xHlvdopBUuU7yexB7WpKdThY3CszWw2Cz9/CCDGnSUPzOFZgDLhcQKpbHjZdW21ggINoWq2nx+6eCTQ448o9kw==
   dependencies:
     "@web/browser-logs" "^0.3.3"
     "@web/config-loader" "^0.2.1"
-    "@web/dev-server" "^0.3.0"
+    "@web/dev-server" "^0.3.1"
     "@web/test-runner-chrome" "^0.14.0"
     "@web/test-runner-commands" "^0.8.0"
     "@web/test-runner-core" "^0.11.1"
