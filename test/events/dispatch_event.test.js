@@ -44,7 +44,7 @@ describe("dispatch_event", () => {
       await fixture('<div id="element"></div>')
 
       const expectedWarning =
-        '[TurboPower] error proccessing provided "detail" in "<template>" ("{ this is not valid }") for Turbo Streams operation "dispatch_event". Error: "Expected property name or \'}\' in JSON at position 2"'
+        '[TurboPower] error proccessing provided "detail" in "<template>" ("{ this is not valid }") for Turbo Streams operation "dispatch_event". Error: "Expected property name or \'}\' in JSON at position 2 (line 1 column 3)"'
 
       assert(!console.error.calledWith(expectedWarning), `console.error wasn't called with "${expectedWarning}"`)
 
