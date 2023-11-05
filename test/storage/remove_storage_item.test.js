@@ -60,31 +60,31 @@ describe("remove_storage_item", () => {
     })
 
     it('should remove local storage item with "type=local"', async () => {
-      localStorage.setItem("key1", "value1")
-      sessionStorage.setItem("key1", "value1")
+      localStorage.setItem("key2", "value2")
+      sessionStorage.setItem("key2", "value2")
 
-      assert.equal(localStorage.getItem("key1"), "value1")
-      assert.equal(sessionStorage.getItem("key1"), "value1")
+      assert.equal(localStorage.getItem("key2"), "value2")
+      assert.equal(sessionStorage.getItem("key2"), "value2")
 
-      await executeStream('<turbo-stream action="remove_storage_item" key="key1" type="local"></turbo-stream>')
+      await executeStream('<turbo-stream action="remove_storage_item" key="key2" type="local"></turbo-stream>')
 
-      assert.equal(localStorage.getItem("key1"), null)
-      assert.equal(sessionStorage.getItem("key1"), "value1")
+      assert.equal(localStorage.getItem("key2"), null)
+      assert.equal(sessionStorage.getItem("key2"), "value2")
     })
   })
 
   context("sessionStorage", () => {
     it('should remove session storage item with "type=session"', async () => {
-      sessionStorage.setItem("key1", "value1")
-      localStorage.setItem("key1", "value1")
+      sessionStorage.setItem("key3", "value3")
+      localStorage.setItem("key3", "value3")
 
-      assert.equal(sessionStorage.getItem("key1"), "value1")
-      assert.equal(localStorage.getItem("key1"), "value1")
+      assert.equal(sessionStorage.getItem("key3"), "value3")
+      assert.equal(localStorage.getItem("key3"), "value3")
 
-      await executeStream('<turbo-stream action="remove_storage_item" key="key1" type="session"></turbo-stream>')
+      await executeStream('<turbo-stream action="remove_storage_item" key="key3" type="session"></turbo-stream>')
 
-      assert.equal(sessionStorage.getItem("key1"), null)
-      assert.equal(localStorage.getItem("key1"), "value1")
+      assert.equal(sessionStorage.getItem("key3"), null)
+      assert.equal(localStorage.getItem("key3"), "value3")
     })
   })
 })
