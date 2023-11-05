@@ -107,7 +107,13 @@ export function replace_css_class(this: StreamElement) {
   const to = this.getAttribute("to") || ""
 
   if (from && to) {
-    this.targetElements.forEach((element: HTMLElement) => element.classList.replace(from, to))
+    this.targetElements.forEach((element: HTMLElement) => {
+      const wasReplaced = element.classList.replace(from, to)
+
+      if (!wasReplaced) {
+        console.warn(`[TurboPower] The "${from}" CSS class provided in the "from" attribute for the "replace_css_class" action was not found on the target element. No replacements made.`, element)
+      }
+    })
   } else {
     console.warn(`[TurboPower] no "from" or "to" class provided for Turbo Streams operation "replace_css_class"`)
   }
