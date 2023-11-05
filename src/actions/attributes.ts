@@ -111,7 +111,10 @@ export function replace_css_class(this: StreamElement) {
       const wasReplaced = element.classList.replace(from, to)
 
       if (!wasReplaced) {
-        console.warn(`[TurboPower] The "${from}" CSS class provided in the "from" attribute for the "replace_css_class" action was not found on the target element. No replacements made.`, element)
+        console.warn(
+          `[TurboPower] The "${from}" CSS class provided in the "from" attribute for the "replace_css_class" action was not found on the target element. No replacements made.`,
+          element,
+        )
       }
     })
   } else {

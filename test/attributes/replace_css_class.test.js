@@ -51,11 +51,16 @@ describe("replace_css_class", () => {
       assert.equal(element.getAttribute("class"), "")
       assert.equal(spy.callCount, 0)
 
-      await executeStream('<turbo-stream action="replace_css_class" target="element" from="one" to="two"></turbo-stream>')
+      await executeStream(
+        '<turbo-stream action="replace_css_class" target="element" from="one" to="two"></turbo-stream>',
+      )
 
       assert.equal(element.getAttribute("class"), "")
       assert.equal(spy.callCount, 1)
-      assert.equal(spy.firstCall.firstArg, `[TurboPower] The "one" CSS class provided in the "from" attribute for the "replace_css_class" action was not found on the target element. No replacements made.`)
+      assert.equal(
+        spy.firstCall.firstArg,
+        `[TurboPower] The "one" CSS class provided in the "from" attribute for the "replace_css_class" action was not found on the target element. No replacements made.`,
+      )
       assert.equal(spy.firstCall.lastArg, element)
     })
   })

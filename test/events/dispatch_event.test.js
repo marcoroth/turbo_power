@@ -22,7 +22,7 @@ describe("dispatch_event", () => {
       assert.equal(spy.callCount, 1)
       assert.equal(
         spy.firstCall.firstArg,
-        '[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"'
+        '[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"',
       )
     })
 
@@ -38,7 +38,7 @@ describe("dispatch_event", () => {
       assert.equal(spy.callCount, 1)
       assert.equal(
         spy.firstCall.firstArg,
-        '[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"'
+        '[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"',
       )
     })
 
