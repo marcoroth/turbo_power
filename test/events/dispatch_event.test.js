@@ -11,48 +11,53 @@ describe("dispatch_event", () => {
     })
 
     it("should do nothing and print warning if attribute is empty", async () => {
-      sinon.replace(console, "warn", sinon.fake())
+      const spy = sinon.spy(console, "warn")
 
       await fixture('<div id="element"></div>')
 
-      const expectedWarning = '[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"'
-
-      assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(spy.callCount, 0)
 
       await executeStream('<turbo-stream action="dispatch_event" name="" target="element"></turbo-stream>')
 
-      assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(spy.callCount, 1)
+      assert.equal(
+        spy.firstCall.firstArg,
+        '[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"'
+      )
     })
 
     it('should do nothing and print warning if "attribute" attribute is missing', async () => {
-      sinon.replace(console, "warn", sinon.fake())
+      const spy = sinon.spy(console, "warn")
 
       await fixture('<div id="element"></div>')
 
-      const expectedWarning = '[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"'
-
-      assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(spy.callCount, 0)
 
       await executeStream('<turbo-stream action="dispatch_event" target="element"></turbo-stream>')
 
-      assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(spy.callCount, 1)
+      assert.equal(
+        spy.firstCall.firstArg,
+        '[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"'
+      )
     })
 
     it("should error out when detail is not valid json", async () => {
-      sinon.replace(console, "error", sinon.fake())
+      const spy = sinon.spy(console, "error")
 
       await fixture('<div id="element"></div>')
 
-      const expectedWarning =
-        '[TurboPower] error proccessing provided "detail" in "<template>" ("{ this is not valid }") for Turbo Streams operation "dispatch_event". Error: "Expected property name or \'}\' in JSON at position 2 (line 1 column 3)"'
-
-      assert(!console.error.calledWith(expectedWarning), `console.error wasn't called with "${expectedWarning}"`)
+      assert.equal(spy.callCount, 0)
 
       await executeStream(
         '<turbo-stream action="dispatch_event" name="my:event" target="element"><template>{ this is not valid }</template></turbo-stream>',
       )
 
-      assert(console.error.calledWith(expectedWarning), `console.error wasn't called with "${expectedWarning}"`)
+      assert.equal(spy.callCount, 1)
+      assert.equal(
+        spy.firstCall.firstArg,
+        '[TurboPower] error proccessing provided "detail" in "<template>" ("{ this is not valid }") for Turbo Streams operation "dispatch_event".',
+      )
     })
   })
 
