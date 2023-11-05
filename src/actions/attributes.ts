@@ -102,6 +102,17 @@ export function toggle_css_class(this: StreamElement) {
   }
 }
 
+export function replace_css_class(this: StreamElement) {
+  const from = this.getAttribute("from") || ""
+  const to = this.getAttribute("to") || ""
+
+  if (from && to) {
+    this.targetElements.forEach((element: HTMLElement) => element.classList.replace(from, to))
+  } else {
+    console.warn(`[TurboPower] no "from" or "to" class provided for Turbo Streams operation "replace_css_class"`)
+  }
+}
+
 export function registerAttributesActions(streamActions: TurboStreamActions) {
   streamActions.add_css_class = add_css_class
   streamActions.remove_css_class = remove_css_class
@@ -113,4 +124,5 @@ export function registerAttributesActions(streamActions: TurboStreamActions) {
   streamActions.set_styles = set_styles
   streamActions.set_value = set_value
   streamActions.toggle_css_class = toggle_css_class
+  streamActions.replace_css_class = replace_css_class
 }
