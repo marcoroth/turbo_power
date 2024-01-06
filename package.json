@@ -39,7 +39,7 @@
     "rimraf": "^5.0.1",
     "rollup": "^4.1.5",
     "rollup-plugin-filesize": "^10.0.0",
-    "sinon": "^16.0.0",
+    "sinon": "^17.0.1",
     "sourcemap": "^0.1.0",
     "tslib": "^2.6.2",
     "turbo-morph": "^0.2.0",
