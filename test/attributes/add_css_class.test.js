@@ -11,35 +11,35 @@ describe("add_css_class", () => {
     })
 
     it("should do nothing and print warning if no classes were provided", async () => {
-      sinon.replace(console, "warn", sinon.fake())
+      const fake = sinon.replace(console, "warn", sinon.fake())
+      const expectedWarning = '[TurboPower] no "classes" provided for Turbo Streams operation "add_css_class"'
 
       await fixture('<div id="element"></div>')
 
-      const expectedWarning = '[TurboPower] no "classes" provided for Turbo Streams operation "add_css_class"'
-
       assert.equal(document.querySelector("#element").getAttribute("class"), null)
-      assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(fake.callCount, 0)
 
       await executeStream('<turbo-stream action="add_css_class" classes="" target="element"></turbo-stream>')
 
       assert.equal(document.querySelector("#element").getAttribute("class"), null)
-      assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(fake.callCount, 1)
+      assert.equal(fake.firstArg, expectedWarning)
     })
 
     it('should do nothing and print warning if "classes" attribute is missing', async () => {
-      sinon.replace(console, "warn", sinon.fake())
+      const fake = sinon.replace(console, "warn", sinon.fake())
+      const expectedWarning = '[TurboPower] no "classes" provided for Turbo Streams operation "add_css_class"'
 
       await fixture('<div id="element"></div>')
 
-      const expectedWarning = '[TurboPower] no "classes" provided for Turbo Streams operation "add_css_class"'
-
       assert.equal(document.querySelector("#element").getAttribute("class"), null)
-      assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(fake.callCount, 0)
 
       await executeStream('<turbo-stream action="add_css_class" target="element"></turbo-stream>')
 
       assert.equal(document.querySelector("#element").getAttribute("class"), null)
-      assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(fake.callCount, 1)
+      assert.equal(fake.firstArg, expectedWarning)
     })
   })
 

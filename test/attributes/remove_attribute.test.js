@@ -11,37 +11,37 @@ describe("remove_attribute", () => {
     })
 
     it("should do nothing and print warning if attribute is empty", async () => {
-      sinon.replace(console, "warn", sinon.fake())
+      const fake = sinon.replace(console, "warn", sinon.fake())
+      const expectedWarning = '[TurboPower] no "attribute" provided for Turbo Streams operation "remove_attribute"'
 
       await fixture('<div id="element"></div>')
 
-      const expectedWarning = '[TurboPower] no "attribute" provided for Turbo Streams operation "remove_attribute"'
-
-      assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(fake.callCount, 0)
 
       await executeStream('<turbo-stream action="remove_attribute" attribute="" target="element"></turbo-stream>')
 
-      assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(fake.callCount, 1)
+      assert.equal(fake.firstArg, expectedWarning)
     })
 
     it('should do nothing and print warning if "attribute" attribute is missing', async () => {
-      sinon.replace(console, "warn", sinon.fake())
+      const fake = sinon.replace(console, "warn", sinon.fake())
+      const expectedWarning = '[TurboPower] no "attribute" provided for Turbo Streams operation "remove_attribute"'
 
       await fixture('<div id="element"></div>')
 
-      const expectedWarning = '[TurboPower] no "attribute" provided for Turbo Streams operation "remove_attribute"'
-
-      assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(fake.callCount, 0)
 
       await executeStream('<turbo-stream action="remove_attribute" target="element"></turbo-stream>')
 
-      assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(fake.callCount, 1)
+      assert.equal(fake.firstArg, expectedWarning)
     })
   })
 
   context("target", () => {
     it("should remove attribute", async () => {
-      await fixture(html` <div id="element" my-attribute="previous-value"></div> `)
+      await fixture(html`<div id="element" my-attribute="previous-value"></div>`)
 
       assert.equal(document.querySelector("#element").getAttribute("my-attribute"), "previous-value")
 

@@ -11,31 +11,31 @@ describe("set_property", () => {
     })
 
     it('should do nothing and print warning if "name" attribute is empty', async () => {
-      sinon.replace(console, "error", sinon.fake())
+      const fake = sinon.replace(console, "error", sinon.fake())
+      const expectedError = '[TurboPower] no "name" provided for Turbo Streams operation "set_property"'
 
       await fixture('<div id="element"></div>')
 
-      const expectedError = '[TurboPower] no "name" provided for Turbo Streams operation "set_property"'
-
-      assert(!console.error.calledWith(expectedError), `console.error wasn't called with "${expectedError}"`)
+      assert.equal(fake.callCount, 0)
 
       await executeStream('<turbo-stream action="set_property" name="" target="element" value=""></turbo-stream>')
 
-      assert(console.error.calledWith(expectedError), `console.error wasn't called with "${expectedError}"`)
+      assert.equal(fake.callCount, 1)
+      assert.equal(fake.firstArg, expectedError)
     })
 
     it('should do nothing and print warning if "name" attribute is missing', async () => {
-      sinon.replace(console, "error", sinon.fake())
+      const fake = sinon.replace(console, "error", sinon.fake())
+      const expectedError = '[TurboPower] no "name" provided for Turbo Streams operation "set_property"'
 
       await fixture('<div id="element"></div>')
 
-      const expectedError = '[TurboPower] no "name" provided for Turbo Streams operation "set_property"'
-
-      assert(!console.error.calledWith(expectedError), `console.error wasn't called with "${expectedError}"`)
+      assert.equal(fake.callCount, 0)
 
       await executeStream('<turbo-stream action="set_property" target="element"></turbo-stream>')
 
-      assert(console.error.calledWith(expectedError), `console.error wasn't called with "${expectedError}"`)
+      assert.equal(fake.callCount, 1)
+      assert.equal(fake.firstArg, expectedError)
     })
   })
 
