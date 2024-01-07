@@ -14,6 +14,7 @@ const filterBrowserLogs = (log) => {
 export default {
   nodeResolve: true,
   filterBrowserLogs,
+  concurrency: 1, // TODO: session storage tests are not supported with concurrency enabled
   mimeTypes: {},
   plugins: []
 }

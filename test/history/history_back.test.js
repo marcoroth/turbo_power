@@ -8,11 +8,15 @@ describe("history_back", () => {
   afterEach(() => {
     sinon.restore()
   })
+
   it("should go back in history", async () => {
-    sinon.replace(window.history, "back", sinon.fake())
+    const fake = sinon.replace(window.history, "back", sinon.fake())
+
+    assert.equal(fake.callCount, 0)
 
     await executeStream(`<turbo-stream action="history_back"></turbo-stream>`)
 
-    assert(window.history.back.called)
+    assert.equal(fake.callCount, 1)
+    assert.equal(fake.firstArg, undefined)
   })
 })

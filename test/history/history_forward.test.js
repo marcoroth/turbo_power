@@ -8,11 +8,15 @@ describe("history_forward", () => {
   afterEach(() => {
     sinon.restore()
   })
+
   it("should go forward in history", async () => {
-    sinon.replace(window.history, "forward", sinon.fake())
+    const fake = sinon.replace(window.history, "forward", sinon.fake())
+
+    assert.equal(fake.callCount, 0)
 
     await executeStream(`<turbo-stream action="history_forward"></turbo-stream>`)
 
-    assert(window.history.forward.called)
+    assert.equal(fake.callCount, 1)
+    assert.equal(fake.firstArg, undefined)
   })
 })

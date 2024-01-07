@@ -11,31 +11,31 @@ describe("set_dataset_attribute", () => {
     })
 
     it("should do nothing and print warning if attribute is empty", async () => {
-      sinon.replace(console, "warn", sinon.fake())
+      const fake = sinon.replace(console, "warn", sinon.fake())
+      const expectedWarning = '[TurboPower] no "attribute" provided for Turbo Streams operation "set_dataset_attribute"'
 
       await fixture('<div id="element"></div>')
 
-      const expectedWarning = '[TurboPower] no "attribute" provided for Turbo Streams operation "set_dataset_attribute"'
-
-      assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(fake.callCount, 0)
 
       await executeStream('<turbo-stream action="set_dataset_attribute" attribute="" target="element"></turbo-stream>')
 
-      assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(fake.callCount, 1)
+      assert.equal(fake.firstArg, expectedWarning)
     })
 
     it('should do nothing and print warning if "attribute" attribute is missing', async () => {
-      sinon.replace(console, "warn", sinon.fake())
+      const fake = sinon.replace(console, "warn", sinon.fake())
+      const expectedWarning = '[TurboPower] no "attribute" provided for Turbo Streams operation "set_dataset_attribute"'
 
       await fixture('<div id="element"></div>')
 
-      const expectedWarning = '[TurboPower] no "attribute" provided for Turbo Streams operation "set_dataset_attribute"'
-
-      assert(!console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(fake.callCount, 0)
 
       await executeStream('<turbo-stream action="set_dataset_attribute" target="element"></turbo-stream>')
 
-      assert(console.warn.calledWith(expectedWarning), `console.warn wasn't called with "${expectedWarning}"`)
+      assert.equal(fake.callCount, 1)
+      assert.equal(fake.firstArg, expectedWarning)
     })
   })
 

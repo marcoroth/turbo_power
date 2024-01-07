@@ -11,52 +11,46 @@ describe("dispatch_event", () => {
     })
 
     it("should do nothing and print warning if attribute is empty", async () => {
-      const spy = sinon.spy(console, "warn")
+      const fake = sinon.replace(console, "warn", sinon.fake())
 
       await fixture('<div id="element"></div>')
 
-      assert.equal(spy.callCount, 0)
+      assert.equal(fake.callCount, 0)
 
       await executeStream('<turbo-stream action="dispatch_event" name="" target="element"></turbo-stream>')
 
-      assert.equal(spy.callCount, 1)
-      assert.equal(
-        spy.firstCall.firstArg,
-        '[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"',
-      )
+      assert.equal(fake.callCount, 1)
+      assert.equal(fake.firstArg, '[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"')
     })
 
     it('should do nothing and print warning if "attribute" attribute is missing', async () => {
-      const spy = sinon.spy(console, "warn")
+      const fake = sinon.replace(console, "warn", sinon.fake())
 
       await fixture('<div id="element"></div>')
 
-      assert.equal(spy.callCount, 0)
+      assert.equal(fake.callCount, 0)
 
       await executeStream('<turbo-stream action="dispatch_event" target="element"></turbo-stream>')
 
-      assert.equal(spy.callCount, 1)
-      assert.equal(
-        spy.firstCall.firstArg,
-        '[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"',
-      )
+      assert.equal(fake.callCount, 1)
+      assert.equal(fake.firstArg, '[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"')
     })
 
     it("should error out when detail is not valid json", async () => {
-      const spy = sinon.spy(console, "error")
+      const fake = sinon.replace(console, "error", sinon.fake())
 
       await fixture('<div id="element"></div>')
 
-      assert.equal(spy.callCount, 0)
+      assert.equal(fake.callCount, 0)
 
       await executeStream(
         '<turbo-stream action="dispatch_event" name="my:event" target="element"><template>{ this is not valid }</template></turbo-stream>',
       )
 
-      assert.equal(spy.callCount, 1)
+      assert.equal(fake.callCount, 1)
       assert.equal(
-        spy.firstCall.firstArg,
-        '[TurboPower] error proccessing provided "detail" in "<template>" ("{ this is not valid }") for Turbo Streams operation "dispatch_event".',
+        fake.firstArg,
+        `[TurboPower] error proccessing provided "detail" in "<template>" ("{ this is not valid }") for Turbo Streams operation "dispatch_event".`,
       )
     })
   })
