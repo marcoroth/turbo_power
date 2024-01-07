@@ -102,7 +102,10 @@ Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcor
 ### Browser Actions
 
 * `turbo_stream.reload(**attributes)`
-* `turbo_stream.scroll_into_view(target, inline = "nearest")`
+* `turbo_stream.scroll_into_view()`
+  * `turbo_stream.scroll_into_view(target)`
+  * `turbo_stream.scroll_into_view(target, align_to_top)`
+  * `turbo_stream.scroll_into_view(target, block:, inline:, behavior:)`
 * `turbo_stream.set_focus(target, **attributes)`
 * `turbo_stream.set_title(title, **attributes)`
 

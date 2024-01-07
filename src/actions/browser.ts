@@ -5,7 +5,24 @@ export function reload(this: StreamElement) {
 }
 
 export function scroll_into_view(this: StreamElement) {
-  this.targetElements.forEach((element: Element) => element.scrollIntoView())
+  const alignToTop = this.getAttribute("align-to-top")
+  const block = this.getAttribute("block") as ScrollLogicalPosition
+  const inline = this.getAttribute("inline") as ScrollLogicalPosition
+  const behavior = this.getAttribute("behavior") as ScrollBehavior
+
+  if (alignToTop) {
+    this.targetElements.forEach((element: Element) => element.scrollIntoView(alignToTop === "true"))
+  } else if (block || inline || behavior) {
+    const options: ScrollIntoViewOptions = {}
+
+    if (block) options.block = block
+    if (inline) options.inline = inline
+    if (behavior) options.behavior = behavior
+
+    this.targetElements.forEach((element: Element) => element.scrollIntoView(options))
+  } else {
+    this.targetElements.forEach((element: Element) => element.scrollIntoView())
+  }
 }
 
 export function set_focus(this: StreamElement) {
