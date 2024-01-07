@@ -102,7 +102,9 @@ describe("scroll_into_view", () => {
 
       assert.equal(fake.callCount, 0)
 
-      await executeStream(`<turbo-stream action="scroll_into_view" target="element" block="end" inline="nearest" behavior="smooth"></turbo-stream>`)
+      await executeStream(
+        `<turbo-stream action="scroll_into_view" target="element" block="end" inline="nearest" behavior="smooth"></turbo-stream>`,
+      )
 
       assert.equal(fake.callCount, 1)
       assert.deepEqual(fake.firstArg, { behavior: "smooth", block: "end", inline: "nearest" })
