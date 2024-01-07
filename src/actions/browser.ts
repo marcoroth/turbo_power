@@ -11,16 +11,15 @@ export function scroll_into_view(this: StreamElement) {
   const behavior = this.getAttribute("behavior") as ScrollBehavior
 
   if (alignToTop) {
-    const val = JSON.parse(alignToTop)
-    this.targetElements.forEach((element: Element) => element.scrollIntoView(val))
+    this.targetElements.forEach((element: Element) => element.scrollIntoView(alignToTop === "true"))
   } else if (block || inline || behavior) {
-    this.targetElements.forEach((element: Element) =>
-      element.scrollIntoView({
-        block: block || "start",
-        inline: inline || "nearest",
-        behavior: behavior || "auto",
-      }),
-    )
+    const options: ScrollIntoViewOptions = {}
+
+    if (block) options.block = block
+    if (inline) options.inline = inline
+    if (behavior) options.behavior = behavior
+
+    this.targetElements.forEach((element: Element) => element.scrollIntoView(options))
   } else {
     this.targetElements.forEach((element: Element) => element.scrollIntoView())
   }
