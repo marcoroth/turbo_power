@@ -110,4 +110,20 @@ describe("scroll_into_view", () => {
       assert.deepEqual(fake.firstArg, { behavior: "smooth", block: "end", inline: "nearest" })
     })
   })
+
+  context("with align-to-top, block, inline and behavior option", () => {
+    it("uses align-to-top and ignroes remaining options", async () => {
+      const element = await fixture(html`<div id="element"></div>`)
+      const fake = sinon.replace(element, "scrollIntoView", sinon.fake())
+
+      assert.equal(fake.callCount, 0)
+
+      await executeStream(
+        `<turbo-stream action="scroll_into_view" target="element" align-to-top="false", block="end" inline="nearest" behavior="smooth"></turbo-stream>`,
+      )
+
+      assert.equal(fake.callCount, 1)
+      assert.equal(fake.firstArg, false)
+    })
+  })
 })
