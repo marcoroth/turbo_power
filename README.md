@@ -47,6 +47,10 @@ import * as Turbo from '@hotwired/turbo'
 
 Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcoroth/turbo_power-rails) repo.
 
+## Getting Started with Django
+
+Checkout the doc of the [`django-turbo-helper`](https://github.com/rails-inspire-django/django-turbo-helper) repo.
+
 ## Custom Actions
 
 ### DOM Actions
