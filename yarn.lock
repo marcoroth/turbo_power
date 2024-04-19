@@ -614,10 +614,10 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
-"@types/hotwired__turbo@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@types/hotwired__turbo/-/hotwired__turbo-8.0.0.tgz#25cb7ab9da4b5bffe8f4f04d1456364b0166c2c0"
-  integrity sha512-hBcbZw6Er5iqrkh86LQgoTsO6eUfMmdKHwyAlq8pJCVioVOJqRjOUhi3CzbJH9ibZbJSFU+qVA5mu0sodvvwZg==
+"@types/hotwired__turbo@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@types/hotwired__turbo/-/hotwired__turbo-8.0.1.tgz#ac0605f3fd4e725f71101be02d2e9d5314afa669"
+  integrity sha512-EloDlDDxlicl22+gFc77f7j16b8nCUvy6iyCtpICTlofAJfMCfnXNC8nYXCnVApes3BtWklAc2f3RKQgpaaFRQ==
 
 "@types/http-assert@*":
   version "1.5.5"
