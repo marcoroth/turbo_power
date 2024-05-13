@@ -1065,9 +1065,9 @@
     "@web/test-runner-core" "^0.13.0"
 
 "@web/test-runner@^0.18.0":
-  version "0.18.1"
-  resolved "https://registry.yarnpkg.com/@web/test-runner/-/test-runner-0.18.1.tgz#5cac11d29f525214e39ae74e3a33ae90551623f3"
-  integrity sha512-jB/9vrpGVtcLY6/7sPpKpSheQ3wWY9P5aQcz2SK2gMHTq3gNpa51NAyec0Al7EFpHvJ1wKYTGRLB2gPyEoJeDg==
+  version "0.18.2"
+  resolved "https://registry.yarnpkg.com/@web/test-runner/-/test-runner-0.18.2.tgz#3c93f0f16c2969e9d0549f110a7d4227aeaac389"
+  integrity sha512-jA+957ic31aG/f1mr1b+HYzf/uTu4QsvFhyVgTKi2s5YQYGBbtfzx9PnYi47MVC9K9OHRbW8cq2Urds9qwSU3w==
   dependencies:
     "@web/browser-logs" "^0.4.0"
     "@web/config-loader" "^0.3.0"
