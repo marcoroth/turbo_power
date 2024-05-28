@@ -87,7 +87,7 @@ describe("dispatch_event", () => {
 
       setTimeout(() =>
         executeStream(
-          '<turbo-stream action="dispatch_event" name="my:event" target="element"><tempalte>{}</template></turbo-stream>',
+          '<turbo-stream action="dispatch_event" name="my:event" target="element"><template>{}</template></turbo-stream>',
         ),
       )
 
