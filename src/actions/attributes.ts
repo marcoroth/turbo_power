@@ -45,6 +45,22 @@ export function set_attribute(this: StreamElement) {
   }
 }
 
+export function toggle_attribute(this: StreamElement): void {
+  const attribute: string | null = this.getAttribute("attribute")
+  const force: string | null = this.getAttribute("force")
+
+  if (!attribute) {
+    console.warn(`[TurboPower] no "attribute" provided for Turbo Streams operation "toggle_attribute"`)
+    return
+  }
+
+  const toggleForce: boolean | undefined = force === null ? undefined : force.toLowerCase() === "true"
+
+  this.targetElements.forEach((element: HTMLElement): void => {
+    element.toggleAttribute(attribute, toggleForce)
+  })
+}
+
 export function set_dataset_attribute(this: StreamElement) {
   const attribute = this.getAttribute("attribute")
   const value = this.getAttribute("value") || ""
@@ -127,6 +143,7 @@ export function registerAttributesActions(streamActions: TurboStreamActions) {
   streamActions.remove_css_class = remove_css_class
   streamActions.remove_attribute = remove_attribute
   streamActions.set_attribute = set_attribute
+  streamActions.toggle_attribute = toggle_attribute
   streamActions.set_dataset_attribute = set_dataset_attribute
   streamActions.set_property = set_property
   streamActions.set_style = set_style
