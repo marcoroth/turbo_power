@@ -69,6 +69,7 @@ Checkout the doc of the [`django-turbo-helper`](https://github.com/rails-inspire
 
 * `turbo_stream.add_css_class(target, classes, **attributes)`
 * `turbo_stream.remove_attribute(target, attribute, **attributes)`
+* `turbo_stream.toggle_attribute(target, attribute, force, **attributes)`
 * `turbo_stream.remove_css_class(target, classes, **attributes)`
 * `turbo_stream.set_attribute(target, attribute, value, **attributes)`
 * `turbo_stream.set_dataset_attribute(target, attribute, value, **attributes)`
