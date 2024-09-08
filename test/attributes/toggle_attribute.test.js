@@ -58,7 +58,16 @@ describe("toggle_attribute", () => {
       assert.isFalse(element.hasAttribute("my-attribute"))
     })
 
-    it("should act as add attribute if force=true", async () => {
+    it("should add attribute if force=true and attribute not present", async () => {
+      const element = await fixture(html`<div id="element"></div>`)
+      assert.isFalse(element.hasAttribute("my-attribute"))
+      await executeStream(
+        '<turbo-stream action="toggle_attribute" attribute="my-attribute" force="true" target="element"></turbo-stream>',
+      )
+      assert.isTrue(element.hasAttribute("my-attribute"))
+    })
+
+    it("should keep attribute if force=true", async () => {
       const element = await fixture(html`<div id="element" my-attribute></div>`)
       assert.isTrue(element.hasAttribute("my-attribute"))
       await executeStream(
@@ -67,7 +76,16 @@ describe("toggle_attribute", () => {
       assert.isTrue(element.hasAttribute("my-attribute"))
     })
 
-    it("should act as remove attribute if force=false", async () => {
+    it("should remove attribute if force=false and attribute present", async () => {
+      const element = await fixture(html`<div id="element" my-attribute></div>`)
+      assert.isTrue(element.hasAttribute("my-attribute"))
+      await executeStream(
+        '<turbo-stream action="toggle_attribute" attribute="my-attribute" force="false" target="element"></turbo-stream>',
+      )
+      assert.isFalse(element.hasAttribute("my-attribute"))
+    })
+
+    it("should not add attribute if force=false and attribute not present", async () => {
       const element = await fixture(html`<div id="element"></div>`)
       assert.isFalse(element.hasAttribute("my-attribute"))
       await executeStream(
