@@ -56,7 +56,7 @@ export function toggle_attribute(this: StreamElement): void {
 
   const toggleForce: boolean | undefined = force === null ? undefined : force.toLowerCase() === "true"
 
-  this.targetElements.forEach((element: HTMLElement): void => {
+  this.targetElements.forEach((element: Element): void => {
     element.toggleAttribute(attribute, toggleForce)
   })
 }
@@ -66,7 +66,7 @@ export function set_dataset_attribute(this: StreamElement) {
   const value = this.getAttribute("value") || ""
 
   if (attribute) {
-    this.targetElements.forEach((element: HTMLElement) => (element.dataset[camelize(attribute)] = value))
+    this.targetElements.forEach((element: Element) => ((element as HTMLElement).dataset[camelize(attribute)] = value))
   } else {
     console.warn(`[TurboPower] no "attribute" provided for Turbo Streams operation "set_dataset_attribute"`)
   }
@@ -97,13 +97,13 @@ export function set_style(this: StreamElement) {
 export function set_styles(this: StreamElement) {
   const styles = this.getAttribute("styles") || ""
 
-  this.targetElements.forEach((element: HTMLElement) => element.setAttribute("style", styles))
+  this.targetElements.forEach((element: Element) => element.setAttribute("style", styles))
 }
 
 export function set_value(this: StreamElement) {
   const value = this.getAttribute("value") || ""
 
-  this.targetElements.forEach((element: HTMLInputElement) => (element.value = value))
+  this.targetElements.forEach((element: Element) => ((element as HTMLInputElement).value = value))
 }
 
 export function toggle_css_class(this: StreamElement) {
@@ -123,7 +123,7 @@ export function replace_css_class(this: StreamElement) {
   const to = this.getAttribute("to") || ""
 
   if (from && to) {
-    this.targetElements.forEach((element: HTMLElement) => {
+    this.targetElements.forEach((element: Element) => {
       const wasReplaced = element.classList.replace(from, to)
 
       if (!wasReplaced) {

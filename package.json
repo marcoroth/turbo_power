@@ -18,12 +18,13 @@
     "dev": "concurrently 'yarn run watch' 'yarn run start'",
     "clean": "rimraf dist",
     "prerelease": "yarn build",
+    "pretest": "yarn build",
     "test": "web-test-runner test/**/*.test.js",
     "lint": "eslint .",
     "format": "yarn lint --fix"
   },
   "devDependencies": {
-    "@hotwired/turbo": "^7.2.5",
+    "@hotwired/turbo": "^8.0.0",
     "@open-wc/testing": "^4.0.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.0",
@@ -44,6 +45,9 @@
     "tslib": "^2.6.2",
     "turbo-morph": "^0.2.0",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@types/hotwired__turbo": "^8.0.14"
   },
   "peerDependencies": {
     "@hotwired/turbo": ">= 7.2"

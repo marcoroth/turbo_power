@@ -1,12 +1,13 @@
 import { StreamElement, TurboStreamActions, FrameElement } from "@hotwired/turbo"
 
 export function turbo_frame_reload(this: StreamElement) {
-  this.targetElements.forEach((element: FrameElement) => element.reload())
+  this.targetElements.forEach((element: Element) => (element as FrameElement).reload())
 }
 
 export function turbo_frame_set_src(this: StreamElement) {
-  const src = this.getAttribute("src")
-  this.targetElements.forEach((element: FrameElement) => (element.src = src))
+  const src = this.getAttribute("src") || ""
+
+  this.targetElements.forEach((element: Element) => ((element as FrameElement).src = src))
 }
 
 export function registerTurboFrameActions(streamActions: TurboStreamActions) {

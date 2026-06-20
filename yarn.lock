@@ -83,10 +83,10 @@
   dependencies:
     "@types/chai" "^4.2.12"
 
-"@hotwired/turbo@^7.2.5":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.3.0.tgz#2226000fff1aabda9fd9587474565c9929dbf15d"
-  integrity sha512-Dcu+NaSvHLT7EjrDrkEmH4qET2ZJZ5IcCWmNXxNQTBwlnE5tBZfN6WxZ842n5cHV52DH/AKNirbPBtcEXDLW4g==
+"@hotwired/turbo@^8.0.0":
+  version "8.0.23"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-8.0.23.tgz#a6eebc9ab4a5faadae265a4cbec8cfcb5731e77c"
+  integrity sha512-GZ7cijxEZ6Ig71u7rD6LHaRv/wcE/hNsc+nEfiWOkLNqUgLOwo5MNGWOy5ZV9ZUDSiQx1no7YxjTNnT4O6//cQ==
 
 "@humanwhocodes/config-array@^0.13.0":
   version "0.13.0"
@@ -642,6 +642,11 @@
     "@types/express-serve-static-core" "^4.17.33"
     "@types/qs" "*"
     "@types/serve-static" "*"
+
+"@types/hotwired__turbo@^8.0.14":
+  version "8.0.14"
+  resolved "https://registry.yarnpkg.com/@types/hotwired__turbo/-/hotwired__turbo-8.0.14.tgz#870466365d9e77971005c7baab8c5f3e6576256e"
+  integrity sha512-XcbiK6iqSFdJc3sYrl9hjwuxVpw1SkB1stiif/6M1vMMJo2cqmTDiHYMc8ap+tc/GgXpAtEhJ3mwmE2ozht4iQ==
 
 "@types/http-assert@*":
   version "1.5.5"

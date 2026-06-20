@@ -26,7 +26,7 @@ export function scroll_into_view(this: StreamElement) {
 }
 
 export function set_focus(this: StreamElement) {
-  this.targetElements.forEach((element: HTMLElement) => element.focus())
+  this.targetElements.forEach((element: Element) => (element as HTMLElement).focus())
 }
 
 export function set_title(this: StreamElement) {

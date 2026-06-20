@@ -1,6 +1,4 @@
-import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
-import { Action } from "@hotwired/turbo/dist/types/core/types"
-import { VisitOptions } from "@hotwired/turbo/dist/types/core/drive/visit"
+import { Action, StreamElement, TurboStreamActions, VisitOptions } from "@hotwired/turbo"
 import Proxy from "../proxy"
 
 export function redirect_to(this: StreamElement) {
