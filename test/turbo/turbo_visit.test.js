@@ -42,6 +42,17 @@ describe("turbo_visit", () => {
       assert.equal(Turbo.visit.callCount, 1)
       assert.deepEqual(Turbo.visit.args[0], expected)
     })
+
+    it("uses / as fallback with location attribute without value", async () => {
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
+
+      await executeStream(`<turbo-stream action="turbo_visit" location></turbo-stream>`)
+
+      const expected = ["/", { action: "advance" }]
+
+      assert.equal(Turbo.visit.callCount, 1)
+      assert.deepEqual(Turbo.visit.args[0], expected)
+    })
   })
 
   context("turbo_action attribute", () => {
@@ -71,6 +82,18 @@ describe("turbo_visit", () => {
       )
 
       assert.deepEqual(Turbo.visit.args[0], ["/somewhere", { action: "restore" }])
+    })
+  })
+
+  context("turbo_frame attribute", () => {
+    it("passes the frame option", async () => {
+      sinon.replace(window, "Turbo", { visit: sinon.fake() })
+
+      await executeStream(
+        `<turbo-stream action="turbo_visit" location="/somewhere" turbo-frame="modals"></turbo-stream>`,
+      )
+
+      assert.deepEqual(Turbo.visit.args[0], ["/somewhere", { action: "advance", frame: "modals" }])
     })
   })
 })

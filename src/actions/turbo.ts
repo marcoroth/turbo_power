@@ -26,8 +26,13 @@ export function redirect_to(this: StreamElement) {
 export function turbo_visit(this: StreamElement) {
   const location = this.getAttribute("location") || "/"
   const turboAction = (this.getAttribute("turbo-action") || "advance") as Action
+  const turboFrame = this.getAttribute("turbo-frame")
   const options: Partial<VisitOptions> = {
     action: turboAction,
+  }
+
+  if (turboFrame) {
+    options.frame = turboFrame
   }
 
   window.Turbo.visit(location, options)
