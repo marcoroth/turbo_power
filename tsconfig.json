@@ -6,6 +6,7 @@
     "noUnusedLocals": true,
     "rootDir": "src",
     "strict": true,
+    "verbatimModuleSyntax": true,
     "target": "es2017",
     "removeComments": true,
     "outDir": "dist",
