@@ -89,6 +89,7 @@ Checkout the doc of the [`django-turbo-helper`](https://github.com/rails-inspire
 ### Form Actions
 
 * `turbo_stream.reset_form(target, **attributes)`
+* `turbo_stream.input_select(target, **attributes)`
 
 
 ### Storage Actions
