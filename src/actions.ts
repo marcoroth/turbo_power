@@ -30,19 +30,46 @@ export * from "./actions/turbo"
 export * from "./actions/turbo_progress_bar"
 export * from "./actions/turbo_frame"
 
-export function register(streamActions: TurboStreamActions) {
-  Attributes.registerAttributesActions(streamActions)
-  Browser.registerBrowserActions(streamActions)
-  Debug.registerDebugActions(streamActions)
-  Deprecated.registerDeprecatedActions(streamActions)
-  Document.registerDocumentActions(streamActions)
-  DOM.registerDOMActions(streamActions)
-  Events.registerEventsActions(streamActions)
-  Form.registerFormActions(streamActions)
-  History.registerHistoryActions(streamActions)
-  Notification.registerNotificationActions(streamActions)
-  Storage.registerStorageActions(streamActions)
-  Turbo.registerTurboActions(streamActions)
-  TurboProgressBar.registerTurboProgressBarActions(streamActions)
-  TurboFrame.registerTurboFrameActions(streamActions)
+export interface ActionGroup {
+  register(streamActions: TurboStreamActions): void
+}
+
+export const ActionGroups = {
+  AttributeActions: { register: Attributes.registerAttributesActions },
+  BrowserActions: { register: Browser.registerBrowserActions },
+  DebugActions: { register: Debug.registerDebugActions },
+  DeprecatedActions: { register: Deprecated.registerDeprecatedActions },
+  DocumentActions: { register: Document.registerDocumentActions },
+  DOMActions: { register: DOM.registerDOMActions },
+  EventActions: { register: Events.registerEventsActions },
+  FormActions: { register: Form.registerFormActions },
+  HistoryActions: { register: History.registerHistoryActions },
+  NotificationActions: { register: Notification.registerNotificationActions },
+  StorageActions: { register: Storage.registerStorageActions },
+  TurboActions: { register: Turbo.registerTurboActions },
+  TurboProgressBarActions: { register: TurboProgressBar.registerTurboProgressBarActions },
+  TurboFrameActions: { register: TurboFrame.registerTurboFrameActions },
+} satisfies Record<string, ActionGroup>
+
+export const {
+  AttributeActions,
+  BrowserActions,
+  DebugActions,
+  DeprecatedActions,
+  DocumentActions,
+  DOMActions,
+  EventActions,
+  FormActions,
+  HistoryActions,
+  NotificationActions,
+  StorageActions,
+  TurboActions,
+  TurboProgressBarActions,
+  TurboFrameActions,
+} = ActionGroups
+
+export const allActionGroups: readonly ActionGroup[] = Object.freeze(Object.values(ActionGroups))
+
+export function register(streamActions: TurboStreamActions, actionGroups: readonly ActionGroup[] = allActionGroups) {
+  actionGroups.forEach((group) => group.register(streamActions))
 }
