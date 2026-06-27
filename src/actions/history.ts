@@ -1,11 +1,11 @@
+import * as Turbo from "@hotwired/turbo"
 import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 
 export function push_state(this: StreamElement) {
   const url = this.getAttribute("url")
-  const state = this.getAttribute("state")
-  const title = this.getAttribute("title") || ""
+  if (!url) return
 
-  window.history.pushState(state, title, url)
+  Turbo.navigator.history.push(new URL(url, document.baseURI))
 }
 
 export function replace_state(this: StreamElement) {
