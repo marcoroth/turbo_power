@@ -1,4 +1,4 @@
-import { StreamElement, TurboStreamActions, FrameElement } from "@hotwired/turbo"
+import type { StreamElement, TurboStreamActions, FrameElement } from "@hotwired/turbo"
 
 export function turbo_frame_reload(this: StreamElement) {
   this.targetElements.forEach((element: Element) => (element as FrameElement).reload())

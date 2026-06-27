@@ -1,4 +1,4 @@
-import { Action, StreamElement, TurboStreamActions, VisitOptions } from "@hotwired/turbo"
+import type { Action, StreamElement, TurboStreamActions, VisitOptions } from "@hotwired/turbo"
 import Proxy from "../proxy"
 
 export function redirect_to(this: StreamElement) {

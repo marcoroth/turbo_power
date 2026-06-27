@@ -1,5 +1,5 @@
 import * as Turbo from "@hotwired/turbo"
-import { BrowserAdapter, TurboStreamAction, TurboStreamActions } from "@hotwired/turbo"
+import type { BrowserAdapter, TurboStreamAction, TurboStreamActions } from "@hotwired/turbo"
 
 import * as TurboMorph from "turbo-morph"
 import * as Actions from "./actions"
