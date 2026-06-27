@@ -50,6 +50,6 @@
     "@types/hotwired__turbo": "^8.0.14"
   },
   "peerDependencies": {
-    "@hotwired/turbo": ">= 7.2"
+    "@hotwired/turbo": ">= 8.0.0"
   }
 }
