@@ -10,10 +10,9 @@ export function push_state(this: StreamElement) {
 
 export function replace_state(this: StreamElement) {
   const url = this.getAttribute("url")
-  const state = this.getAttribute("state")
-  const title = this.getAttribute("title") || ""
+  if (!url) return
 
-  window.history.replaceState(state, title, url)
+  Turbo.navigator.history.replace(new URL(url, document.baseURI))
 }
 
 export function history_back(this: StreamElement) {
