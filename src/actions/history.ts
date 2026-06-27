@@ -33,5 +33,6 @@ export function registerHistoryActions(streamActions: TurboStreamActions) {
   streamActions.push_state = push_state
   streamActions.replace_state = replace_state
   streamActions.history_back = history_back
+  streamActions.history_forward = history_forward
   streamActions.history_go = history_go
 }
