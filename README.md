@@ -113,6 +113,8 @@ Checkout the doc of the [`django-turbo-helper`](https://github.com/rails-inspire
   * `turbo_stream.scroll_into_view(targets, behavior:,  block:, inline:)`
 * `turbo_stream.set_focus(target, **attributes)`
 * `turbo_stream.set_title(title, **attributes)`
+* `turbo_stream.prevent_unload(**attributes)`
+* `turbo_stream.allow_unload(**attributes)`
 
 
 ### Document Actions
