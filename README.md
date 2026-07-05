@@ -43,6 +43,25 @@ import * as Turbo from '@hotwired/turbo'
 +TurboPower.initialize(Turbo.StreamActions)
 ```
 
+### Registering only specific actions
+
+By default `initialize` registers every action. If you only need a subset, pass an array of action groups as the second argument and only those groups will be registered (the `morph` action is always registered regardless — see below):
+
+```js
+// application.js
+import * as Turbo from '@hotwired/turbo'
+
+import TurboPower, { AttributeActions, BrowserActions } from 'turbo_power'
+
+TurboPower.initialize(Turbo.StreamActions, [AttributeActions, BrowserActions])
+```
+
+The available action groups are:
+
+`AttributeActions`, `BrowserActions`, `DebugActions`, `DeprecatedActions` (deprecated), `DocumentActions`, `DOMActions`, `EventActions`, `FormActions`, `HistoryActions`, `NotificationActions`, `StorageActions`, `TurboActions`, `TurboProgressBarActions` and `TurboFrameActions`.
+
+The `morph` action from [`turbo-morph`](https://github.com/marcoroth/turbo-morph) is always registered, regardless of which action groups you pass.
+
 ## Getting Started with Rails
 
 Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcoroth/turbo_power-rails) repo.
