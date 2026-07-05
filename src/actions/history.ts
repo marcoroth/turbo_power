@@ -1,19 +1,18 @@
+import * as Turbo from "@hotwired/turbo"
 import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 
 export function push_state(this: StreamElement) {
   const url = this.getAttribute("url")
-  const state = this.getAttribute("state")
-  const title = this.getAttribute("title") || ""
+  if (!url) return
 
-  window.history.pushState(state, title, url)
+  Turbo.navigator.history.push(new URL(url, document.baseURI))
 }
 
 export function replace_state(this: StreamElement) {
   const url = this.getAttribute("url")
-  const state = this.getAttribute("state")
-  const title = this.getAttribute("title") || ""
+  if (!url) return
 
-  window.history.replaceState(state, title, url)
+  Turbo.navigator.history.replace(new URL(url, document.baseURI))
 }
 
 export function history_back(this: StreamElement) {
@@ -33,5 +32,6 @@ export function registerHistoryActions(streamActions: TurboStreamActions) {
   streamActions.push_state = push_state
   streamActions.replace_state = replace_state
   streamActions.history_back = history_back
+  streamActions.history_forward = history_forward
   streamActions.history_go = history_go
 }
