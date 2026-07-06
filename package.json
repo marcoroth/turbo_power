@@ -29,6 +29,7 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.0",
     "@rollup/plugin-typescript": "^12.1.0",
+    "@types/hotwired__turbo": "^8.0.14",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^6.18.0",
     "@web/test-runner": "^0.20.0",
@@ -45,9 +46,6 @@
     "tslib": "^2.6.2",
     "turbo-morph": "^0.2.0",
     "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "@types/hotwired__turbo": "^8.0.14"
   },
   "peerDependencies": {
     "@hotwired/turbo": ">= 8.0.0"

@@ -43,6 +43,13 @@ import * as Turbo from '@hotwired/turbo'
 +TurboPower.initialize(Turbo.StreamActions)
 ```
 
+> [!NOTE]
+> **TypeScript users:** `turbo_power`'s type declarations re-export types from `@hotwired/turbo`, which since Turbo 8 ships its types via the community-maintained [`@types/hotwired__turbo`](https://www.npmjs.com/package/@types/hotwired__turbo) package. It isn't a runtime dependency of `turbo_power`, so if you consume the types you'll want to install it yourself:
+>
+> ```bash
+> yarn add --dev @types/hotwired__turbo
+> ```
+
 ## Getting Started with Rails
 
 Checkout the instructions in the [`turbo_power-rails`](https://github.com/marcoroth/turbo_power-rails) repo.
