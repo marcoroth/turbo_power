@@ -1,4 +1,4 @@
-import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
+import type { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 import { camelize, typecast } from "../utils"
 
 const PERMITTED_ATTRIBUTES = [

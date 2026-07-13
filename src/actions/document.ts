@@ -1,4 +1,4 @@
-import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
+import type { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 import { CookieStringBuilder } from "./document/cookie_string_builder"
 
 export function set_cookie(this: StreamElement) {

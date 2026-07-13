@@ -1,4 +1,4 @@
-import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
+import type { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 
 // turbo_stream.console_log(message, level = :log)
 export function console_log(this: StreamElement) {

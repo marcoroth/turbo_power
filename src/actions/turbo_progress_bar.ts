@@ -1,4 +1,4 @@
-import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
+import type { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 
 export function turbo_progress_bar_set_value(this: StreamElement) {
   const value = this.getAttribute("value") || 0

@@ -1,4 +1,4 @@
-import { StreamElement } from "@hotwired/turbo"
+import type { StreamElement } from "@hotwired/turbo"
 
 type MappingRow = [string, string, boolean]
 

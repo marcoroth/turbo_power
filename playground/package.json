@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "https://github.com/marcoroth/turbo_power",
   "dependencies": {
-    "@hotwired/turbo": "^7.2.4",
+    "@hotwired/turbo": "^8.0.0",
     "turbo_power": "link:../"
   },
   "scripts": {

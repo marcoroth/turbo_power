@@ -1,4 +1,4 @@
-import { TurboStreamActions } from "@hotwired/turbo"
+import type { TurboStreamActions } from "@hotwired/turbo"
 
 import * as Attributes from "./actions/attributes"
 import * as Browser from "./actions/browser"

@@ -1,4 +1,4 @@
-import { StreamElement, TurboStreamActions } from "@hotwired/turbo"
+import type { StreamElement, TurboStreamActions } from "@hotwired/turbo"
 
 export function reload(this: StreamElement) {
   window.location.reload()
@@ -26,7 +26,7 @@ export function scroll_into_view(this: StreamElement) {
 }
 
 export function set_focus(this: StreamElement) {
-  this.targetElements.forEach((element: HTMLElement) => element.focus())
+  this.targetElements.forEach((element: Element) => (element as HTMLElement).focus())
 }
 
 export function set_title(this: StreamElement) {
