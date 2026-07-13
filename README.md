@@ -151,6 +151,7 @@ Checkout the doc of the [`django-turbo-helper`](https://github.com/rails-inspire
 ### Turbo Actions
 
 * `turbo_stream.redirect_to(url, turbo_action = nil, turbo_frame = nil, **attributes)`
+* `turbo_stream.turbo_visit(location, turbo_action = "advance", turbo_frame = nil, **attributes)`
 * `turbo_stream.turbo_clear_cache()`
 
 
