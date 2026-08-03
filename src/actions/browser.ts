@@ -41,9 +41,24 @@ export function set_title(this: StreamElement) {
   titleElement.textContent = title
 }
 
+function beforeUnloadHandler(event: BeforeUnloadEvent) {
+  event.preventDefault()
+  event.returnValue = "" // some browsers require returnValue set to show the prompt
+}
+
+export function prevent_unload(this: StreamElement) {
+  window.addEventListener("beforeunload", beforeUnloadHandler)
+}
+
+export function allow_unload(this: StreamElement) {
+  window.removeEventListener("beforeunload", beforeUnloadHandler)
+}
+
 export function registerBrowserActions(streamActions: TurboStreamActions) {
   streamActions.reload = reload
   streamActions.scroll_into_view = scroll_into_view
   streamActions.set_focus = set_focus
   streamActions.set_title = set_title
+  streamActions.prevent_unload = prevent_unload
+  streamActions.allow_unload = allow_unload
 }
