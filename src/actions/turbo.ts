@@ -21,11 +21,27 @@ export function redirect_to(this: StreamElement) {
   }
 }
 
+export function turbo_visit(this: StreamElement) {
+  const location = this.getAttribute("location") || "/"
+  const turboAction = (this.getAttribute("turbo-action") || "advance") as Action
+  const turboFrame = this.getAttribute("turbo-frame")
+  const options: Partial<VisitOptions> = {
+    action: turboAction,
+  }
+
+  if (turboFrame) {
+    options.frame = turboFrame
+  }
+
+  window.Turbo.visit(location, options)
+}
+
 export function turbo_clear_cache() {
   window.Turbo.cache.clear()
 }
 
 export function registerTurboActions(streamActions: TurboStreamActions) {
   streamActions.redirect_to = redirect_to
+  streamActions.turbo_visit = turbo_visit
   streamActions.turbo_clear_cache = turbo_clear_cache
 }
